@@ -1,0 +1,43 @@
+<div class="row-fluid">
+<div class="span4">
+<!-- <span style=' z-index: 10; position: relative; float: left; ;clear:left;margin-right:20px;margin-top:0px;*margin-top:0px'>-->
+
+<script src="http://widgets.twimg.com/j/2/widget.js"></script>
+<script>
+new TWTR.Widget({
+  version: 2,
+  type: 'profile',
+  rpp: 5,
+  interval: 6000,
+  width: 250,
+  height: 400,
+  theme: {
+    shell: {
+      background: '#292929',
+      color: '#cccccc'
+    },
+    tweets: {
+      background: '#141414',
+      color: '#bbbbbb',
+      links: '#ff6633'
+    }
+  },
+  features: {
+    scrollbar: false,
+    loop: false,
+    live: true,
+    hashtags: true,
+    timestamp: true,
+    avatars: false,
+    behavior: 'all'
+  }
+}).render().setUser('preludedrew').start();
+</script>
+</div>
+<div class="span4">
+other news
+</div>
+<div class="span4">
+more news
+</div>
+</div>

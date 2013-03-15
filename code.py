@@ -13,7 +13,11 @@ from devices import device_retail_name, device_codename, devices
 
 urls = (
     '/','Default',
-    '/[Dd]evice.*/(.*)', 'Devices',
+    '/about/', 'About',
+    '/chat/', 'Chat',
+    '/devices/(.*)', 'Devices',
+    '/news/', 'News',
+    '/source/', 'Source',
     '/robots.txt', 'Robots',
     '/.*', 'Redirect',
 )
@@ -30,11 +34,27 @@ class Default:
     def GET(self):
         return render.default()
 
+class About:
+    def GET(self):
+        return render.about()
+
+class Chat:
+    def GET(self):
+        return render.chat()
+
 class Devices:
     def GET(self,device=None,files=None):
         #temp
         files=['Sample','sample2']
         return render.devices(device,files)
+
+class News:
+    def GET(self):
+        return render.news()
+
+class Source:
+    def GET(self):
+        return render.source()
 
 class Robots:
     def GET(self):
