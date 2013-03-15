@@ -1,16 +1,7 @@
 $def with(device,files)
 <div class="row-fluid">
-  <div class="span2">
-    <div class="well sidebar-nav">
-      <ul class="nav nav-list">
-        <li class="nav-header">Devices</li>
-        $for d in devices:
-            <li><a href="/devices/$d">$d</a></li>
-      </ul>
-    </div>
-  </div>
-  <div class="span10">
 $if device:
+    <div class="span12">
     <h3>$device_codename(device) - $device_retail_name(device) - $device</h3>
     <table class="table table-bordered">
       <thead>
@@ -47,9 +38,22 @@ $if device:
           </div>
         </div>
     </div>
+    </div>
 
 $else:
-    <p>Give some information</p>
+    <div class="span8">
+      <h1>Welcome to the download page</h1>
+      <p>Choose your device</p>
+    </div>
+    <div class="span4">
+      <div class="well sidebar-nav">
+        <ul class="nav nav-list">
+          <li class="nav-header">Devices</li>
+          $for d in devices:
+              <li><a data-toggle="tooltip" data-placement="left" href="/devices/$d" title="$device_retail_name(d)">$d</a>
+              $#<li><a href="/devices/$d">$d || $device_retail_name(d)</a></li>
+        </ul>
+      </div>
+    </div>
 
-  </div><!--span10-->
 </div><!--row-->
