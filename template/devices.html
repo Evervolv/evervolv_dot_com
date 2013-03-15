@@ -1,0 +1,55 @@
+$def with(device,files)
+<div class="row-fluid">
+  <div class="span2">
+    <div class="well sidebar-nav">
+      <ul class="nav nav-list">
+        <li class="nav-header">Devices</li>
+        $for d in devices:
+            <li><a href="/devices/$d">$d</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="span10">
+$if device:
+    <h3>$device_codename(device) - $device_retail_name(device) - $device</h3>
+    <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Filename</th>
+          <th>Date</th>
+          <th>Size</th>
+          <th>Download</th>
+        </tr>
+      </thead>
+      <tbody>
+    $for f in files:
+        <tr>
+          <td>$f</td>
+          <td>$f</td>
+          <td>$f</td>
+          <td><center><button class="btn" type="button" onclick="window.location='/get/$f'"><i class="icon-download-alt"></i></button></center></td>
+        </tr>
+      </tbody>
+    </table>
+    <p><br>OR.....<br><br></p>
+    <div class="accordion" id="accordion2">
+    $for f in files:
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse_$f">
+              $f
+            </a>
+          </div>
+          <div id="collapse_$f" class="accordion-body collapse">
+            <div class="accordion-inner">
+              <strong>Size:</strong> $f&nbsp; <strong>Date:</strong> $f&nbsp; <strong>Changes:</strong> $f&nbsp; <strong>Download:</strong>&nbsp;<button class="btn" type="button" onclick="window.location='/get/$f'"><i class="icon-download-alt"></i></button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+$else:
+    <p>Give some information</p>
+
+  </div><!--span10-->
+</div><!--row-->

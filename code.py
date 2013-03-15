@@ -8,19 +8,33 @@ import web
 #abspath = os.path.dirname(__file__)
 #sys.path.append(abspath)
 #os.chdir(abspath)
-
+# local imports
+from devices import device_retail_name, device_codename, devices
 
 urls = (
     '/','Default',
+    '/[Dd]evice.*/(.*)', 'Devices',
     '/robots.txt', 'Robots',
     '/.*', 'Redirect',
 )
 
-render = web.template.render('template', base='base')
+t_globals = {
+    'device_retail_name': device_retail_name,
+    'device_codename': device_codename,
+    'devices': devices,
+}
+
+render = web.template.render('template', base='base',globals=t_globals)
 
 class Default:
     def GET(self):
         return render.default()
+
+class Devices:
+    def GET(self,device=None,files=None):
+        #temp
+        files=['Sample','sample2']
+        return render.devices(device,files)
 
 class Robots:
     def GET(self):
