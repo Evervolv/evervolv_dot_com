@@ -13,6 +13,8 @@ $def with (page)
         font-family: 'Roboto', sans-serif;
         padding-top: 60px;
         padding-bottom: 40px;
+        color: #fff;
+        background-color: #1b1b1b;
       }
       .sidebar-nav {
         padding: 9px 0;
@@ -25,6 +27,40 @@ $def with (page)
           padding-left: 5px;
           padding-right: 5px;
         }
+      }
+      .navbar .brand {
+        color: #33B5E5;
+      }
+      .navbar-inverse .brand {
+        color: #33B5E5;
+      }
+      a {
+        color: #33B5E5;
+        text-decoration: none;
+      }
+      a:hover,
+      a:focus {
+        color: #0099CC;
+        text-decoration: underline;
+      }
+      /* match the navbar */
+      .footer {
+        text-align: right;
+        padding: 10px 10px;
+        margin-top: 100px;
+        background-color: #1b1b1b;
+        background-image: -moz-linear-gradient(top, #222222, #111111);
+        background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#222222), to(#111111));
+        background-image: -webkit-linear-gradient(top, #222222, #111111);
+        background-image: -o-linear-gradient(top, #222222, #111111);
+        background-image: linear-gradient(to bottom, #222222, #111111);
+        background-repeat: repeat-x;
+        border-color: #252525;
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff222222', endColorstr='#ff111111', GradientType=0);
+      }
+      .footer p {
+        margin-bottom: 0;
+        color: #999999;
       }
     </style>
     <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap-responsive.min.css"/>
@@ -80,8 +116,13 @@ $def with (page)
     </div>
     <!--Content-->
     <div class="container-fluid">
-        $:page
+$:page
     </div>
+    <footer class="footer">
+      <div class="container-fluid">
+        <p>Built with <a href="http://getbootstrap.com/">bootstrap</a> and <a href="http://webpy.org/">web.py</a>&nbsp;&nbsp;&copy;The Evervolv Project</p>
+      </div>
+    </footer>
     <script type="text/javascript" src="/static/jquery/jquery-1.9.1.min.js"></script>
     <script type="text/javascript" src="/static/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/static/js-url/js-url.min.js"></script>
