@@ -129,6 +129,7 @@ $:page
     <script type="text/javascript" src="/static/js-url/js-url.min.js"></script>
     <script type="text/javascript">
     (function(){
+        /* Highlight current page */
         page = url(1)
         if(page == 'devices') {
             $$('li#nav-devices').addClass('active');
@@ -143,6 +144,9 @@ $:page
         } else {
             $$('li#nav-home').addClass('active');
         }
+        /* activate device tooltips */
+        $for d in devices:
+            $$('.tooltip-$d').tooltip()
     })(jQuery);
     </script>
   </body>

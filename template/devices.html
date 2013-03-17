@@ -1,4 +1,18 @@
 $def with(device,files)
+<style type="text/css">
+  .sidebar-nav-right {
+    padding: 9px 9px;
+    text-align: right;
+  }
+  .well {
+    background-color: #1b1b1b;
+    border: 1px solid #fff;
+  }
+  .tooltip-inner {
+    color: #000;
+    background-color: #fff;
+  }
+</style>
 <div class="row-fluid">
 $if device:
     <div class="span12">
@@ -41,16 +55,16 @@ $if device:
     </div>
 
 $else:
-    <div class="span8">
+    <div class="span8 offset1">
       <h1>Welcome to the download page</h1>
       <p>Choose your device</p>
     </div>
-    <div class="span4">
-      <div class="well sidebar-nav">
+    <div class="span2">
+      <div class="well sidebar-nav-right">
         <ul class="nav nav-list">
           <li class="nav-header">Devices</li>
           $for d in devices:
-              <li><a data-toggle="tooltip" data-placement="left" href="/devices/$d" title="$device_retail_name(d)">$d</a>
+              <li><a data-toggle="tooltip" data-placement="left" href="/devices/$d" title="$device_retail_name(d)" class="tooltip-$d">$d</a>
               $#<li><a href="/devices/$d">$d || $device_retail_name(d)</a></li>
         </ul>
       </div>
