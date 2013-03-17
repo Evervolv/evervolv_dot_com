@@ -18,6 +18,7 @@ urls = (
     '/devices/(.*)', 'Devices',
     '/news/', 'News',
     '/source/', 'Source',
+    '/(about|chat|devices|news|source)', 'AddSlash',
     '/robots.txt', 'Robots',
     '/.*', 'Redirect',
 )
@@ -55,6 +56,10 @@ class News:
 class Source:
     def GET(self):
         return render.source()
+
+class AddSlash:
+    def GET(self, page):
+        raise web.seeother('/%s/' % page)
 
 class Robots:
     def GET(self):
