@@ -18,9 +18,13 @@ urls = (
     '/devices/(.*)', 'Devices',
     '/news/', 'News',
     '/source/', 'Source',
+    # Redirects for manually typed addresses
     '/(about|chat|devices|news|source)', 'AddSlash',
+    '/[Dd]ownloads?', 'SeeDevices',
+    # Other
     '/robots.txt', 'Robots',
-    '/.*', 'Redirect',
+    # Catchall
+    '/.*', 'SeeDefault',
 )
 
 t_globals = {
@@ -61,11 +65,15 @@ class AddSlash:
     def GET(self, page):
         raise web.seeother('/%s/' % page)
 
+class SeeDevices:
+    def GET(self):
+        raise web.seeother('/devices/')
+
 class Robots:
     def GET(self):
         return 'User-agent: *\nDisallow: /static/'
 
-class Redirect:
+class SeeDefault:
     def GET(self):
         raise web.seeother('/')
 
