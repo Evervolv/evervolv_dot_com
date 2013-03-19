@@ -1,8 +1,6 @@
-$def with(device,files)
 <style type="text/css">
-  .sidebar-nav-right {
-    padding: 9px 9px;
-    text-align: right;
+  .sidebar-nav {
+    /*padding: 10px 0;*/
   }
   .well {
     background-color: #1b1b1b;
@@ -12,62 +10,29 @@ $def with(device,files)
     color: #000;
     background-color: #fff;
   }
+  /* to display content on top with left nav bar */
+  .row-fluid .pull-left[class*="span"]:last-child {
+    margin-left: 0;
+  }
+  @media (max-width: 767px) {
+    .row-fluid .pull-right[class*="span"] {
+      float: none;
+    }
+  }
 </style>
 <div class="row-fluid">
-$if device:
-    <div class="span12">
-    <h3>$device_codename(device) - $device_retail_name(device) - $device</h3>
-    <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>Filename</th>
-          <th>Date</th>
-          <th>Size</th>
-          <th>Download</th>
-        </tr>
-      </thead>
-      <tbody>
-    $for f in files:
-        <tr>
-          <td>$f</td>
-          <td>$f</td>
-          <td>$f</td>
-          <td><center><button class="btn" type="button" onclick="window.location='/get/$f'"><i class="icon-download-alt"></i></button></center></td>
-        </tr>
-      </tbody>
-    </table>
-    <p><br>OR.....<br><br></p>
-    <div class="accordion" id="accordion2">
-    $for f in files:
-        <div class="accordion-group">
-          <div class="accordion-heading">
-            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapse_$f">
-              $f
-            </a>
-          </div>
-          <div id="collapse_$f" class="accordion-body collapse">
-            <div class="accordion-inner">
-              <strong>Size:</strong> $f&nbsp; <strong>Date:</strong> $f&nbsp; <strong>Changes:</strong> $f&nbsp; <strong>Download:</strong>&nbsp;<button class="btn" type="button" onclick="window.location='/get/$f'"><i class="icon-download-alt"></i></button>
-            </div>
-          </div>
-        </div>
+  <div class="span10 pull-right">
+    <h1>Welcome to the download page</h1>
+    <p>Choose your device</p>
+    <p>Anything else they should know</p>
+  </div>
+  <div class="span2 pull-left">
+    <div class="well sidebar-nav">
+      <ul class="nav nav-list">
+        <li class="nav-header">Devices</li>
+        $for d in devices:
+            <li><a data-toggle="tooltip" data-placement="top" href="/devices/$d" title="$device_retail_name(d)" class="tooltip-$d">$d</a>
+      </ul>
     </div>
-    </div>
-
-$else:
-    <div class="span8 offset1">
-      <h1>Welcome to the download page</h1>
-      <p>Choose your device</p>
-    </div>
-    <div class="span2">
-      <div class="well sidebar-nav-right">
-        <ul class="nav nav-list">
-          <li class="nav-header">Devices</li>
-          $for d in devices:
-              <li><a data-toggle="tooltip" data-placement="left" href="/devices/$d" title="$device_retail_name(d)" class="tooltip-$d">$d</a>
-              $#<li><a href="/devices/$d">$d || $device_retail_name(d)</a></li>
-        </ul>
-      </div>
-    </div>
-
+  </div>
 </div><!--row-->

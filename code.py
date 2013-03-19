@@ -48,10 +48,15 @@ class Chat:
         return render.chat()
 
 class Devices:
-    def GET(self,device=None,files=None):
-        #temp
-        files=['Sample','sample2']
-        return render.devices(device,files)
+    def GET(self,device=None):
+        #placeholder
+        files={
+        'release': [{'name':'Evervolv-Fulsi-3.2.0p2-mako.zip'},{'name': 'Evervolv-Fulsi-3.2.0p1-mako.zip'},{'name':'Evervolv-Fulsi-3.2.0p0-mako.zip'}],
+        'nightly': [{'name':'Evervolv-Fulsi-3.2.0-Nightly-2013.03.12-mako.zip','date':'2013.03.12','md5sum':'ed466d0dfb26f79cf4ebb4e09059bf46','size':300000000},{'name':'Evervolv-Fulsi-3.2.0-Nightly-2013.03.10-mako.zip','date':'2013.03.10','md5sum':'ed466d0dfb26f79cf4ebb4e09059bf46','size':300000000},{'name':'Evervolv-Fulsi-3.2.0-Nightly-2013.03.05-mako.zip','date':'2013.03.05','md5sum':'ed466d0dfb26f79cf4ebb4e09059bf46','size':300000000}]
+        }
+        if device:
+            return render.builds(device,files)
+        return render.devices()
 
 class News:
     def GET(self):

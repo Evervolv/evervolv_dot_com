@@ -1,0 +1,75 @@
+$def with(device,files)
+$def human_readable_size(size):
+    $return int(size)/1024/1024
+$# avoid any escaping issues with links
+$ dd = 'date'
+$ nn = 'name'
+$ md = 'md5sum'
+$ ss = 'size'
+<style type="text/css">
+
+</style>
+<div class="row-fluid">
+  <div class="span12">
+    <h2>$device_retail_name(device) ($device_codename(device))</h2>
+  </div>
+</div>
+<div class="row-fluid">
+  <div class="span6">
+    <h4>Release Builds</h4>
+    <div class="accordion" id="accordion-left">
+    $ id = 0
+    $for f in files['release']:
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-left" href="#collapse-left-$id">
+              $#$f[dd]: $f[nn]
+              $f[nn]
+            </a>
+          </div>
+          <div id="collapse-left-$id" class="accordion-body collapse">
+            <div class="accordion-inner">
+              <div class="row-fluid">
+                <div class="span8">
+                  $#<strong>MD5: </strong>$f[md]<br>
+                  $#<strong>Size: </strong>$human_readable_size(f['size'])MB
+                </div>
+                <div class="span4" align="right">
+                  <button class="btn" type="button" onclick="window.location='/get/$f[nn]'"><i class="icon-download-alt"></i></button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        $ id += 1
+    </div>
+  </div>
+  <div class="span6">
+    <h4>Nightly Builds</h4>
+    <div class="accordion" id="accordion-right">
+    $ id = 0
+    $for f in files['nightly']:
+        <div class="accordion-group">
+          <div class="accordion-heading">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-right" href="#collapse-right-$id">
+              $f[dd]: $f[nn]
+            </a>
+          </div>
+          <div id="collapse-right-$id" class="accordion-body collapse">
+            <div class="accordion-inner">
+              <div class="row-fluid">
+                <div class="span8">
+                  <strong>MD5: </strong>$f[md]<br>
+                  <strong>Size: </strong>$human_readable_size(f['size'])MB
+                </div>
+                <div class="span4" align="right">
+                  <button class="btn" type="button" onclick="window.location='/get/$f[nn]'"><i class="icon-download-alt"></i></button>
+                </div>
+             </div>
+            </div>
+          </div>
+        </div>
+        $ id += 1
+    </div>
+  </div>
+</div>
