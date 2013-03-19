@@ -19,7 +19,7 @@ urls = (
     '/news/', 'News',
     '/source/', 'Source',
     # Redirects for manually typed addresses
-    '/(about|chat|devices|news|source)', 'AddSlash',
+    '/([Aa]bout|[Cc]hat|[Dd]evices|[Nn]ews|[Ss]ource)', 'AddSlash',
     '/[Dd]ownloads?', 'SeeDevices',
     # Other
     '/robots.txt', 'Robots',
@@ -63,7 +63,7 @@ class Source:
 
 class AddSlash:
     def GET(self, page):
-        raise web.seeother('/%s/' % page)
+        raise web.seeother('/%s/' % page.lower())
 
 class SeeDevices:
     def GET(self):
