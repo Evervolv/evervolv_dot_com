@@ -19,25 +19,25 @@ $def with(carousel_imgs)
   line-height: 1.25;
   margin-bottom: 30px;
 }
-#desktop-carousel {
+#home-carousel {
   width:400px;
   height:400px;
   margin-left:auto;
   margin-right:auto;
 }
-#phone-carousel {
-  width:280px;
-  height:280px;
-  margin-left:auto;
-  margin-right:auto;
-  margin-bottom: 70px;
+@media (max-width: 980px) {
+  .jumbotron {
+    padding: 0;
+  }
 }
 @media (max-width: 480px) {
-  .jumbotron {
-    padding: 20px 0;
-  }
   .jumbotron h1 {
     font-size: 60px;
+  }
+  #home-carousel {
+    width:280px;
+    height:280px;
+    margin-bottom: 70px;
   }
 }
 </style>
@@ -54,13 +54,13 @@ $def with(carousel_imgs)
   <div class="span12">
     <center><h4>Screenshots</h4></center>
 
-    <div id="desktop-carousel" class="carousel slide hidden-phone">
+    <div id="home-carousel" class="carousel slide">
       <ol class="carousel-indicators">
         $for id in range(len(carousel_imgs)):
             $if id == 0:
-                <li data-target="#desktop-carousel" data-slide-to="$id" class="active"></li>
+                <li data-target="#home-carousel" data-slide-to="$id" class="active"></li>
             $else:
-                <li data-target="#desktop-carousel" data-slide-to="$id"></li>
+                <li data-target="#home-carousel" data-slide-to="$id"></li>
       </ol>
       <!-- Carousel items -->
       <div class="carousel-inner">
@@ -70,7 +70,7 @@ $def with(carousel_imgs)
                 <div class="active item">
             $else:
                 <div class="item">
-            <img src="/static/img/screenshots/$ii" width="400px" height="400px" alt="" />
+            <img src="/static/img/screenshots/$ii"/>
             <div class="carousel-caption">
               <p>$ii.split('.')[0]</p>
             </div>
@@ -78,36 +78,8 @@ $def with(carousel_imgs)
             $ num += 1
       </div>
       <!-- Carousel nav -->
-      <a class="carousel-control left" href="#desktop-carousel" data-slide="prev">&lsaquo;</a>
-      <a class="carousel-control right" href="#desktop-carousel" data-slide="next">&rsaquo;</a>
-    </div>
-
-    <div id="phone-carousel" class="carousel slide visible-phone">
-      <ol class="carousel-indicators">
-        $for id in range(len(carousel_imgs)):
-            $if id == 0:
-                <li data-target="#phone-carousel" data-slide-to="$id" class="active"></li>
-            $else:
-                <li data-target="#phone-carousel" data-slide-to="$id"></li>
-      </ol>
-      <!-- Carousel items -->
-      <div class="carousel-inner">
-        $ num = 0
-        $for ii in carousel_imgs:
-            $if num == 0:
-                <div class="active item">
-            $else:
-                <div class="item">
-            <img src="/static/img/screenshots/$ii" width="280px" height="280px" alt="" />
-            <div class="carousel-caption">
-              <p>$ii.split('.')[0]</p>
-            </div>
-            </div>
-            $ num += 1
-      </div>
-      <!-- Carousel nav -->
-      <a class="carousel-control left" href="#phone-carousel" data-slide="prev">&lsaquo;</a>
-      <a class="carousel-control right" href="#phone-carousel" data-slide="next">&rsaquo;</a>
+      <a class="carousel-control left" href="#home-carousel" data-slide="prev">&lsaquo;</a>
+      <a class="carousel-control right" href="#home-carousel" data-slide="next">&rsaquo;</a>
     </div>
 
   </div>
