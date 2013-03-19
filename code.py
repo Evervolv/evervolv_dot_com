@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 # Andrew Sutherland <dr3wsuth3rland@gmail.com>
 import web
-
+import os
 
 # apache hax for local imports
 #import os, sys
@@ -37,7 +37,8 @@ render = web.template.render('template', base='base',globals=t_globals)
 
 class Default:
     def GET(self):
-        return render.default()
+        carousel_imgs = os.listdir('static/img/screenshots/')
+        return render.default(carousel_imgs)
 
 class About:
     def GET(self):

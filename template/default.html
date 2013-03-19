@@ -1,3 +1,4 @@
+$def with(carousel_imgs)
 <style type="text/css">
 .jumbotron {
   position: relative;
@@ -55,30 +56,26 @@
 
     <div id="desktop-carousel" class="carousel slide hidden-phone">
       <ol class="carousel-indicators">
-        <li data-target="#desktop-carousel" data-slide-to="0" class="active"></li>
-        <li data-target="#desktop-carousel" data-slide-to="1"></li>
-        <li data-target="#desktop-carousel" data-slide-to="2"></li>
+        $for id in range(len(carousel_imgs)):
+            $if id == 0:
+                <li data-target="#desktop-carousel" data-slide-to="$id" class="active"></li>
+            $else:
+                <li data-target="#desktop-carousel" data-slide-to="$id"></li>
       </ol>
       <!-- Carousel items -->
       <div class="carousel-inner">
-        <div class="active item">
-          <img src="/static/img/1.png" width="400px" height="400px" alt="" />
+        $ num = 0
+        $for ii in carousel_imgs:
+            $if num == 0:
+                <div class="active item">
+            $else:
+                <div class="item">
+            <img src="/static/img/screenshots/$ii" width="400px" height="400px" alt="" />
             <div class="carousel-caption">
-              <p>First Image</p>
+              <p>$ii.split('.')[0]</p>
             </div>
-        </div>
-        <div class="item">
-          <img src="/static/img/2.png" width="400px" height="400px" alt="" />
-            <div class="carousel-caption">
-              <p>Second Image</p>
             </div>
-        </div>
-        <div class="item">
-          <img src="/static/img/2.png" width="400px" height="400px" alt="" />
-          <div class="carousel-caption">
-            <p>Third Image</p>
-          </div>
-        </div>
+            $ num += 1
       </div>
       <!-- Carousel nav -->
       <a class="carousel-control left" href="#desktop-carousel" data-slide="prev">&lsaquo;</a>
@@ -87,30 +84,26 @@
 
     <div id="phone-carousel" class="carousel slide visible-phone">
       <ol class="carousel-indicators">
-        <li data-target="#phone-carousel" data-slide-to="0" class="active"></li>
-        <li data-target="#phone-carousel" data-slide-to="1"></li>
-        <li data-target="#phone-carousel" data-slide-to="2"></li>
+        $for id in range(len(carousel_imgs)):
+            $if id == 0:
+                <li data-target="#phone-carousel" data-slide-to="$id" class="active"></li>
+            $else:
+                <li data-target="#phone-carousel" data-slide-to="$id"></li>
       </ol>
       <!-- Carousel items -->
       <div class="carousel-inner">
-        <div class="active item">
-          <img src="/static/img/1.png" width="280px" height="280px" alt="" />
-          <div class="carousel-caption">
-            <p>First Image</p>
-          </div>
-        </div>
-        <div class="item">
-          <img src="/static/img/2.png" width="280px" height="280px" alt="" />
+        $ num = 0
+        $for ii in carousel_imgs:
+            $if num == 0:
+                <div class="active item">
+            $else:
+                <div class="item">
+            <img src="/static/img/screenshots/$ii" width="280px" height="280px" alt="" />
             <div class="carousel-caption">
-              <p>Second Image</p>
+              <p>$ii.split('.')[0]</p>
             </div>
-        </div>
-        <div class="item">
-          <img src="/static/img/2.png" width="280px" height="280px" alt="" />
-          <div class="carousel-caption">
-            <p>Third Image</p>
-          </div>
-        </div>
+            </div>
+            $ num += 1
       </div>
       <!-- Carousel nav -->
       <a class="carousel-control left" href="#phone-carousel" data-slide="prev">&lsaquo;</a>
