@@ -171,14 +171,12 @@ $def with (page)
         /* activate device tooltips */
         $for d in devices:
             $$('.tooltip-$d').tooltip()
+        /* scroll the carousel */
+        $$('#desktop-carousel').carousel({interval:3000})
+        $$('#desktop-caurosel').carousel();
+        $$('#phone-carousel').carousel({interval:3000})
+        $$('#phone-caurosel').carousel();
     })(jQuery);
-
-    /* Carousel */
-    jQuery('#homeCarousel').carousel(
-    {
-        interval:3000
-    })
-    jQuery('#homeCarousel').carousel();
     </script>
   </body>
 </html>
