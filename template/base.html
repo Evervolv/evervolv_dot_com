@@ -164,6 +164,13 @@ $def with (page)
         $for d in devices:
             $$('.tooltip-$d').tooltip()
     })(jQuery);
+
+    /* Carousel */
+    jQuery('#homeCarousel').carousel(
+    {
+        interval:3000
+    })
+    jQuery('#homeCarousel').carousel();
     </script>
   </body>
 </html>
