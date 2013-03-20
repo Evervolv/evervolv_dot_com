@@ -121,6 +121,9 @@ $def with (page)
               <li id="nav-devices">
                 <a href="/devices/">Devices</a>
               </li>
+              <li id="nav-features">
+                <a href="/features/">Features</a>
+              </li>
               <li id="nav-chat">
                 <a href="/chat/">Chat</a>
               </li>
@@ -158,6 +161,8 @@ $def with (page)
         page = url(1)
         if(page == 'devices') {
             $$('li#nav-devices').addClass('active');
+        } else if(page == 'features') {
+            $$('li#nav-features').addClass('active');
         } else if(page == 'chat') {
             $$('li#nav-chat').addClass('active');
         } else if(page == 'news') {

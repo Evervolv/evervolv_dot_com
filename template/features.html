@@ -1,0 +1,41 @@
+$def with (carousel_imgs)
+<style type="text/css">
+#home-carousel {
+  margin-left:auto;
+  margin-right:auto;
+}
+</style>
+<div class="row-fluid">
+  <div class="span8 offset2">
+    <center><h4>Screenshots</h4></center>
+
+    <div id="home-carousel" class="carousel slide">
+      <ol class="carousel-indicators">
+        $for id in range(len(carousel_imgs)):
+            $if id == 0:
+                <li data-target="#home-carousel" data-slide-to="$id" class="active"></li>
+            $else:
+                <li data-target="#home-carousel" data-slide-to="$id"></li>
+      </ol>
+      <!-- Carousel items -->
+      <div class="carousel-inner">
+        $ num = 0
+        $for ii in carousel_imgs:
+            $if num == 0:
+                <div class="active item">
+            $else:
+                <div class="item">
+            <center><img src="/static/img/screenshots/$ii"/></center>
+            <div class="carousel-caption">
+              <p>$ii.split('.')[0].replace('_',' ')</p>
+            </div>
+            </div>
+            $ num += 1
+      </div>
+      <!-- Carousel nav -->
+      <a class="carousel-control left" href="#home-carousel" data-slide="prev">&lsaquo;</a>
+      <a class="carousel-control right" href="#home-carousel" data-slide="next">&rsaquo;</a>
+    </div>
+
+  </div>
+</div>

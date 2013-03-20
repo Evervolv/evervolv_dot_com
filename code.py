@@ -18,8 +18,9 @@ urls = (
     '/devices/(.*)', 'Devices',
     '/news/', 'News',
     '/source/', 'Source',
+    '/features/', 'Features',
     # Redirects for manually typed addresses
-    '/([Aa]bout|[Cc]hat|[Dd]evices|[Nn]ews|[Ss]ource)', 'AddSlash',
+    '/([Aa]bout|[Cc]hat|[Dd]evices|[Nn]ews|[Ss]ource|[Ff]eatures)', 'AddSlash',
     '/[Dd]ownloads?', 'SeeDevices',
     # Other
     '/robots.txt', 'Robots',
@@ -37,8 +38,7 @@ render = web.template.render('template', base='base',globals=t_globals)
 
 class Default:
     def GET(self):
-        carousel_imgs = os.listdir('static/img/screenshots/')
-        return render.default(carousel_imgs)
+        return render.default()
 
 class About:
     def GET(self):
@@ -66,6 +66,11 @@ class News:
 class Source:
     def GET(self):
         return render.source()
+
+class Features:
+    def GET(self):
+        screenshots = os.listdir('static/img/screenshots/')
+        return render.features(screenshots)
 
 class AddSlash:
     def GET(self, page):
