@@ -1,7 +1,6 @@
 #!/usr/bin/env python2
 # Andrew Sutherland <dr3wsuth3rland@gmail.com>
 import web
-import os
 
 # apache hax for local imports
 #import os, sys
@@ -10,6 +9,7 @@ import os
 #os.chdir(abspath)
 # local imports
 from devices import device_retail_name, device_codename, devices
+from operations import find_builds, get_screenshots
 
 urls = (
     '/','Default',
@@ -50,13 +50,8 @@ class Chat:
 
 class Devices:
     def GET(self,device=None):
-        #placeholder
-        files={
-        'release': [{'name':'Evervolv-Fulsi-3.2.0p2-mako.zip'},{'name': 'Evervolv-Fulsi-3.2.0p1-mako.zip'},{'name':'Evervolv-Fulsi-3.2.0p0-mako.zip'}],
-        'nightly': [{'name':'Evervolv-Fulsi-3.2.0-Nightly-2013.03.12-mako.zip','date':'2013.03.12','md5sum':'ed466d0dfb26f79cf4ebb4e09059bf46','size':300000000},{'name':'Evervolv-Fulsi-3.2.0-Nightly-2013.03.10-mako.zip','date':'2013.03.10','md5sum':'ed466d0dfb26f79cf4ebb4e09059bf46','size':300000000},{'name':'Evervolv-Fulsi-3.2.0-Nightly-2013.03.05-mako.zip','date':'2013.03.05','md5sum':'ed466d0dfb26f79cf4ebb4e09059bf46','size':300000000}]
-        }
         if device:
-            return render.builds(device,files)
+            return render.builds(device,find_builds(device))
         return render.devices()
 
 class News:
@@ -69,8 +64,7 @@ class Source:
 
 class Features:
     def GET(self):
-        screenshots = os.listdir('static/img/screenshots/')
-        return render.features(screenshots)
+        return render.features(get_screenshots())
 
 class AddSlash:
     def GET(self, page):

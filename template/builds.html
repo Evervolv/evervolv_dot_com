@@ -6,6 +6,7 @@ $ dd = 'date'
 $ nn = 'name'
 $ md = 'md5sum'
 $ ss = 'size'
+$ ll = 'location'
 <style type="text/css">
 
 </style>
@@ -37,10 +38,10 @@ $ ss = 'size'
               <div class="row-fluid">
                 <div class="span8">
                   $#<strong>MD5: </strong>$f[md]<br>
-                  $#<strong>Size: </strong>$human_readable_size(f['size'])MB
+                  $#<strong>Size: </strong>$human_readable_size(f[ss])MB
                 </div>
                 <div class="span4" align="right">
-                  <button class="btn" type="button" onclick="window.location='/get/$f[nn]'"><i class="icon-download-alt"></i></button>
+                  <button class="btn" type="button" onclick="window.location='/$f[ll]'"><i class="icon-download-alt"></i></button>
                 </div>
               </div>
             </div>
@@ -65,10 +66,10 @@ $ ss = 'size'
               <div class="row-fluid">
                 <div class="span8">
                   <strong>MD5: </strong>$f[md]<br>
-                  <strong>Size: </strong>$human_readable_size(f['size'])MB
+                  <strong>Size: </strong>$human_readable_size(f[ss])MB
                 </div>
                 <div class="span4" align="right">
-                  <button class="btn" type="button" onclick="window.location='/get/$f[nn]'"><i class="icon-download-alt"></i></button>
+                  <button class="btn" type="button" onclick="window.location='/static/n/$f[dd]/$f[nn]'"><i class="icon-download-alt"></i></button>
                 </div>
              </div>
             </div>
