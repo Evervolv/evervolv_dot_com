@@ -43,7 +43,6 @@ $def with (page)
         height: 30px;
       }
       #footer {
-        text-align: right;
         background-color: #1b1b1b;
         background-image: -moz-linear-gradient(top, #222222, #111111);
         background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#222222), to(#111111));
@@ -53,9 +52,23 @@ $def with (page)
         background-repeat: repeat-x;
         border-color: #252525;
       }
-      #footer p {
+      .rightFooter {
         margin-top: 4px;
         margin-bottom: 0;
+        display:inline-block;
+        float:right;
+      }
+      .leftFooter {
+        margin-top: 4px;
+        margin-bottom: 0;
+        display:inline-block;
+        float:left;
+      }
+      .leftFooter a {
+        text-decoration:none
+      }
+      .leftFooter a:hover {
+        color:white;
       }
       @media (max-width: 980px) {
         /* Enable use of floated navbar text */
@@ -77,12 +90,18 @@ $def with (page)
       }
       @media (max-width: 480px) {
         #wrap {
-          margin: 0 auto -50px;
+          margin: 0 auto -30px;
         }
         #push,
         #footer {
-          height: 50px;
+          height: 30px;
         }
+        .leftFooter {
+          padding-left:15px;
+          font-size:0.7em;
+        }
+        .rightFooter {
+          font-size:0.7em;
       }
     </style>
     <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap-responsive.min.css"/>
@@ -149,7 +168,8 @@ $def with (page)
    </div> <!-- End Wrap -->
     <div id="footer">
       <div class="container-fluid">
-        <p>Built with <a href="http://getbootstrap.com/">bootstrap</a> and <a href="http://webpy.org/">web.py</a>&nbsp;&nbsp;&copy;The Evervolv Project</p>
+        <p class="leftFooter"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=PreludeDrew%40gmail%2ecom&lc=US&item_name=ROM%20Development&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted">Donate to Evervolv</a></p>
+        <p class="rightFooter">Built with <a href="http://getbootstrap.com/">bootstrap</a> and <a href="http://webpy.org/">web.py</a>&nbsp;&nbsp;&copy;The Evervolv Project</p>
       </div>
     </div>
     <script type="text/javascript" src="/static/jquery/jquery-1.9.1.min.js"></script>
