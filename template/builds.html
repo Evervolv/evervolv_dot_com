@@ -22,16 +22,15 @@ $ ll = 'location'
     <h4>Release Builds</h4>
     $if files['release']:
         <div class="accordion" id="accordion-left">
-        $ id = 0
         $for f in files['release']:
             <div class="accordion-group">
               <div class="accordion-heading">
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-left" href="#collapse-left-$id">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-left" href="#collapse-left-$loop.index0">
                   $#$f[dd]: $f[nn]
                   $f[nn]
                 </a>
               </div>
-              <div id="collapse-left-$id" class="accordion-body collapse">
+              <div id="collapse-left-$loop.index0" class="accordion-body collapse">
                 <div class="accordion-inner">
                   <div class="row-fluid">
                     <div class="span8">
@@ -45,7 +44,6 @@ $ ll = 'location'
                 </div>
               </div>
             </div>
-            $ id += 1
         </div>
     $else:
         <p>No builds found</p>
@@ -54,15 +52,14 @@ $ ll = 'location'
     <h4>Nightly Builds</h4>
     $if files['nightly']:
         <div class="accordion" id="accordion-right">
-        $ id = 0
         $for f in files['nightly']:
             <div class="accordion-group">
               <div class="accordion-heading">
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-right" href="#collapse-right-$id">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-right" href="#collapse-right-$loop.index0">
                   <strong><span style="color: white">$f[dd]:</span></strong> $f[nn]
                 </a>
               </div>
-              <div id="collapse-right-$id" class="accordion-body collapse">
+              <div id="collapse-right-$loop.index0" class="accordion-body collapse">
                 <div class="accordion-inner">
                   <div class="row-fluid">
                     <div class="span8">
@@ -76,7 +73,6 @@ $ ll = 'location'
                 </div>
               </div>
             </div>
-            $ id += 1
         </div>
     $else:
         <p>No builds found</p>

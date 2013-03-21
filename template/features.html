@@ -11,17 +11,16 @@ $def with (carousel_imgs)
 
     <div id="home-carousel" class="carousel slide">
       <ol class="carousel-indicators">
-        $for id in range(len(carousel_imgs)):
-            $if id == 0:
-                <li data-target="#home-carousel" data-slide-to="$id" class="active"></li>
+        $for ii in carousel_imgs:
+            $if loop.first:
+                <li data-target="#home-carousel" data-slide-to="$loop.index0" class="active"></li>
             $else:
-                <li data-target="#home-carousel" data-slide-to="$id"></li>
+                <li data-target="#home-carousel" data-slide-to="$loop.index0"></li>
       </ol>
       <!-- Carousel items -->
       <div class="carousel-inner">
-        $ num = 0
         $for ii in carousel_imgs:
-            $if num == 0:
+            $if loop.first:
                 <div class="active item">
             $else:
                 <div class="item">
@@ -30,7 +29,6 @@ $def with (carousel_imgs)
               <p>$ii.split('.')[0].replace('_',' ')</p>
             </div>
             </div>
-            $ num += 1
       </div>
       <!-- Carousel nav -->
       <a class="carousel-control left" href="#home-carousel" data-slide="prev">&lsaquo;</a>
