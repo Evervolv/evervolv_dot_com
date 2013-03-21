@@ -1,12 +1,13 @@
 $def with(device,files)
-$def human_readable_size(size):
-    $ return int(size)/1024/1024
-$# avoid any escaping issues with links
-$ dd = 'date'
-$ nn = 'name'
-$ md = 'md5sum'
-$ ss = 'size'
-$ ll = 'location'
+$code:
+    def human_readable_size(size):
+        return int(size)/1024/1024
+    # avoid any escaping issues with links
+    dd = 'date'
+    nn = 'name'
+    md = 'md5sum'
+    ss = 'size'
+    ll = 'location'
 <div class="row-fluid">
   <div class="span6">
     <a href="/devices/"><img src="/static/img/design/backarrow.png" width="25px" height="25px"/></a> <span style="padding-left:10px;">Back to device list</span>
