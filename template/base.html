@@ -8,6 +8,7 @@ $def with (page)
     <meta name="description" content="Evervolv" />
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/fonts.css"/>
     <style type="text/css">
       html,
       body {
@@ -23,8 +24,17 @@ $def with (page)
       a:focus {
         color: #0099CC;
       }
+      .evervolv {
+        font-family: "Sony Sketch";
+        font-size:1.5em;
+      }
+      .evervolv.right {
+        font-size:1.3em;
+      }
       .navbar-inverse .brand {
+        font-size:1.8em;
         color: #33B5E5;
+        font-family: "Sony Sketch";
       }
       /* Wrapper for page content to push down footer */
       #wrap {
@@ -168,8 +178,8 @@ $def with (page)
    </div> <!-- End Wrap -->
     <div id="footer">
       <div class="container-fluid">
-        <p class="leftFooter"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=PreludeDrew%40gmail%2ecom&lc=US&item_name=ROM%20Development&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted">Donate to Evervolv</a></p>
-        <p class="rightFooter">Built with <a href="http://getbootstrap.com/">bootstrap</a> and <a href="http://webpy.org/">web.py</a>&nbsp;&nbsp;&copy;The Evervolv Project</p>
+        <p class="leftFooter"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=PreludeDrew%40gmail%2ecom&lc=US&item_name=ROM%20Development&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted">Donate to <span class="evervolv">Evervolv</span></a></p>
+        <p class="rightFooter">Built with <a href="http://getbootstrap.com/">bootstrap</a> and <a href="http://webpy.org/">web.py</a>&nbsp;&nbsp;&copy;The <span class="evervolv right">Evervolv</span> Project</p>
       </div>
     </div>
     <script type="text/javascript" src="/static/jquery/jquery-1.9.1.min.js"></script>
