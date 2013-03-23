@@ -8,6 +8,18 @@ $code:
     md = 'md5sum'
     ss = 'size'
     ll = 'location'
+<style type="text/css">
+  a:focus,
+  a:hover {
+    text-decoration:none;
+  }
+  .date {
+   color:white;
+  }
+  a:hover .build-name {
+   text-decoration: underline;
+  }
+</style>
 <div class="row-fluid">
   <div class="span6">
     <a href="/devices/"><img src="/static/img/design/backarrow.png" width="25px" height="25px"/></a> <span style="padding-left:10px;">Back to device list</span>
@@ -57,7 +69,7 @@ $code:
             <div class="accordion-group">
               <div class="accordion-heading">
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-right" href="#collapse-right-$loop.index0">
-                  <strong><span style="color: white">$f[dd]:</span></strong> $f[nn]
+                  <strong><span class="date">$f[dd]:</span></strong><span class="build-name"> $f[nn]</span>
                 </a>
               </div>
               <div id="collapse-right-$loop.index0" class="accordion-body collapse">
