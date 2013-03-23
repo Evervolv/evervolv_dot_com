@@ -19,6 +19,9 @@ $code:
   a:hover .build-name {
    text-decoration: underline;
   }
+  .modal {
+    color: #000;
+  }
 </style>
 <div class="row-fluid">
   <div class="span6">
@@ -78,6 +81,8 @@ $code:
                     <div class="span8">
                       <strong>MD5: </strong>$f[md]<br>
                       <strong>Size: </strong>$human_readable_size(f[ss])MB
+                      &nbsp;
+                      <a href="#changesModal" role="button" data-toggle="modal" onclick="writeChanges('/static/n/$f[dd]/changelog-$(f[dd]).html')">changes</a>
                     </div>
                     <div class="span4" align="right">
                       <button class="btn" type="button" onclick="window.location='/static/n/$f[dd]/$f[nn]'"><i class="icon-download-alt"></i></button>
@@ -89,5 +94,16 @@ $code:
         </div>
     $else:
         <p>No builds found</p>
+  </div>
+</div>
+
+<!-- Changes Modal -->
+<div id="changesModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="changesModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h4 id="changesModalLabel">Changes</h4>
+  </div>
+  <div class="modal-body">
+    <!--populated by writeChanges-->
   </div>
 </div>

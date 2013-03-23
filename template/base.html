@@ -197,6 +197,18 @@ $def with (page)
         $$('#home-carousel').carousel({interval:3000})
         $$('#home-caurosel').carousel()
     })(jQuery);
+    /* populate the build modal with changelog */
+    function writeChanges(changesFile){
+        $$.get(changesFile, function(data) {
+            /*regex hack to only return the body and avoid applying
+              the css in the changelog files to the current page*/
+            var body=data.replace(/\n/g," ");
+            body=body.replace(/^.*?<body>(.*?)<\/body>.*?$$/m,"$$1");
+            body=body.replace(/h3/g,"h4");
+            $$('.modal-body').html(body);
+            /*console.log(body);*/
+        });
+    }
     </script>
   </body>
 </html>
