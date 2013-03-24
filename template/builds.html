@@ -9,15 +9,9 @@ $code:
     ss = 'size'
     ll = 'location'
 <style type="text/css">
-  a:focus,
-  a:hover {
+  a.accordion-toggle:focus,
+  a.accordion-toggle:hover {
     text-decoration:none;
-  }
-  .date {
-   color:white;
-  }
-  a:hover .build-name {
-   text-decoration: underline;
   }
   .modal {
     color: #000;
@@ -72,7 +66,7 @@ $code:
             <div class="accordion-group">
               <div class="accordion-heading">
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-right" href="#collapse-right-$loop.index0">
-                  <strong><span class="date">$f[dd]:</span></strong><span class="build-name"> $f[nn]</span>
+                  <strong><span style="color:white">$f[dd]:</span></strong>&nbsp;$f[nn]
                 </a>
               </div>
               <div id="collapse-right-$loop.index0" class="accordion-body collapse">
