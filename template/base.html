@@ -200,8 +200,8 @@ $def with (page)
     /* populate the build modal with changelog */
     function writeChanges(changesFile){
         $$.get(changesFile, function(data) {
-            /*replace sha's with toggleable link to gerrit*/
-            var body=data.replace(/^((?!project)\w{7})\s/gm,"<a href='//review.evervolv.com/#/q/$$1,n,z' target='_blank' class='showHide' style='display:none;font-style:oblique;'>$$1</a>&nbsp;&nbsp;");
+            /*replace sha's with link to gerrit*/
+            var body=data.replace(/^((?!project)\w{7})\s/gm,"<a href='//review.evervolv.com/#/q/$$1,n,z' target='_blank' style='font-style:oblique;'>$$1</a>&nbsp;&nbsp;");
             body=body.replace(/^project/gm,"<strong>Project: </strong>");
             /*regex hack to only return the body and avoid applying
               the css in the changelog files to the current page*/
@@ -212,9 +212,6 @@ $def with (page)
             $$('.modal-body').html(body);
             /*console.log(body);*/
         });
-    }
-    function toggleChangesView() {
-        $$('.showHide').toggle();
     }
     </script>
   </body>
