@@ -134,9 +134,6 @@ $def with (page)
           <a class="brand" href="/">Evervolv</a>
           <div class="nav-collapse collapse">
             <ul class="nav">
-              <li id="nav-home">
-                <a href="/">Home</a>
-              </li>
               <li id="nav-devices">
                 <a href="/devices/">Devices</a>
               </li>
@@ -191,8 +188,6 @@ $def with (page)
             $$('li#nav-source').addClass('active');
         } else if(page == 'about') {
             $$('li#nav-about').addClass('active');
-        } else {
-            $$('li#nav-home').addClass('active');
         }
         /* activate device tooltips */
         $for d in devices:
