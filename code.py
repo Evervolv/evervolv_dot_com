@@ -10,6 +10,7 @@ import web
 # local imports
 from devices import device_retail_name, device_codename, devices
 from operations import find_builds, get_screenshots
+from sitemap import Sitemap
 
 urls = (
     '/','Default',
@@ -24,6 +25,7 @@ urls = (
     '/[Dd]ownloads?', 'SeeDevices',
     # Other
     '/robots.txt', 'Robots',
+    '/sitemap.xml', 'SiteMap',
     # Catchall
     '/.*', 'SeeDefault',
 )
@@ -76,7 +78,22 @@ class SeeDevices:
 
 class Robots:
     def GET(self):
-        return 'User-agent: *\nDisallow: /static/'
+        return 'User-agent: *\nDisallow: /static/\nSitemap: http://evervolv.com/sitemap.xml'
+
+class SiteMap:
+    def GET(self):
+        m = Sitemap()
+        m.add_url('http://evervolv.com',priority='1.0')
+        m.add_url('http://evervolv.com/about/',priority='0.8')
+        m.add_url('http://evervolv.com/chat/',priority='0.3')
+        m.add_url('http://evervolv.com/devices/',priority='0.8')
+        m.add_url('http://evervolv.com/news/',priority='0.3')
+        m.add_url('http://evervolv.com/source/',priority='0.6')
+        m.add_url('http://evervolv.com/features/',priority='0.6')
+        for d in devices:
+            m.add_url('http://evervolv.com/devices/%s' % d,
+                    changefreq='daily',priority='0.1')
+        return m.write()
 
 class SeeDefault:
     def GET(self):
