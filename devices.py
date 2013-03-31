@@ -20,7 +20,6 @@ devices = (
     'speedy',
     'supersonic',
     'tenderloin',
-    'toro',
     'vivow',
 )
 
@@ -44,7 +43,6 @@ device_names = {
     'speedy': ('Artis','HTC Evo Shift 4G'),
     'supersonic': ('Acies','HTC Evo 4G'),
     'tenderloin': ('Queo','HP Touchpad'),
-    'toro': ('Primo','Samsung Galaxy Nexus (VZW)'),
     'vivow': ('Conor','HTC Droid Incredible 2'),
 }
 
