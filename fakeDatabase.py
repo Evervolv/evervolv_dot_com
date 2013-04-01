@@ -50,15 +50,12 @@ class FakeDB:
         'date':    string,
         'device':  string,
         'count':   int,
+        'location':string,
         'message': string,
         'md5sum':  string,
         'name':    string,
         'size':    int,
         'type':    string (nightly|release),
-      ({type} release: has an extra entry used instead of {date} in the location)
-        'codename':string,
-
-    The lack of a 'location' key is an oversite
 
     The general directory structure this class is expecting:
       static/
@@ -106,9 +103,6 @@ class FakeDB:
         p = None
         for e in self.entries:
             if e['name'] == name:
-                if e['type'] == 'nightly':
-                    p = os.path.join(self.location,e['date'],e['name'])
-                else:
-                    p = os.path.join(self.location,e['codename'],e['name'])
+                p = os.path.join(self.location,e['location'])
         return p
 
