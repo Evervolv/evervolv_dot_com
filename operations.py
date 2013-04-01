@@ -6,8 +6,8 @@ from fakeDatabase import FakeDB
 # Used by Devices
 def find_builds(device=None):
     if device:
-        nightly = FakeDB('static/n').get_device(device=device)
-        release = FakeDB('static/r').get_device(device=device)
+        nightly = FakeDB('static/n').by_device(device=device)
+        release = FakeDB('static/r').by_device(device=device)
         builds = { 'release': release, 'nightly': nightly }
     else:
         builds = { 'release':[],'nightly':[] }

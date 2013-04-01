@@ -77,7 +77,7 @@ class FakeDB:
         self.entries = parse_manifest(location,manifest)
         self.location = location
 
-    def get_device(self, device=None):
+    def by_device(self, device=None):
         '''return all entries for selected {device}'''
         return [e for e in self.entries if e.get('device') == device]
 

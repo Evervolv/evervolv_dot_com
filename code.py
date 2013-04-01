@@ -11,6 +11,7 @@ import web
 from devices import device_retail_name, device_codename, devices
 from operations import find_builds, get_screenshots, search_files, find_logs
 from sitemap import Sitemap
+import api
 
 urls = (
     '/','Default',
@@ -30,6 +31,7 @@ urls = (
     '/robots.txt', 'Robots',
     '/sitemap.xml', 'SiteMap',
     '/logs?', 'Logs',
+    '/api/v(\d+)/(.+)/(.+)/(.+)','ApiHandler',
     # Error
     '/404/', 'NotFound',
     # Catchall
@@ -112,6 +114,20 @@ class SiteMap:
 class Logs:
     def GET(self):
         return render.logs(find_logs())
+
+class ApiHandler:
+    def GET(self,version=None,action=None,build_type=None,item=None):
+        ret = ''
+        if int(version) == 1:
+          if action != 'get':
+              return api.v1_perform(action,build_type,item)
+          else:
+              path = api.v1_get(build_type,item)
+              if path:
+                  raise web.seeother(api.v1_get(build_type,item))
+        else:
+          pass
+        return ret
 
 class NotFound:
     def GET(self):
