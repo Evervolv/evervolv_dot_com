@@ -3,34 +3,17 @@ import os
 from devices import device_codename
 from fakeDatabase import FakeDB
 
-def locate_by_device(device=None,location='static/r'):
-    ret = []
-    if device and os.path.exists(location):
-        device_dir = device_codename(device)
-        for (path,dirs,files) in os.walk(os.path.join(location, device_dir)):
-            for f in sorted(files, reverse=True):
-                if f.endswith('.zip'):
-                    ret.append({'device':device, 'name': f,
-                        'location':os.path.join(path,f)})
-    return ret
-
-def locate_file(name,location='static/r'):
-    if os.path.exists(location):
-        for (path,dirs,files) in os.walk(location):
-            for f in files:
-                if f == name:
-                    return os.path.join(path,f)
-    return None
-
+# Used by Devices
 def find_builds(device=None):
     if device:
-        nightly = FakeDB().get_device(device=device)
-        release = locate_by_device(device=device)
+        nightly = FakeDB('static/n').get_device(device=device)
+        release = FakeDB('static/r').get_device(device=device)
         builds = { 'release': release, 'nightly': nightly }
     else:
         builds = { 'release':[],'nightly':[] }
     return builds
 
+# Used by Features
 def get_screenshots(location='static/img/screenshots'):
     screens = []
     try:
@@ -39,13 +22,15 @@ def get_screenshots(location='static/img/screenshots'):
         pass
     return screens
 
-def search_files(t,name):
-    if t == 'nightly':
-        path = FakeDB().by_name(name)
-        if path:
-            return os.path.join('/','static','n',path)
-    elif t == 'release':
-        path = locate_file(name)
-        if path:
-            return os.path.join('/',path)
+# Used by Permalink
+def search_files(name):
+    # Check nightlies first
+    path = FakeDB('static/n').by_name(name)
+    if path:
+        # returned path will be relative, so make it absolute
+        return os.path.join('/',path)
+    # Releases
+    path = FakeDB('static/r').by_name(name)
+    if path:
+        return os.path.join('/',path)
     return None

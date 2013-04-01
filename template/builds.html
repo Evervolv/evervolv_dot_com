@@ -7,7 +7,7 @@ $code:
     nn = 'name'
     md = 'md5sum'
     ss = 'size'
-    ll = 'location'
+    cn = 'codename'
 $var title: $device
 <style type="text/css">
   a.accordion-toggle:focus,
@@ -37,21 +37,23 @@ $var title: $device
             <div class="accordion-group">
               <div class="accordion-heading">
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-left" href="#collapse-left-$loop.index0">
-                  $#$f[dd]: $f[nn]
-                  $f[nn]
+                  $if f[dd]:
+                    <strong><span style="color:white">$f[dd]:</span></strong>&nbsp;$f[nn]
+                  $else:
+                    $f[nn]
                 </a>
               </div>
               <div id="collapse-left-$loop.index0" class="accordion-body collapse">
                 <div class="accordion-inner">
                   <div class="row-fluid">
                     <div class="span8">
-                      <strong>MD5: </strong><br>$#$f[md]<br>
-                      <strong>Size: </strong><br>$#$human_readable_size(f[ss])MB<br>
+                      <strong>MD5: </strong>$f[md]<br>
+                      <strong>Size: </strong>$human_readable_size(f[ss])MB<br>
                       <a href="/get/$f[nn]">Permalink</a>
                     </div>
                     <div class="span4" align="right">
                       <p>Direct Download</p>
-                      <button class="btn" type="button" onclick="window.location='/$f[ll]'"><i class="icon-download-alt"></i></button>
+                      <button class="btn" type="button" onclick="window.location='/static/r/$f[cn]/$f[nn]'"><i class="icon-download-alt"></i></button>
                     </div>
                   </div>
                 </div>

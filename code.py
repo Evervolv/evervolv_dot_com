@@ -62,13 +62,7 @@ class Devices:
 class Permalink:
     def GET(self,f=None):
         if f and f.endswith('.zip'):
-            # until releases are indexed this should
-            # prevent unneeded cpu time instead of searching
-            # for everything all at once
-            path = search_files(t='nightly',name=f)
-            if path:
-                raise web.seeother(path)
-            path = search_files(t='release',name=f)
+            path = search_files(f)
             if path:
                 raise web.seeother(path)
         raise web.seeother('/404/')

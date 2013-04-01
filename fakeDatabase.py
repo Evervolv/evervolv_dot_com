@@ -12,21 +12,24 @@ def find_manifests(location, manifest):
 
 def read_manifests(manifests):
     info = []
-    if manifests:
-        for m in manifests:
-            entries = []
-            try:
-                f = open(m)
-            except IOError as e:
-                continue
-            else:
-                with f:
-                    entries = json.load(f)
-                for e in entries:
-                    info.append(e)
+    for m in manifests:
+        entries = []
+        try:
+            f = open(m)
+        except IOError as e:
+            continue
+        else:
+            with f:
+                entries = json.load(f)
+            for e in entries:
+                info.append(e)
     return info
 
 def parse_manifest(location,manifest):
+    '''Parse a parent manifest, containing info on all files below it.
+
+    As fall back we can also read individual manifest inside each directory
+    named info.json'''
     m = os.path.join(location,manifest)
     entries = []
     try:
@@ -40,20 +43,57 @@ def parse_manifest(location,manifest):
     return entries
 
 class FakeDB:
-    def __init__(self, location='static/n',manifest='manifest.json'):
+    '''Emulate a nosql db by parsing json manifests
+
+      Files are stored in list form with each entry containing
+      a dictionary of the following information:
+        'date':    string,
+        'device':  string,
+        'count':   int,
+        'message': string,
+        'md5sum':  string,
+        'name':    string,
+        'size':    int,
+        'type':    string (nightly|release),
+      ({type} release: has an extra entry used instead of {date} in the location)
+        'codename':string,
+
+    The lack of a 'location' key is an oversite
+
+    The general directory structure this class is expecting:
+      static/
+        n/
+          manifest.json
+          {date}/
+            {name}
+            {name}
+            info.json
+        r/
+          manifest.json
+          {codename}/
+            {name}
+            {name}
+            info.json
+
+    '''
+    def __init__(self, location,manifest='manifest.json'):
         self.entries = parse_manifest(location,manifest)
         self.location = location
 
     def get_device(self, device=None):
+        '''return all entries for selected {device}'''
         return [e for e in self.entries if e['device'] == device]
 
     def get_date(self, date=None):
+        '''return all entries for selected {date}'''
         return [e for e in self.entries if e['date'] == date]
 
     def dates(self):
+        '''return all {dates} reverse sorted (newest->oldest)'''
         return sorted(set([e['date'] for e in self.entries]), reverse=True)
 
     def latest(self):
+        '''returns all builds for newest date, sorted by device'''
         l = []
         s = self.dates()
         if s: # protect array out of bounds on null list
@@ -61,9 +101,14 @@ class FakeDB:
         return sorted(l, key=lambda d: d['device'])
 
     def by_name(self,name):
+        '''returns local path of file specified by {name} assumes all entries
+           contain a unique {name}'''
         p = None
         for e in self.entries:
             if e['name'] == name:
-                p = os.path.join(e['date'],e['name'])
+                if e['type'] == 'nightly':
+                    p = os.path.join(self.location,e['date'],e['name'])
+                else:
+                    p = os.path.join(self.location,e['codename'],e['name'])
         return p
 
