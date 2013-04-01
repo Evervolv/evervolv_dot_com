@@ -31,29 +31,29 @@ $var title: $device
 <div class="row-fluid">
   <div class="span6">
     <h4>Release Builds</h4>
-    $if files['release']:
+    $if files.get('release'):
         <div class="accordion" id="accordion-left">
-        $for f in files['release']:
+        $for f in files.get('release'):
             <div class="accordion-group">
               <div class="accordion-heading">
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-left" href="#collapse-left-$loop.index0">
-                  $if f[dd]:
-                    <strong><span style="color:white">$f[dd]:</span></strong>&nbsp;$f[nn]
+                  $if f.get(dd):
+                    <strong><span style="color:white">$f.get(dd):</span></strong>&nbsp;$f.get(nn)
                   $else:
-                    $f[nn]
+                    $f.get(nn)
                 </a>
               </div>
               <div id="collapse-left-$loop.index0" class="accordion-body collapse">
                 <div class="accordion-inner">
                   <div class="row-fluid">
                     <div class="span8">
-                      <strong>MD5: </strong>$f[md]<br>
-                      <strong>Size: </strong>$human_readable_size(f[ss])MB<br>
-                      <a href="/get/$f[nn]">Permalink</a>
+                      <strong>MD5: </strong>$f.get(md)<br>
+                      <strong>Size: </strong>$human_readable_size(f.get(ss))MB<br>
+                      <a href="/get/$f.get(nn)">Permalink</a>
                     </div>
                     <div class="span4" align="right">
                       <p>Direct Download</p>
-                      <button class="btn" type="button" onclick="window.location='/static/r/$f[ll]'"><i class="icon-download-alt"></i></button>
+                      <button class="btn" type="button" onclick="window.location='/static/r/$f.get(ll)'"><i class="icon-download-alt"></i></button>
                     </div>
                   </div>
                 </div>
@@ -65,24 +65,24 @@ $var title: $device
   </div>
   <div class="span6">
     <h4>Nightly Builds</h4>
-    $if files['nightly']:
+    $if files.get('nightly'):
         <div class="accordion" id="accordion-right">
-        $for f in files['nightly']:
+        $for f in files.get('nightly'):
             <div class="accordion-group">
               <div class="accordion-heading">
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-right" href="#collapse-right-$loop.index0">
-                  <strong><span style="color:white">$f[dd]:</span></strong>&nbsp;$f[nn]
+                  <strong><span style="color:white">$f.get(dd):</span></strong>&nbsp;$f.get(nn)
                 </a>
               </div>
               <div id="collapse-right-$loop.index0" class="accordion-body collapse">
                 <div class="accordion-inner">
                   <div class="row-fluid">
                     <div class="span8">
-                      <strong>MD5: </strong>$f[md]<br>
-                      <strong>Size: </strong>$human_readable_size(f[ss])MB<br>
-                      <a href="#changesModal" role="button" data-toggle="modal" onclick="writeChanges('/static/n/$f[dd]/changelog-$(f[dd]).html')">Changes</a>
+                      <strong>MD5: </strong>$f.get(md)<br>
+                      <strong>Size: </strong>$human_readable_size(f.get(ss))MB<br>
+                      <a href="#changesModal" role="button" data-toggle="modal" onclick="writeChanges('/static/n/$f.get(dd)/changelog-$(f.get(dd)).html')">Changes</a>
                       &nbsp;&nbsp;&nbsp;
-                      <a href="/get/$f[nn]">Permalink</a>
+                      <a href="/get/$f.get(nn)">Permalink</a>
                     </div>
                     <div class="span4" align="right">
                       <p>Direct Download</p>

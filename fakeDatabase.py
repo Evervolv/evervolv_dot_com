@@ -79,30 +79,30 @@ class FakeDB:
 
     def get_device(self, device=None):
         '''return all entries for selected {device}'''
-        return [e for e in self.entries if e['device'] == device]
+        return [e for e in self.entries if e.get('device') == device]
 
     def get_date(self, date=None):
         '''return all entries for selected {date}'''
-        return [e for e in self.entries if e['date'] == date]
+        return [e for e in self.entries if e.get('date') == date]
 
     def dates(self):
         '''return all {dates} reverse sorted (newest->oldest)'''
-        return sorted(set([e['date'] for e in self.entries]), reverse=True)
+        return sorted(set([e.get('date') for e in self.entries]), reverse=True)
 
     def latest(self):
         '''returns all builds for newest date, sorted by device'''
         l = []
         s = self.dates()
         if s: # protect array out of bounds on null list
-            l = [e for e in self.entries if e['date'] == s[0]]
-        return sorted(l, key=lambda d: d['device'])
+            l = [e for e in self.entries if e.get('date') == s[0]]
+        return sorted(l, key=lambda d: d.get('device'))
 
     def by_name(self,name):
         '''returns local path of file specified by {name} assumes all entries
            contain a unique {name}'''
         p = None
         for e in self.entries:
-            if e['name'] == name:
-                p = os.path.join(self.location,e['location'])
+            if e.get('name') == name:
+                p = os.path.join(self.location,e.get('location'))
         return p
 
