@@ -22,7 +22,9 @@ urls = (
     '/source/', 'Source',
     '/features/', 'Features',
     # Redirects for manually typed addresses
-    '/([Aa]bout|[Cc]hat|[Dd]evices|[Nn]ews|[Ss]ource|[Ff]eatures)', 'AddSlash',
+    # The idea here is to force any variations to the above paths
+    '/([Aa]bout|[Cc]hat|[Dd]evices)', 'AddSlash',
+    '/([Nn]ews|[Ss]ource|[Ff]eatures)', 'AddSlash',
     '/[Dd]ownloads?', 'SeeDevices',
     # Other
     '/robots.txt', 'Robots',
@@ -31,7 +33,7 @@ urls = (
     # Error
     '/404/', 'NotFound',
     # Catchall
-    '/.*', 'SeeDefault',
+    '/(.+)', 'Catchall',
 )
 
 t_globals = {
@@ -113,11 +115,11 @@ class Logs:
 
 class NotFound:
     def GET(self):
-        return '404' #FIXME
+        return render.error()
 
-class SeeDefault:
-    def GET(self):
-        raise web.seeother('/')
+class Catchall:
+    def GET(self,path=None):
+        raise web.seeother('/404/')
 
 # lighttpd
 if __name__ == "__main__":
