@@ -1,0 +1,29 @@
+$def with(dates)
+$var title: Logs
+<style type="text/css">
+  .modal {
+    color: #000;
+  }
+</style>
+<h3>Nightly Logs</h3>
+<table class="table table-bordered">
+  <tbody>
+    $for date in dates:
+        <tr>
+        <td>$date</td>
+        <td><a href="#changesModal" role="button" data-toggle="modal" onclick="writeChanges('/static/n/$date/changelog-$(date).html')">Changes</a></td>
+        <td><a href="#changesModal" role="button" data-toggle="modal" onclick="writeChanges('/static/n/$date/scriptlog-$(date).html')">Buildlog</a></td>
+        </tr>
+  </tbody>
+</table>
+
+<!-- Changes Modal -->
+<div id="changesModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="changesModalLabel" aria-hidden="true">
+  <div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+    <h4 id="changesModalLabel">Log</h4>
+  </div>
+  <div class="modal-body">
+    <!--populated by writeChanges-->
+  </div>
+</div>

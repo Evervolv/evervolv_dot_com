@@ -9,7 +9,7 @@ import web
 #os.chdir(abspath)
 # local imports
 from devices import device_retail_name, device_codename, devices
-from operations import find_builds, get_screenshots, search_files
+from operations import find_builds, get_screenshots, search_files, find_logs
 from sitemap import Sitemap
 
 urls = (
@@ -27,6 +27,7 @@ urls = (
     # Other
     '/robots.txt', 'Robots',
     '/sitemap.xml', 'SiteMap',
+    '/logs?', 'Logs',
     # Error
     '/404/', 'NotFound',
     # Catchall
@@ -105,6 +106,10 @@ class SiteMap:
             m.add_url('http://evervolv.com/devices/%s' % d,
                     changefreq='daily',priority='0.1')
         return m.write()
+
+class Logs:
+    def GET(self):
+        return render.logs(find_logs())
 
 class NotFound:
     def GET(self):

@@ -34,3 +34,7 @@ def search_files(name):
     if path:
         return os.path.join('/',path)
     return None
+
+# Used by Logs
+def find_logs(location='static/n'):
+    return sorted(os.listdir(location), reverse=True)
