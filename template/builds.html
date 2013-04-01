@@ -45,10 +45,12 @@ $var title: $device
                 <div class="accordion-inner">
                   <div class="row-fluid">
                     <div class="span8">
-                      $#<strong>MD5: </strong>$f[md]<br>
-                      $#<strong>Size: </strong>$human_readable_size(f[ss])MB
+                      <strong>MD5: </strong><br>$#$f[md]<br>
+                      <strong>Size: </strong><br>$#$human_readable_size(f[ss])MB<br>
+                      <a href="/get/$f[nn]">Permalink</a>
                     </div>
                     <div class="span4" align="right">
+                      <p>Direct Download</p>
                       <button class="btn" type="button" onclick="window.location='/$f[ll]'"><i class="icon-download-alt"></i></button>
                     </div>
                   </div>
@@ -75,10 +77,12 @@ $var title: $device
                   <div class="row-fluid">
                     <div class="span8">
                       <strong>MD5: </strong>$f[md]<br>
-                      <strong>Size: </strong>$human_readable_size(f[ss])MB
-                      <br><a href="#changesModal" role="button" data-toggle="modal" onclick="writeChanges('/static/n/$f[dd]/changelog-$(f[dd]).html')">Changes</a>
+                      <strong>Size: </strong>$human_readable_size(f[ss])MB<br>
+                      <a href="#changesModal" role="button" data-toggle="modal" onclick="writeChanges('/static/n/$f[dd]/changelog-$(f[dd]).html')">Changes</a><br>
+                      <a href="/get/$f[nn]">Permalink</a>
                     </div>
                     <div class="span4" align="right">
+                      <p>Direct Download</p>
                       <button class="btn" type="button" onclick="window.location='/static/n/$f[dd]/$f[nn]'"><i class="icon-download-alt"></i></button>
                     </div>
                  </div>

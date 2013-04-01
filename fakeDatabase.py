@@ -42,6 +42,7 @@ def parse_manifest(location,manifest):
 class FakeDB:
     def __init__(self, location='static/n',manifest='manifest.json'):
         self.entries = parse_manifest(location,manifest)
+        self.location = location
 
     def get_device(self, device=None):
         return [e for e in self.entries if e['device'] == device]
@@ -59,7 +60,7 @@ class FakeDB:
             l = [e for e in self.entries if e['date'] == s[0]]
         return sorted(l, key=lambda d: d['device'])
 
-    def path_byName(self,name):
+    def by_name(self,name):
         p = None
         for e in self.entries:
             if e['name'] == name:

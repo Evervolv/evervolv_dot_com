@@ -9,7 +9,7 @@ import web
 #os.chdir(abspath)
 # local imports
 from devices import device_retail_name, device_codename, devices
-from operations import find_builds, get_screenshots
+from operations import find_builds, get_screenshots, search_files
 from sitemap import Sitemap
 
 urls = (
@@ -17,6 +17,7 @@ urls = (
     '/about/', 'About',
     '/chat/', 'Chat',
     '/devices/(.*)', 'Devices',
+    '/get/(.*)', 'Permalink',
     '/news/', 'News',
     '/source/', 'Source',
     '/features/', 'Features',
@@ -26,6 +27,8 @@ urls = (
     # Other
     '/robots.txt', 'Robots',
     '/sitemap.xml', 'SiteMap',
+    # Error
+    '/404/', 'NotFound',
     # Catchall
     '/.*', 'SeeDefault',
 )
@@ -55,6 +58,20 @@ class Devices:
         if device:
             return render.builds(device,find_builds(device))
         return render.devices()
+
+class Permalink:
+    def GET(self,f=None):
+        if f and f.endswith('.zip'):
+            # until releases are indexed this should
+            # prevent unneeded cpu time instead of searching
+            # for everything all at once
+            path = search_files(t='nightly',name=f)
+            if path:
+                raise web.seeother(path)
+            path = search_files(t='release',name=f)
+            if path:
+                raise web.seeother(path)
+        raise web.seeother('/404/')
 
 class News:
     def GET(self):
@@ -94,6 +111,10 @@ class SiteMap:
             m.add_url('http://evervolv.com/devices/%s' % d,
                     changefreq='daily',priority='0.1')
         return m.write()
+
+class NotFound:
+    def GET(self):
+        return '404' #FIXME
 
 class SeeDefault:
     def GET(self):
