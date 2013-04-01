@@ -18,7 +18,6 @@ urls = (
     '/about/', 'About',
     '/chat/', 'Chat',
     '/devices/(.*)', 'Devices',
-    '/get/(.*)', 'Permalink',
     '/news/', 'News',
     '/source/', 'Source',
     '/features/', 'Features',
@@ -30,6 +29,7 @@ urls = (
     # Other
     '/robots.txt', 'Robots',
     '/sitemap.xml', 'SiteMap',
+    '/get/(r|n)/(.+)', 'Permalink',
     '/logs?', 'Logs',
     '/api/v(\d+)/(.+)/(.+)/(.+)','ApiHandler',
     # Error
@@ -63,14 +63,6 @@ class Devices:
         if device:
             return render.builds(device,find_builds(device))
         return render.devices()
-
-class Permalink:
-    def GET(self,f=None):
-        if f and f.endswith('.zip'):
-            path = search_files(f)
-            if path:
-                raise web.seeother(path)
-        raise web.seeother('/404/')
 
 class News:
     def GET(self):
@@ -111,6 +103,14 @@ class SiteMap:
                     changefreq='daily',priority='0.1')
         return m.write()
 
+class Permalink:
+    def GET(self,build_type=None,f=None):
+        if build_type and f and f.endswith('.zip'):
+            path = search_files(build_type,f)
+            if path:
+                raise web.seeother(path)
+        raise web.seeother('/404/')
+
 class Logs:
     def GET(self):
         return render.logs(find_logs())
@@ -118,15 +118,16 @@ class Logs:
 class ApiHandler:
     def GET(self,version=None,action=None,build_type=None,item=None):
         ret = ''
-        if int(version) == 1:
-          if action != 'get':
-              return api.v1_perform(action,build_type,item)
-          else:
-              path = api.v1_get(build_type,item)
-              if path:
-                  raise web.seeother(api.v1_get(build_type,item))
+        if version and action and build_type and item:
+            if int(version) == 1:
+              if action == 'get':
+                  raise web.seeother('/get/%s/%s' % (build_type,item))
+              else:
+                  return api.v1_perform(action,build_type,item)
+            else:
+              pass
         else:
-          pass
+            pass
         return ret
 
 class NotFound:

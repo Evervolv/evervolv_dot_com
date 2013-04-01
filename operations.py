@@ -23,17 +23,16 @@ def get_screenshots(location='static/img/screenshots'):
     return screens
 
 # Used by Permalink
-def search_files(name):
-    # Check nightlies first
-    path = FakeDB('static/n').by_name(name)
+def search_files(build_type,name):
+    ret = None
+    path = None
+    if build_type == 'n':
+        path = FakeDB('static/n').by_name(name)
+    elif build_type == 'r':
+        path = FakeDB('static/r').by_name(name)
     if path:
-        # returned path will be relative, so make it absolute
-        return os.path.join('/',path)
-    # Releases
-    path = FakeDB('static/r').by_name(name)
-    if path:
-        return os.path.join('/',path)
-    return None
+        ret = os.path.join('/',path)
+    return ret
 
 # Used by Logs
 def find_logs(location='static/n'):
