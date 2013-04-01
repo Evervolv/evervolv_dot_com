@@ -36,4 +36,12 @@ def search_files(build_type,name):
 
 # Used by Logs
 def find_logs(location='static/n'):
-    return sorted(os.listdir(location), reverse=True)
+    dates = []
+    try:
+        dirs = os.listdir(location)
+    except OSError:
+        pass
+    for d in dirs:
+        if os.path.isdir(os.path.join(location,d)) and d.startswith('20'):
+            dates.append(d)
+    return sorted(dates, reverse=True)
