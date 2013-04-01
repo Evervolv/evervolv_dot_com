@@ -31,7 +31,7 @@ urls = (
     '/sitemap.xml', 'SiteMap',
     '/get/(r|n)/(.+)', 'Permalink',
     '/logs?', 'Logs',
-    '/api/v(\d+)/(.+)/(.+)/(.+)','ApiHandler',
+    '/api/v(\d+)/(r|n)/(.+)/(.+)','ApiHandler',
     # Error
     '/404/', 'NotFound',
     # Catchall
@@ -116,7 +116,7 @@ class Logs:
         return render.logs(find_logs())
 
 class ApiHandler:
-    def GET(self,version=None,action=None,build_type=None,item=None):
+    def GET(self,version=None,build_type=None,action=None,item=None):
         ret = ''
         if version and action and build_type and item:
             if int(version) == 1:
