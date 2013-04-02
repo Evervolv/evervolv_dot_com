@@ -8,7 +8,7 @@ def find_manifests(location, manifest):
         for f in files:
             if manifest == f:
                 manifests.append(os.path.join(path,f))
-    return sorted(manifests, reverse=True)
+    return manifests
 
 def read_manifests(manifests):
     info = []
@@ -39,7 +39,6 @@ def parse_manifest(location,manifest):
     else:
         with f:
             entries = json.load(f)
-        entries.sort(reverse=True,key=lambda d:d['date'])
     return entries
 
 class FakeDB:
@@ -78,12 +77,12 @@ class FakeDB:
         self.location = location
 
     def by_device(self, device=None):
-        '''return all entries for selected {device}'''
-        return [e for e in self.entries if e.get('device') == device]
+        '''return all entries for selected {device} reverse sorted by date'''
+        return sorted([e for e in self.entries if e.get('device') == device], key=lambda d: d.get('date'), reverse=True)
 
-    def get_date(self, date=None):
-        '''return all entries for selected {date}'''
-        return [e for e in self.entries if e.get('date') == date]
+    def by_date(self, date=None):
+        '''return all entries for selected {date}, sorted by device'''
+        return sorted([e for e in self.entries if e.get('date') == date], key=lambda d: d.get('device'))
 
     def dates(self):
         '''return all {dates} reverse sorted (newest->oldest)'''
@@ -94,8 +93,8 @@ class FakeDB:
         l = []
         s = self.dates()
         if s: # protect array out of bounds on null list
-            l = [e for e in self.entries if e.get('date') == s[0]]
-        return sorted(l, key=lambda d: d.get('device'))
+            l = self.by_date(s[0])
+        return l
 
     def by_name(self,name):
         '''returns local path of file specified by {name} assumes all entries
