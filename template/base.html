@@ -199,6 +199,7 @@ $def with (page)
     })(jQuery);
     /* populate the build modal with changelog */
     function writeChanges(changesFile){
+        $$('.modal-body').html("<center>Loading...</center>")
         $$.get(changesFile, function(data) {
             /*replace sha's with link to gerrit*/
             var body=data.replace(/^((?!project)\w{7})\s/gm,"<a href='//review.evervolv.com/#/q/$$1,n,z' target='_blank' style='font-style:oblique;'>$$1</a>&nbsp;&nbsp;");
