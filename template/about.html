@@ -34,7 +34,7 @@ ul {
             $for p in maintainers:
                 <tr>
                   <td>
-                    <b><a href="$maintainer_info.get(p).get('url')">$p</a></b>
+                    <b><a href="$maintainer_info.get(p).get('url')" target="blank">$p</a></b>
                     $if maintainer_info.get(p).get('extra'):
                         <ul>
                         $for i in maintainer_info.get(p).get('extra'):
