@@ -18,7 +18,7 @@ urls = (
     '/about/', 'About',
     '/chat/', 'Chat',
     '/devices/(.*)', 'Devices',
-    '/news/', 'News',
+#    '/news/', 'News',
     '/source/', 'Source',
     '/bugs','Bugs',
     '/features/', 'Features',
