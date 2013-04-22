@@ -8,7 +8,7 @@ import web
 #sys.path.append(abspath)
 #os.chdir(abspath)
 # local imports
-from devices import device_retail_name, device_codename, devices
+from devices import *
 from operations import find_builds, get_screenshots, search_files, find_logs
 from sitemap import Sitemap
 import api
@@ -41,9 +41,13 @@ urls = (
 )
 
 t_globals = {
-    'device_retail_name': device_retail_name,
-    'device_codename': device_codename,
     'devices': devices,
+    'maintainers': maintainers,
+    'maintainer_info': maintainer_info,
+    'device_codename': device_codename,
+    'device_retail_name': device_retail_name,
+    'device_maintainer': device_maintainer,
+    'maintainer_devices': maintainer_devices,
 }
 
 render = web.template.render('template', base='base',globals=t_globals)
