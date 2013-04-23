@@ -21,33 +21,37 @@ ul {
 -->
 <div class="row-fluid">
   <div class="span8 offset2">
-    <table class="table table-condensed table-bordered">
+    <table class="table table-bordered">
         <caption><h3>Team Members<h3></caption>
          <thead>
             <tr>
-               <th>Maintainer</th>
+               <th>Device Maintainer</th>
                <th>Devices</th>
                <th>Device Retail Names</th>
            </tr>
         </thead>
         <tbody>
-            $for p in maintainers:
+            $for m in maintainers:
+                $code:
+                    name = m.get('name')
+                    info_extra = m.get('extra')
+                    info_url = m.get('url')
                 <tr>
                   <td>
-                    <b><a href="$maintainer_info.get(p).get('url')" target="blank">$p</a></b>
-                    $if maintainer_info.get(p).get('extra'):
+                    <b><a href="$info_url" target="blank">$name</a></b>
+                    $if info_extra:
                         <ul>
-                        $for i in maintainer_info.get(p).get('extra'):
+                        $for i in info_extra:
                             <li>$i</li>
                         </ul>
                   </td>
                   <td>
-                    $for d in maintainer_devices(p):
+                    $for d in maintainer_info(name).get('devices'):
                         <a href="/devices/$d">$d</a><br>
                   </td>
                   <td>
-                    $for d in maintainer_devices(p):
-                        $device_retail_name(d)<br>
+                    $for d in maintainer_info(name).get('devices'):
+                        $device_info(d).get('retail_name')<br>
                   </td>
                 </tr>
         </tbody>

@@ -1,6 +1,5 @@
 # Andrew Sutherland <dr3wsuth3rland@gmail.com>
 import os
-from devices import device_codename
 from fakeDatabase import FakeDB
 
 # Used by Devices

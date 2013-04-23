@@ -40,12 +40,9 @@ urls = (
 
 t_globals = {
     'devices': devices,
+    'device_info': device_info,
     'maintainers': maintainers,
     'maintainer_info': maintainer_info,
-    'device_codename': device_codename,
-    'device_retail_name': device_retail_name,
-    'device_maintainer': device_maintainer,
-    'maintainer_devices': maintainer_devices,
 }
 
 render = web.template.render('template', base='base',globals=t_globals)

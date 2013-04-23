@@ -71,8 +71,9 @@ $var title: Devices
     <div class="well sidebar-nav">
       <ul class="nav nav-list">
         <li class="nav-header">Devices</li>
-        $for d in devices:
-            <li><a data-toggle="tooltip" data-placement="top" href="/devices/$d" title="$device_retail_name(d)" id="tooltip-$d">$d</a></li>
+        $for device in devices:
+            $ d = device.get('device')
+            <li><a data-toggle="tooltip" data-placement="top" href="/devices/$d" title="$device_info(d).get('retail_name')" id="tooltip-$d">$d</a></li>
       </ul>
     </div>
   </div>

@@ -3,170 +3,163 @@
 # XXX: EDITING :XXX
 # ADDING DEVICES:
 #     Add to the devices tuple, should be alphabetical.
-#     Add to device_info dictionary, fill out all fields
 # ADDING MAINTAINERS:
-#     Add yourself to the bottom of the maintainers tuple.
-#     Add yourself to maintainers_info dictionary, url should be twitter or
-#       g+ (somewhere you publicly post your android news) 
+#     Add yourself to the bottom of the maintainers tuple,
+#     url should be twitter or g+ (somewhere you publicly post your android news) 
 
 __all__ = (
     'devices',
     'maintainers',
+    'device_info',
     'maintainer_info',
-    'device_codename',
-    'device_retail_name',
-    'device_maintainer',
-    'maintainer_devices',
 )
 
 # These do not get sorted
 # the order here is how they appear on the website
-devices = (
-    'bravo',
-    'd710',
-    'gapps',
-    'glacier',
-    'grouper',
-    'inc',
-    'jewel',
-    'kingdom',
-    'mako',
-    'manta',
-    'passion',
-    'pyramid',
-    'ruby',
-    'shooter',
-    'speedy',
-    'supersonic',
-    'tenderloin',
-    'vivow',
-)
 
-device_info = {
-    'bravo': {
+devices = (
+    {
+        'device': 'bravo',
         'codename': 'Turba',
         'retail_name': 'HTC Desire (GSM)',
         'maintainer': 'Nikez',
     },
-    'd710': {
+    {
+        'device': 'd710',
         'codename': 'Clarus',
         'retail_name': 'Samsung Epic 4G Touch',
         'maintainer': '',
     },
-    'gapps': {
+    {
+        'device': 'gapps',
         'codename': 'Gapps',
         'retail_name': 'Google Apps',
         'maintainer': '',
     },
-    'glacier': {
+    {
+        'device': 'glacier',
         'codename': 'Glacialis',
         'retail_name': 'T-mobile myTouch 4G',
         'maintainer': 'elginsk8r',
     },
-    'grouper': {
+    {
+        'device': 'grouper',
         'codename': 'Mirus',
         'retail_name': 'Google Nexus 7',
         'maintainer': 'drewis',
     },
-    'inc': {
+    {
+        'device': 'inc',
         'codename': 'Dives',
         'retail_name': 'HTC Droid Incredible',
         'maintainer': '',
     },
-    'jewel': {
+    {
+        'device': 'jewel',
         'codename': 'Bellus',
         'retail_name': 'HTC Evo 4G LTE',
         'maintainer': 'preludedrew',
     },
-    'kingdom': {
+    {
+        'device': 'kingdom',
         'codename': 'Scio',
         'retail_name': 'HTC Evo Design 4G',
         'maintainer': 'preludedrew',
     },
-    'mako': {
+    {
+        'device': 'mako',
         'codename': 'Fulsi',
         'retail_name': 'Google Nexus 4',
         'maintainer': 'drewis',
     },
-    'manta': {
+    {
+        'device': 'manta',
         'codename': 'Stella',
         'retail_name': 'Google Nexus 10',
         'maintainer': '',
     },
-    'passion': {
+    {
+        'device': 'passion',
         'codename': 'Perdo',
         'retail_name': 'Google Nexus One',
         'maintainer': 'drewis',
     },
-    'pyramid': {
+    {
+        'device': 'pyramid',
         'codename': 'Macto',
         'retail_name': 'HTC Sensation',
         'maintainer': 'Nikez',
     },
-    'ruby': {
+    {
+        'device': 'ruby',
         'codename': 'Iaceo',
         'retail_name': 'HTC Amaze 4G',
         'maintainer': 'preludedrew',
     },
-    'shooter': {
+    {
+        'device': 'shooter',
         'codename': 'Neco',
         'retail_name': 'HTC Evo 3D',
         'maintainer': 'preludedrew',
     },
-    'speedy': {
+    {
+        'device': 'speedy',
         'codename': 'Artis',
         'retail_name': 'HTC Evo Shift 4G',
         'maintainer': 'preludedrew',
     },
-    'supersonic': {
+    {
+        'device': 'supersonic',
         'codename': 'Acies',
         'retail_name': 'HTC Evo 4G',
         'maintainer': 'preludedrew',
     },
-    'tenderloin': {
+    {
+        'device': 'tenderloin',
         'codename': 'Queo',
         'retail_name': 'HP Touchpad',
         'maintainer': 'preludedrew',
     },
-    'vivow': {
+    {
+        'device': 'vivow',
         'codename': 'Conor',
         'retail_name': 'HTC Droid Incredible 2',
         'maintainer': 'preludedrew',
     },
-}
-
-maintainers = (
-    'preludedrew',
-    'drewis',
-    'Nikez',
-    'elginsk8r',
 )
 
-maintainer_info = {
-    'preludedrew': {
+maintainers = (
+    {
+        'name': 'preludedrew',
         'url': 'http://twitter.com/preludedrew',
-        'extra': ('Founder',),
+        'extra': ('Founder','Admin'),
     },
-    'drewis': {
+    {
+        'name': 'drewis',
         'url': 'https://plus.google.com/u/0/102710594547223731659/posts',
-        'extra': ('Site Admin',),
+        'extra': ('Admin',),
     },
-    'Nikez': {
+    {
+        'name': 'Nikez',
         'url': 'http://twitter.com/LaidbackNikez',
     },
-    'elginsk8r': {
+    {
+        'name': 'elginsk8r',
         'url': 'https://plus.google.com/u/0/100948280470840956633/posts',
     },
-}
+)
 
-def device_codename(device):
-    return device_info.get(device).get('codename')
+def device_info(device):
+    for d in devices:
+        if d.get('device') == device:
+            return d
+    return {}
 
-def device_retail_name(device):
-    return device_info.get(device).get('retail_name')
-
-def device_maintainer(device):
-    return device_info.get(device).get('maintainer')
-
-def maintainer_devices(name):
-    return [ d for d in devices if device_maintainer(d) == name ]
+def maintainer_info(name):
+    info = {}
+    for m in maintainers:
+        if m.get('name') == name:
+            info = m
+            info['devices'] = [ d.get('device') for d in devices if
+                    device_info(d.get('device')).get('maintainer') == name ]
+    return info
