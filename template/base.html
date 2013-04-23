@@ -176,8 +176,8 @@ $def with (page)
     <script type="text/javascript">
     (function(){
         /* Highlight current page */
-        page = url(1)
-        if(page == 'devices') {
+        page = url(1); page2 = url(2);
+        if(page == 'devices' && page2 == '') {
             $$('li#nav-devices').addClass('active');
         } else if(page == 'features') {
             $$('li#nav-features').addClass('active');
