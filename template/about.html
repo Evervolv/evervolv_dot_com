@@ -31,14 +31,15 @@ ul {
            </tr>
         </thead>
         <tbody>
-            $for m in maintainers:
+            $for m in maintainers.keys():
                 $code:
-                    name = m.get('name')
-                    info_extra = m.get('extra')
-                    info_url = m.get('url')
+                    info = maintainers.get(m)
+                    info_extra = info.get('extra')
+                    info_url = info.get('url')
+                    info_devices = info.get('devices')
                 <tr>
                   <td>
-                    <b><a href="$info_url" target="blank">$name</a></b>
+                    <b><a href="$info_url" target="blank">$m</a></b>
                     $if info_extra:
                         <ul>
                         $for i in info_extra:
@@ -46,12 +47,12 @@ ul {
                         </ul>
                   </td>
                   <td>
-                    $for d in maintainer_info(name).get('devices'):
+                    $for d in info_devices:
                         <a href="/devices/$d">$d</a><br>
                   </td>
                   <td>
-                    $for d in maintainer_info(name).get('devices'):
-                        $device_info(d).get('retail_name')<br>
+                    $for d in info_devices:
+                        $devices.get(d).get('retail_name')<br>
                   </td>
                 </tr>
         </tbody>
