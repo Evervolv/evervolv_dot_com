@@ -191,8 +191,7 @@ $def with (page)
             $$('li#nav-about').addClass('active');
         }
         /* activate device tooltips */
-        $for device in devices:
-            $ d = device.get('device')
+        $for d in devices():
             $$('#tooltip-$d').tooltip()
         /* scroll the carousel */
         $$('#home-carousel').carousel({interval:3000})
