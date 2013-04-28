@@ -22,109 +22,109 @@ devices = (
         'device': 'bravo',
         'codename': 'Turba',
         'retail_name': 'HTC Desire (GSM)',
-        'maintainer': 'Nikez',
+        'maintainer': ('Nikez',),
     },
     {
         'device': 'd710',
         'codename': 'Clarus',
         'retail_name': 'Samsung Epic 4G Touch',
-        'maintainer': '',
+        'maintainer': ('',),
     },
     {
         'device': 'gapps',
         'codename': 'Gapps',
         'retail_name': 'Google Apps',
-        'maintainer': '',
+        'maintainer': ('',),
     },
     {
         'device': 'glacier',
         'codename': 'Glacialis',
         'retail_name': 'T-mobile myTouch 4G',
-        'maintainer': 'elginsk8r',
+        'maintainer': ('elginsk8r',),
     },
     {
         'device': 'grouper',
         'codename': 'Mirus',
         'retail_name': 'Google Nexus 7',
-        'maintainer': 'drewis',
+        'maintainer': ('drewis',),
     },
     {
         'device': 'inc',
         'codename': 'Dives',
         'retail_name': 'HTC Droid Incredible',
-        'maintainer': '',
+        'maintainer': ('',),
     },
     {
         'device': 'jewel',
         'codename': 'Bellus',
         'retail_name': 'HTC Evo 4G LTE',
-        'maintainer': 'preludedrew',
+        'maintainer': ('preludedrew',),
     },
     {
         'device': 'kingdom',
         'codename': 'Scio',
         'retail_name': 'HTC Evo Design 4G',
-        'maintainer': 'preludedrew',
+        'maintainer': ('preludedrew',),
     },
     {
         'device': 'mako',
         'codename': 'Fulsi',
         'retail_name': 'Google Nexus 4',
-        'maintainer': 'drewis',
+        'maintainer': ('drewis',),
     },
     {
         'device': 'manta',
         'codename': 'Stella',
         'retail_name': 'Google Nexus 10',
-        'maintainer': '',
+        'maintainer': ('',),
     },
     {
         'device': 'passion',
         'codename': 'Perdo',
         'retail_name': 'Google Nexus One',
-        'maintainer': 'drewis',
+        'maintainer': ('drewis',),
     },
     {
         'device': 'pyramid',
         'codename': 'Macto',
         'retail_name': 'HTC Sensation',
-        'maintainer': 'Nikez',
+        'maintainer': ('Nikez',),
     },
     {
         'device': 'ruby',
         'codename': 'Iaceo',
         'retail_name': 'HTC Amaze 4G',
-        'maintainer': 'preludedrew',
+        'maintainer': ('preludedrew',),
     },
     {
         'device': 'shooter',
         'codename': 'Neco',
         'retail_name': 'HTC Evo 3D',
-        'maintainer': 'preludedrew',
+        'maintainer': ('preludedrew',),
     },
     {
         'device': 'speedy',
         'codename': 'Artis',
         'retail_name': 'HTC Evo Shift 4G',
-        'maintainer': 'preludedrew',
+        'maintainer': ('preludedrew',),
     },
     {
         'device': 'supersonic',
         'codename': 'Acies',
         'retail_name': 'HTC Evo 4G',
-        'maintainer': 'preludedrew',
+        'maintainer': ('preludedrew',),
     },
     {
         'device': 'tenderloin',
         'codename': 'Queo',
         'retail_name': 'HP Touchpad',
-        'maintainer': 'preludedrew',
+        'maintainer': ('preludedrew',),
     },
     {
         'device': 'vivow',
         'codename': 'Conor',
         'retail_name': 'HTC Droid Incredible 2',
-        'maintainer': 'preludedrew',
+        'maintainer': ('preludedrew',),
     },
 )
 
@@ -160,6 +160,6 @@ def maintainer_info(name):
     for m in maintainers:
         if m.get('name') == name:
             info = m
-            info['devices'] = [ d.get('device') for d in devices if
-                    device_info(d.get('device')).get('maintainer') == name ]
+            info['devices'] = [ d.get('device') for d in devices if name in
+                    device_info(d.get('device')).get('maintainer') ]
     return info
