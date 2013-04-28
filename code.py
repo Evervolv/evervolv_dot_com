@@ -20,14 +20,12 @@ urls = (
     '/devices/(.*)', 'Devices',
 #    '/news/', 'News',
     '/source/', 'Source',
-    '/bugs','Bugs',
     '/features/', 'Features',
     # Redirects for manually typed addresses
     # The idea here is to force any variations to the above paths
     '/([Aa]bout|[Cc]hat|[Dd]evices)', 'AddSlash',
     '/([Nn]ews|[Ss]ource|[Ff]eatures)', 'AddSlash',
     '/[Dd]ownloads?', 'SeeDevices',
-    '/[Bb]ugs','Bugs',
     # Other
     '/robots.txt', 'Robots',
     '/sitemap.xml', 'SiteMap',
@@ -77,9 +75,7 @@ class News:
 class Source:
     def GET(self):
         return render.source()
-class Bugs:
-    def GET(self):
-        raise web.seeother('http://bugs.evervolv.com')
+
 class Features:
     def GET(self):
         return render.features(get_screenshots())
