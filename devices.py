@@ -3,9 +3,10 @@
 # XXX: EDITING :XXX
 # ADDING DEVICES:
 #     Add to the devices tuple, should be alphabetical.
+#     'maintainer' field needs to be a tuple, so single entries need a trailing comma
 # ADDING MAINTAINERS:
 #     Add yourself to the bottom of the maintainers tuple,
-#     url should be twitter or g+ (somewhere you publicly post your android news) 
+#     'url' should be twitter or g+ (somewhere you publicly post your android news) 
 
 __all__ = (
     'devices',
@@ -28,7 +29,7 @@ devices = (
         'device': 'd710',
         'codename': 'Clarus',
         'retail_name': 'Samsung Epic 4G Touch',
-        'maintainer': ('',),
+        'maintainer': ('Dastin',),
     },
     {
         'device': 'gapps',
@@ -100,13 +101,13 @@ devices = (
         'device': 'shooter',
         'codename': 'Neco',
         'retail_name': 'HTC Evo 3D',
-        'maintainer': ('preludedrew',),
+        'maintainer': ('preludedrew','Flintman','Dastin'),
     },
     {
         'device': 'speedy',
         'codename': 'Artis',
         'retail_name': 'HTC Evo Shift 4G',
-        'maintainer': ('preludedrew',),
+        'maintainer': ('preludedrew','Dastin'),
     },
     {
         'device': 'supersonic',
@@ -118,7 +119,7 @@ devices = (
         'device': 'tenderloin',
         'codename': 'Queo',
         'retail_name': 'HP Touchpad',
-        'maintainer': ('preludedrew',),
+        'maintainer': ('preludedrew','Flintman'),
     },
     {
         'device': 'vivow',
@@ -147,6 +148,14 @@ maintainers = (
         'name': 'elginsk8r',
         'url': 'https://plus.google.com/u/0/100948280470840956633/posts',
     },
+    {
+        'name': 'Flintman',
+        'url': 'http://twitter.com/wbellavance',
+    },
+    {
+        'name': 'Dastin',
+        'url': 'http://twitter.com/dastin1015',
+    },
 )
 
 def device_info(device):
@@ -160,6 +169,6 @@ def maintainer_info(name):
     for m in maintainers:
         if m.get('name') == name:
             info = m
-            info['devices'] = [ d.get('device') for d in devices if name in
-                    device_info(d.get('device')).get('maintainer') ]
+            info['devices'] = tuple(d.get('device') for d in devices if name in
+                    device_info(d.get('device')).get('maintainer'))
     return info
