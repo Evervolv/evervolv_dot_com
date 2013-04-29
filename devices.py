@@ -87,7 +87,7 @@ _devices = {
     'speedy': {
         'codename': 'Artis',
         'retail_name': 'HTC Evo Shift 4G',
-        'maintainer': ('preludedrew','Dastin'),
+        'maintainer': ('preludedrew',),
     },
     'supersonic': {
         'codename': 'Acies',
