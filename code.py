@@ -17,6 +17,7 @@ urls = (
     '/','Default',
     '/about/', 'About',
     '/chat/', 'Chat',
+    '/devices/(.*)/', 'Devices',
     '/devices/(.*)', 'Devices',
 #    '/news/', 'News',
     '/source/', 'Source',
