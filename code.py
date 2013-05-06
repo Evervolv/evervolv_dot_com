@@ -97,7 +97,7 @@ class SiteMap:
         m.add_url('http://evervolv.com/news/',priority='0.3')
         m.add_url('http://evervolv.com/source/',priority='0.6')
         m.add_url('http://evervolv.com/features/',priority='0.6')
-        for d in devices:
+        for d in devices():
             m.add_url('http://evervolv.com/devices/%s' % d,
                     changefreq='daily',priority='0.1')
         return m.write()
