@@ -60,6 +60,8 @@ class Chat:
 class Devices:
     def GET(self,device=None):
         if device:
+            if device not in devices():
+                raise web.seeother('/404/')
             return render.builds(device,find_builds(device))
         return render.devices()
 
