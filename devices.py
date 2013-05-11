@@ -24,11 +24,6 @@ _devices = {
         'retail_name': 'Samsung Epic 4G Touch',
         'maintainer': ('Dastin',),
     },
-    'gapps': {
-        'codename': 'Gapps',
-        'retail_name': 'Google Apps',
-        'maintainer': ('',),
-    },
     'glacier': {
         'codename': 'Glacialis',
         'retail_name': 'T-mobile myTouch 4G',
