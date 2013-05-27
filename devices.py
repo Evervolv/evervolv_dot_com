@@ -37,7 +37,7 @@ _devices = {
     'inc': {
         'codename': 'Dives',
         'retail_name': 'HTC Droid Incredible',
-        'maintainer': ('',),
+        'maintainer': ('MongooseHelix',),
     },
     'jewel': {
         'codename': 'Bellus',
@@ -105,6 +105,10 @@ _maintainers = {
     'preludedrew': {
         'url': 'http://twitter.com/preludedrew',
         'extra': ('Founder','Admin'),
+    },
+    'MongooseHelix': {
+        'url': 'http://twitter.com/MongooseHelix',
+        'extra': ('Admin',),
     },
     'drewis': {
         'url': 'https://plus.google.com/u/0/102710594547223731659/posts',
