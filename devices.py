@@ -79,6 +79,11 @@ _devices = {
         'retail_name': 'HTC Evo 3D',
         'maintainer': ('preludedrew','Flintman','dastin1015'),
     },
+    'shooteru': {
+        'codename': 'Signum',
+        'retail_name': 'HTC Evo 3D (GSM)',
+        'maintainer': ('helicopter88',),
+    },
     'speedy': {
         'codename': 'Artis',
         'retail_name': 'HTC Evo Shift 4G',
@@ -130,6 +135,9 @@ _maintainers = {
     },
     'dastin1015': {
         'url': 'http://twitter.com/dastin1015',
+    },
+    'helicopter88': {
+        'url': 'http://forum.xda-developers.com/member.php?u=1924950',
     },
 }
 
