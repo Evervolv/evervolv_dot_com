@@ -94,6 +94,11 @@ _devices = {
         'retail_name': 'HP Touchpad',
         'maintainer': ('preludedrew','Flintman'),
     },
+    'toro': {
+        'codename': 'Primo',
+        'retail_name': 'Samsung Galaxy Nexus (Verizon)',
+        'maintainer': ('MongooseHelix',),
+    },
     'vivow': {
         'codename': 'Conor',
         'retail_name': 'HTC Droid Incredible 2',
