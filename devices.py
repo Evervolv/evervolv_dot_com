@@ -22,7 +22,7 @@ _devices = {
     'd710': {
         'codename': 'Clarus',
         'retail_name': 'Samsung Epic 4G Touch',
-        'maintainer': ('Dastin',),
+        'maintainer': ('dastin1015',),
     },
     'glacier': {
         'codename': 'Glacialis',
@@ -42,7 +42,7 @@ _devices = {
     'jewel': {
         'codename': 'Bellus',
         'retail_name': 'HTC Evo 4G LTE',
-        'maintainer': ('preludedrew',),
+        'maintainer': ('preludedrew','dastin1015'),
     },
     'kingdom': {
         'codename': 'Scio',
@@ -77,7 +77,7 @@ _devices = {
     'shooter': {
         'codename': 'Neco',
         'retail_name': 'HTC Evo 3D',
-        'maintainer': ('preludedrew','Flintman','Dastin'),
+        'maintainer': ('preludedrew','Flintman','dastin1015'),
     },
     'speedy': {
         'codename': 'Artis',
@@ -123,7 +123,7 @@ _maintainers = {
     'Flintman': {
         'url': 'http://twitter.com/wbellavance',
     },
-    'Dastin': {
+    'dastin1015': {
         'url': 'http://twitter.com/dastin1015',
     },
 }
