@@ -49,6 +49,11 @@ _devices = {
         'retail_name': 'HTC Evo Design 4G',
         'maintainer': ('preludedrew',),
     },
+    'm7wls': {
+        'codename': 'Regius',
+        'retail_name': 'HTC One (Sprint)',
+        'maintainer': ('dastin1015','preludedrew'),
+    },
     'mako': {
         'codename': 'Fulsi',
         'retail_name': 'Google Nexus 4',
