@@ -49,7 +49,7 @@ _devices = {
         'retail_name': 'HTC Evo Design 4G',
         'maintainer': ('preludedrew',),
     },
-    'm7wls': {
+    'm7spr': {
         'codename': 'Regius',
         'retail_name': 'HTC One (Sprint)',
         'maintainer': ('dastin1015','preludedrew'),
