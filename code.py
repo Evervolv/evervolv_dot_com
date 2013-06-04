@@ -1,12 +1,11 @@
 #!/usr/bin/env python2
 # Andrew Sutherland <dr3wsuth3rland@gmail.com>
 import web
+import os
 
-# apache hax for local imports
-#import os, sys
-#abspath = os.path.dirname(__file__)
-#sys.path.append(abspath)
-#os.chdir(abspath)
+if __name__ != "__main__":              # mod_wsgi has no concept of where it is
+    os.chdir(os.path.dirname(__file__)) # any relative paths will fail without this
+
 # local imports
 from devices import *
 from operations import find_builds, get_screenshots, search_files, find_logs
@@ -43,7 +42,6 @@ t_globals = {
     'devices': devices,
     'maintainers': maintainers,
 }
-
 render = web.template.render('template', base='base',globals=t_globals)
 
 class Default:
@@ -140,10 +138,9 @@ class Catchall:
     def GET(self,path=None):
         raise web.seeother('/404/')
 
-# lighttpd
-if __name__ == "__main__":
-    app = web.application(urls, globals())
-    app.run()
+app = web.application(urls,globals())
 
-# apache2 + wsgi
-#application = web.application(urls, globals()).wsgifunc()
+if __name__ == "__main__":
+    app.run() # devel
+else:
+    application = app.wsgifunc() # apache2 + wsgi
