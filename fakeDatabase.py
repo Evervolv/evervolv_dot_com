@@ -31,7 +31,7 @@ The general directory structure this class is expecting:
 
 import os
 import json
-import sys
+import time
 
 # Helpers
 def find_manifests(location, manifest):
@@ -57,12 +57,11 @@ def read_manifests(manifests):
                 info.append(e)
     return info
 
-def parse_manifest(location,manifest):
+def parse_manifest(location,manifest='manifest.json'):
     '''Parse a parent manifest, containing info on all files below it.
 
     As fall back we can also read individual manifest inside each directory
     named info.json'''
-    print >>sys.stderr, 'reading'
     m = os.path.join(location,manifest)
     entries = []
     try:
@@ -75,32 +74,59 @@ def parse_manifest(location,manifest):
     return entries
 
 # Globals
-ENTRIES = (parse_manifest('static/n','manifest.json'), # Nightlies
-        parse_manifest('static/r','manifest.json'))    # Releases
+nightly_location = os.path.join('static','n')
+release_location = os.path.join('static','r')
 
+manifest_entries = (parse_manifest(nightly_location), # Nightlies
+                    parse_manifest(release_location)) # Releases
+
+cache_expiry = time.time() + 300
+
+import sys,datetime
+def entries():
+    '''Wrapper for manifest_entries to allow updating cache
+
+    '''
+    global manifest_entries
+    global cache_expiry
+    if time.time() > cache_expiry:
+        cache_expiry = time.time() + 300
+        manifest_entries = (parse_manifest(nightly_location), # Nightlies
+                            parse_manifest(release_location)) # Releases
+        print >>sys.stderr, '%s: updated manifest cache: next update %s' % (
+                datetime.datetime.now(), datetime.datetime.fromtimestamp(cache_expiry))
+    return manifest_entries
 
 # Methods
 def by_device(device=None):
-    '''return all ENTRIES for selected {device} reverse sorted by date'''
-    return (sorted([e for e in ENTRIES[0] if e.get('device') == device],
+    '''return all manifest_entries (tuple) for selected {device} reverse sorted by date
+
+    '''
+    return (sorted([e for e in entries()[0] if e.get('device') == device],
                 key=lambda d: d.get('date'), reverse=True),
-            sorted([e for e in ENTRIES[1] if e.get('device') == device],
+            sorted([e for e in entries()[1] if e.get('device') == device],
                 key=lambda d: d.get('date'), reverse=True))
-           
+
 def by_date(date=None):
-    '''return all ENTRIES for selected {date}, sorted by device'''
-    return (sorted([e for e in ENTRIES[0] if e.get('date') == date],
+    '''return all manifest_entries (tuple) for selected {date}, sorted by device
+
+    '''
+    return (sorted([e for e in entries()[0] if e.get('date') == date],
                 key=lambda d: d.get('device')),
-            sorted([e for e in ENTRIES[1] if e.get('date') == date],
+            sorted([e for e in entries()[1] if e.get('date') == date],
                 key=lambda d: d.get('device')))
 
 def dates():
-    '''return all {dates} reverse sorted (newest->oldest)'''
-    return (sorted(set([e.get('date') for e in ENTRIES[0]]), reverse=True),
-            sorted(set([e.get('date') for e in ENTRIES[1]]), reverse=True))
+    '''return all {dates} (tuple) reverse sorted (newest->oldest)
+
+    '''
+    return (sorted(set([e.get('date') for e in entries()[0]]), reverse=True),
+            sorted(set([e.get('date') for e in entries()[1]]), reverse=True))
 
 def latest():
-    '''returns all builds for newest date, sorted by device'''
+    '''returns all builds (tuple) for newest date, sorted by device
+
+    '''
     ln = []
     lr = []
     n,r = dates()
@@ -111,16 +137,15 @@ def latest():
     return (ln,lr)
 
 def by_name(name):
-    '''returns local path of file specified by {name} assumes all entries
-       contain a unique {name}'''
+    '''returns local path (string) of file specified by {name}
+
+    assumes all entries contain a unique {name}'''
     p = None
-    for e in ENTRIES[0]:
+    for e in entries()[0]: # Nightlies
         if e.get('name') == name:
-            p = os.path.join('static/n',e.get('location'))
+            p = os.path.join(nightly_location,e.get('location'))
     if not p:
-        for e in ENTRIES[1]:
+        for e in entries()[1]: # Releases
             if e.get('name') == name:
-                p = os.path.join('static/r',e.get('location'))
+                p = os.path.join(release_location,e.get('location'))
     return p
-
-
