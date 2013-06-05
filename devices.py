@@ -8,6 +8,9 @@
 #     Add yourself to the bottom of the _maintainers dict,
 #     'url' should be twitter or g+ (somewhere you publicly post your android news) 
 
+
+from collections import OrderedDict
+
 __all__ = (
     'devices',
     'maintainers',
@@ -116,37 +119,63 @@ _devices = {
     },
 }
 
-_maintainers = {
-    'preludedrew': {
-        'url': 'http://twitter.com/preludedrew',
-        'extra': ('Founder','Admin'),
-    },
-    'MongooseHelix': {
-        'url': 'http://twitter.com/MongooseHelix',
-        'extra': ('Admin',),
-    },
-    'drewis': {
-        'url': 'https://plus.google.com/u/0/102710594547223731659/posts',
-        'extra': ('Admin',),
-    },
-    'Nikez': {
-        'url': 'http://twitter.com/LaidbackNikez',
-    },
-    'elginsk8r': {
-        'url': 'https://plus.google.com/u/0/100948280470840956633/posts',
-    },
-    'Flintman': {
-        'url': 'http://twitter.com/wbellavance',
-    },
-    'dastin1015': {
-        'url': 'http://twitter.com/dastin1015',
-    },
-    'helicopter88': {
-        'url': 'http://forum.xda-developers.com/member.php?u=1924950',
-    },
-}
+# Note: this is initialized as a list of tuples
+# This will not get sorted, order here is how it appears on the site
+_maintainers = OrderedDict ([
+    (
+        'preludedrew',
+        {
+            'url': 'http://twitter.com/preludedrew',
+            'extra': ('Founder','Admin'),
+        }
+    ),
+    (
+        'drewis',
+        {
+            'url': 'https://plus.google.com/u/0/102710594547223731659/posts',
+            'extra': ('Admin',),
+        }
+    ),
+    (
+        'MongooseHelix',
+        {
+            'url': 'http://twitter.com/MongooseHelix',
+            'extra': ('Admin',),
+        }
+    ),
+    (
+        'Nikez',
+        {
+            'url': 'http://twitter.com/LaidbackNikez',
+        }
+    ),
+    (
+        'elginsk8r',
+        {
+            'url': 'https://plus.google.com/u/0/100948280470840956633/posts',
+        }
+    ),
+    (
+        'Flintman',
+        {
+            'url': 'http://twitter.com/wbellavance',
+        }
+    ),
+    (
+        'dastin1015',
+        {
+            'url': 'http://twitter.com/dastin1015',
+        }
+    ),
+    (
+        'helicopter88',
+        {
+            'url': 'http://forum.xda-developers.com/member.php?u=1924950',
+        }
+    ),
+])
 
-# Add devices to maintainers tuple
+# Add devices to _maintainers
 for m in _maintainers.keys():
     _maintainers[m]['devices'] = tuple(sorted(d for d in _devices.keys() if m in
                     _devices.get(d).get('maintainer')))
@@ -162,4 +191,4 @@ def maintainers(name=None):
     if name:
         return _maintainers.get(name)
     else:
-        return sorted(_maintainers.keys())
+        return _maintainers.keys()
