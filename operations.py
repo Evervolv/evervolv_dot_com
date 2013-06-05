@@ -1,12 +1,11 @@
 # Andrew Sutherland <dr3wsuth3rland@gmail.com>
 import os
-from fakeDatabase import FakeDB
+import fakeDatabase
 
 # Used by Devices
 def find_builds(device=None):
     if device:
-        nightly = FakeDB('static/n').by_device(device=device)
-        release = FakeDB('static/r').by_device(device=device)
+        nightly,release = fakeDatabase.by_device(device)
         builds = { 'release': release, 'nightly': nightly }
     else:
         builds = { 'release':[],'nightly':[] }
@@ -24,11 +23,7 @@ def get_screenshots(location='static/img/screenshots'):
 # Used by Permalink
 def search_files(build_type,name):
     ret = None
-    path = None
-    if build_type == 'n':
-        path = FakeDB('static/n').by_name(name)
-    elif build_type == 'r':
-        path = FakeDB('static/r').by_name(name)
+    path = fakeDatabase.by_name(name)
     if path:
         ret = os.path.join('/',path)
     return ret
