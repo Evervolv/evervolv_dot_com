@@ -82,7 +82,6 @@ manifest_entries = (parse_manifest(nightly_location), # Nightlies
 
 cache_expiry = time.time() + 300
 
-import sys,datetime
 def entries():
     '''Wrapper for manifest_entries to allow updating cache
 
@@ -93,8 +92,6 @@ def entries():
         cache_expiry = time.time() + 300
         manifest_entries = (parse_manifest(nightly_location), # Nightlies
                             parse_manifest(release_location)) # Releases
-        print >>sys.stderr, '%s: updated manifest cache: next update %s' % (
-                datetime.datetime.now(), datetime.datetime.fromtimestamp(cache_expiry))
     return manifest_entries
 
 # Methods
