@@ -2,6 +2,15 @@
 import os
 import fakeDatabase
 
+__all__ = (
+        "find_builds",
+        "get_screenshots",
+        "search_files",
+        "locate_file",
+        "find_logs",
+)
+
+
 # Used by Devices
 def find_builds(device=None):
     if device:
@@ -27,6 +36,13 @@ def search_files(build_type,name):
     if path:
         ret = os.path.join('/',path)
     return ret
+
+# Used by Permalink2
+def locate_file(name):
+    path = fakeDatabase.by_name(name)
+    if path:
+        return os.path.join('/',path)
+    return None
 
 # Used by Logs
 def find_logs(location='static/n'):

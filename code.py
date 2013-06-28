@@ -8,7 +8,7 @@ if __name__ != "__main__":              # mod_wsgi has no concept of where it is
 
 # local imports
 from devices import *
-from operations import find_builds, get_screenshots, search_files, find_logs
+from operations import *
 from sitemap import Sitemap
 import api
 
@@ -30,6 +30,7 @@ urls = (
     '/robots.txt', 'Robots',
     '/sitemap.xml', 'SiteMap',
     '/get/(r|n)/(.+)', 'Permalink',
+    '/get/(.+)', 'Permalink2',
     '/logs?', 'Logs',
     '/api/v(\d+)/(r|n)/(.+)/(.+)','ApiHandler',
     # Error
@@ -103,6 +104,7 @@ class SiteMap:
                     changefreq='daily',priority='0.1')
         return m.write()
 
+# TODO fix links in pages to use Permalink2
 class Permalink:
     def GET(self,build_type=None,f=None):
         if build_type and f and f.endswith('.zip'):
@@ -110,6 +112,14 @@ class Permalink:
             if path:
                 raise web.seeother(path)
         raise web.seeother('/404/')
+
+class Permalink2:
+    def GET(self,f=None):
+        if f and f.endswith('.zip'):
+            path = locate_file(f)
+            if path:
+                raise web.seeother(path)
+        raise web.notfound()
 
 class Logs:
     def GET(self):
