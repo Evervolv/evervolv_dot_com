@@ -14,7 +14,7 @@ __all__ = (
 # Used by Devices
 def find_builds(device=None):
     if device:
-        nightly,release = fakeDatabase.by_device(device)
+        nightly,release,testing = fakeDatabase.by_device(device)
         builds = { 'release': release, 'nightly': nightly }
     else:
         builds = { 'release':[],'nightly':[] }

@@ -8,9 +8,9 @@ def v1_perform(action,build_type,device):
         if device in devices.devices():
             builds = fakeDatabase.by_device(device)
             if build_type.lower() == 'n':
-                if builds[0]:
-                    ret = json.dumps(builds[0])
+                ret = json.dumps(builds[0])
             elif build_type.lower() == 'r':
-                if builds[1]:
-                    ret = json.dumps(builds[1])
+                ret = json.dumps(builds[1])
+            elif build_type.lower() == 't':
+                ret = json.dumps(builds[2])
     return ret

@@ -21,12 +21,11 @@ The general directory structure this class is expecting:
       {date}/
         {name}
         info.json
-    r/
+    r|t/
       manifest.json
       {codename}/
         {name}
         info.json
-
 '''
 
 import os
@@ -76,9 +75,11 @@ def parse_manifest(location,manifest='manifest.json'):
 # Globals
 nightly_location = os.path.join('static','n')
 release_location = os.path.join('static','r')
+testing_location = os.path.join('static','t')
 
 manifest_entries = (parse_manifest(nightly_location), # Nightlies
-                    parse_manifest(release_location)) # Releases
+                    parse_manifest(release_location), # Releases
+                    parse_manifest(testing_location)) # Testing
 
 cache_expiry = time.time() + 300
 
@@ -91,7 +92,8 @@ def entries():
     if time.time() > cache_expiry:
         cache_expiry = time.time() + 300
         manifest_entries = (parse_manifest(nightly_location), # Nightlies
-                            parse_manifest(release_location)) # Releases
+                            parse_manifest(release_location), # Releases
+                            parse_manifest(testing_location)) # Testing
     return manifest_entries
 
 # Methods
@@ -102,6 +104,8 @@ def by_device(device=None):
     return (sorted([e for e in entries()[0] if e.get('device') == device],
                 key=lambda d: d.get('date'), reverse=True),
             sorted([e for e in entries()[1] if e.get('device') == device],
+                key=lambda d: d.get('date'), reverse=True),
+            sorted([e for e in entries()[2] if e.get('device') == device],
                 key=lambda d: d.get('date'), reverse=True))
 
 def by_date(date=None):
@@ -111,6 +115,8 @@ def by_date(date=None):
     return (sorted([e for e in entries()[0] if e.get('date') == date],
                 key=lambda d: d.get('device')),
             sorted([e for e in entries()[1] if e.get('date') == date],
+                key=lambda d: d.get('device')),
+            sorted([e for e in entries()[2] if e.get('date') == date],
                 key=lambda d: d.get('device')))
 
 def dates():
@@ -118,7 +124,8 @@ def dates():
 
     '''
     return (sorted(set([e.get('date') for e in entries()[0]]), reverse=True),
-            sorted(set([e.get('date') for e in entries()[1]]), reverse=True))
+            sorted(set([e.get('date') for e in entries()[1]]), reverse=True),
+            sorted(set([e.get('date') for e in entries()[2]]), reverse=True))
 
 def latest():
     '''returns all builds (tuple) for newest date, sorted by device
@@ -126,12 +133,15 @@ def latest():
     '''
     ln = []
     lr = []
-    n,r = dates()
+    lt = []
+    n,r,t = dates()
     if n: # protect array out of bounds on null list
         ln = by_date(n[0])[0]
     if r:
         lr = by_date(r[0])[1]
-    return (ln,lr)
+    if t:
+        lt = by_date(t[0])[2]
+    return (ln,lr,lt)
 
 def by_name(name):
     '''returns local path (string) of file specified by {name}
@@ -145,4 +155,8 @@ def by_name(name):
         for e in entries()[1]: # Releases
             if e.get('name') == name:
                 p = os.path.join(release_location,e.get('location'))
+    if not p:
+        for e in entries()[2]: # Testing
+            if e.get('name') == name:
+                p = os.path.join(testing_location,e.get('location'))
     return p
