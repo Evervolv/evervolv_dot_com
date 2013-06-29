@@ -32,7 +32,7 @@ urls = (
     '/get/(r|n)/(.+)', 'Permalink',
     '/get/(.+)', 'Permalink2',
     '/logs?', 'Logs',
-    '/api/v(\d+)/(r|n)/(.+)/(.+)','ApiHandler',
+    '/api/v(\d+)/(.+)/(.+)/(.+)','ApiHandler',
     # Error
     '/404/', 'NotFound',
     # Catchall
@@ -126,18 +126,13 @@ class Logs:
         return render.logs(find_logs())
 
 class ApiHandler:
-    def GET(self,version=None,build_type=None,action=None,item=None):
-        ret = ''
-        if version and action and build_type and item:
+    def GET(self,version=None,action=None,build_type=None,device=None):
+        ret = None
+        if version and build_type and action and device:
             if int(version) == 1:
-              if action == 'get':
-                  raise web.seeother('/get/%s/%s' % (build_type,item))
-              else:
-                  return api.v1_perform(action,build_type,item)
-            else:
-              pass
-        else:
-            pass
+                ret = api.v1_perform(action,build_type,device)
+        if not ret:
+            raise web.notfound()
         return ret
 
 class NotFound:
