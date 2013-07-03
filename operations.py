@@ -1,6 +1,7 @@
 # Andrew Sutherland <dr3wsuth3rland@gmail.com>
 import os
 import fakeDatabase
+from itertools import chain
 
 __all__ = (
         "find_builds",
@@ -39,9 +40,17 @@ def search_files(build_type,name):
 
 # Used by Permalink2
 def locate_file(name):
-    path = fakeDatabase.by_name(name)
-    if path:
-        return os.path.join('/',path)
+    if name.endswith('.zip'):
+        path = fakeDatabase.by_name(name)
+        if path:
+            return os.path.join('/',path)
+
+    for (p,d,files) in chain(os.walk('static/n'),
+            os.walk('static/r'),os.walk('static/t')):
+        for f in files:
+            if name == f:
+                return os.path.join('/',p,f)
+
     return None
 
 # Used by Logs

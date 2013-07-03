@@ -115,7 +115,7 @@ class Permalink:
 
 class Permalink2:
     def GET(self,f=None):
-        if f and f.endswith('.zip'):
+        if f is not None:
             path = locate_file(f)
             if path:
                 raise web.seeother(path)
