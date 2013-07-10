@@ -15,7 +15,7 @@ __all__ = (
 # Used by Devices
 def find_builds(device=None):
     if device:
-        nightly,release,testing = fakeDatabase.by_device(device)
+        nightly,release,testing,gapps = fakeDatabase.by_device(device)
         builds = { 'release': release, 'nightly': nightly }
     else:
         builds = { 'release':[],'nightly':[] }
@@ -46,7 +46,7 @@ def locate_file(name):
             return os.path.join('/',path)
 
     for (p,d,files) in chain(os.walk('static/n'),
-            os.walk('static/r'),os.walk('static/t')):
+            os.walk('static/r'),os.walk('static/t'),os.walk('static/g')):
         for f in files:
             if name == f:
                 return os.path.join('/',p,f)

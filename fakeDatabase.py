@@ -76,10 +76,12 @@ def parse_manifest(location,manifest='manifest.json'):
 nightly_location = os.path.join('static','n')
 release_location = os.path.join('static','r')
 testing_location = os.path.join('static','t')
+gapps_location   = os.path.join('static','g')
 
 manifest_entries = (parse_manifest(nightly_location), # Nightlies
                     parse_manifest(release_location), # Releases
-                    parse_manifest(testing_location)) # Testing
+                    parse_manifest(testing_location), # Testing
+                    parse_manifest(gapps_location))   # Gapps
 
 cache_expiry = time.time() + 300
 
@@ -93,7 +95,8 @@ def entries():
         cache_expiry = time.time() + 300
         manifest_entries = (parse_manifest(nightly_location), # Nightlies
                             parse_manifest(release_location), # Releases
-                            parse_manifest(testing_location)) # Testing
+                            parse_manifest(testing_location), # Testing
+                            parse_manifest(gapps_location))   # Gapps
     return manifest_entries
 
 # Methods
@@ -106,6 +109,8 @@ def by_device(device=None):
             sorted([e for e in entries()[1] if e.get('device') == device],
                 key=lambda d: d.get('date'), reverse=True),
             sorted([e for e in entries()[2] if e.get('device') == device],
+                key=lambda d: d.get('date'), reverse=True),
+            sorted([e for e in entries()[3] if e.get('device') == device],
                 key=lambda d: d.get('date'), reverse=True))
 
 def by_date(date=None):
@@ -117,6 +122,8 @@ def by_date(date=None):
             sorted([e for e in entries()[1] if e.get('date') == date],
                 key=lambda d: d.get('device')),
             sorted([e for e in entries()[2] if e.get('date') == date],
+                key=lambda d: d.get('device')),
+            sorted([e for e in entries()[3] if e.get('date') == date],
                 key=lambda d: d.get('device')))
 
 def dates():
@@ -125,7 +132,8 @@ def dates():
     '''
     return (sorted(set([e.get('date') for e in entries()[0]]), reverse=True),
             sorted(set([e.get('date') for e in entries()[1]]), reverse=True),
-            sorted(set([e.get('date') for e in entries()[2]]), reverse=True))
+            sorted(set([e.get('date') for e in entries()[2]]), reverse=True),
+            sorted(set([e.get('date') for e in entries()[3]]), reverse=True))
 
 def latest():
     '''returns all builds (tuple) for newest date, sorted by device
@@ -134,14 +142,17 @@ def latest():
     ln = []
     lr = []
     lt = []
-    n,r,t = dates()
+    lg = []
+    n,r,t,g = dates()
     if n: # protect array out of bounds on null list
         ln = by_date(n[0])[0]
     if r:
         lr = by_date(r[0])[1]
     if t:
         lt = by_date(t[0])[2]
-    return (ln,lr,lt)
+    if g:
+        lg = by_date(t[0])[3]
+    return (ln,lr,lt,lg)
 
 def by_name(name):
     '''returns local path (string) of file specified by {name}
@@ -159,4 +170,8 @@ def by_name(name):
         for e in entries()[2]: # Testing
             if e.get('name') == name:
                 p = os.path.join(testing_location,e.get('location'))
+    if not p:
+        for e in entries()[3]: # Gapps
+            if e.get('name') == name:
+                p = os.path.join(gapps_location,e.get('location'))
     return p
