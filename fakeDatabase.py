@@ -110,7 +110,7 @@ def by_device(device=None):
                 key=lambda d: d.get('date'), reverse=True),
             sorted([e for e in entries()[2] if e.get('device') == device],
                 key=lambda d: d.get('date'), reverse=True),
-            sorted([e for e in entries()[3] if e.get('device') == device],
+            sorted(list(entries()[3]),
                 key=lambda d: d.get('date'), reverse=True))
 
 def by_date(date=None):
