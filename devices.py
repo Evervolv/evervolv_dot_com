@@ -37,6 +37,11 @@ _devices = {
         'retail_name': 'Google Nexus 7',
         'maintainer': ('drewis',),
     },
+    'hercules': {
+        'codename': 'Potens',
+        'retail_name': 'Samsung Galaxy S II (T-Mobile)',
+        'maintainer': ('elginsk8r',),
+    },
     'inc': {
         'codename': 'Dives',
         'retail_name': 'HTC Droid Incredible',
