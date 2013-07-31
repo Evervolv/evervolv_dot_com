@@ -6,7 +6,6 @@ from itertools import chain
 __all__ = (
         "find_builds",
         "get_screenshots",
-        "search_files",
         "locate_file",
         "find_logs",
 )
@@ -29,14 +28,6 @@ def get_screenshots(location='static/img/screenshots'):
     except OSError as e:
         pass
     return screens
-
-# Used by Permalink
-def search_files(build_type,name):
-    ret = None
-    path = fakeDatabase.by_name(name)
-    if path:
-        ret = os.path.join('/',path)
-    return ret
 
 # Used by Permalink2
 def locate_file(name):

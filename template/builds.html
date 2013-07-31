@@ -49,11 +49,11 @@ $var title: $device
                     <div class="span8">
                       <strong>MD5: </strong>$f.get(md)<br>
                       <strong>Size: </strong>$human_readable_size(f.get(ss))MB<br>
-                      <a href="/get/r/$f.get(nn)">Permalink</a>
+                      <a href="/get/$f.get(nn)">Permalink</a>
                     </div>
                     <div class="span4" align="right">
                       <p>Direct Download</p>
-                      <button class="btn" type="button" onclick="window.location='/static/r/$f.get(ll)'"><i class="icon-download-alt"></i></button>
+                      <button class="btn" type="button" onclick="window.location='/get/$f.get(nn)'"><i class="icon-download-alt"></i></button>
                     </div>
                   </div>
                 </div>
@@ -82,11 +82,11 @@ $var title: $device
                       <strong>Size: </strong>$human_readable_size(f.get(ss))MB<br>
                       <a href="#changesModal" role="button" data-toggle="modal" onclick="writeChanges('/static/n/$f.get(dd)/changelog-$(f.get(dd)).html')">Changes</a>
                       &nbsp;&nbsp;&nbsp;
-                      <a href="/get/n/$f.get(nn)">Permalink</a>
+                      <a href="/get/$f.get(nn)">Semi-Permalink</a>
                     </div>
                     <div class="span4" align="right">
                       <p>Direct Download</p>
-                      <button class="btn" type="button" onclick="window.location='/static/n/$f.get(ll)'"><i class="icon-download-alt"></i></button>
+                      <button class="btn" type="button" onclick="window.location='/get/$f.get(nn)'"><i class="icon-download-alt"></i></button>
                     </div>
                  </div>
                 </div>

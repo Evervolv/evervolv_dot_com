@@ -104,14 +104,13 @@ class SiteMap:
                     changefreq='daily',priority='0.1')
         return m.write()
 
-# TODO fix links in pages to use Permalink2
-class Permalink:
+class Permalink: # Depreciated: don't care about build type
     def GET(self,build_type=None,f=None):
-        if build_type and f and f.endswith('.zip'):
-            path = search_files(build_type,f)
+        if f is not None:
+            path = locate_file(f)
             if path:
                 raise web.seeother(path)
-        raise web.seeother('/404/')
+        raise web.notfound()
 
 class Permalink2:
     def GET(self,f=None):
