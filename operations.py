@@ -36,8 +36,10 @@ def locate_file(name):
         if path:
             return os.path.join('/',path)
 
-    for (p,d,files) in chain(os.walk('static/n'),
-            os.walk('static/r'),os.walk('static/t'),os.walk('static/g')):
+    for (p,d,files) in chain(os.walk(fakeDatabase.testing_location),
+            os.walk(fakeDatabase.release_location),
+            os.walk(fakeDatabase.gapps_location),
+            os.walk(fakeDatabase.nightly_location)):
         for f in files:
             if name == f:
                 return os.path.join('/',p,f)
@@ -45,7 +47,7 @@ def locate_file(name):
     return None
 
 # Used by Logs
-def find_logs(location='static/n'):
+def find_logs(location=fakeDatabase.nightly_location):
     dates = []
     try:
         dirs = os.listdir(location)
