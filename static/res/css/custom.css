@@ -1,0 +1,41 @@
+/* Base */
+body {
+	padding-top: 70px;
+	padding-bottom: 70px;
+	font-family: 'Roboto', sans-serif;
+	color: #fff;
+	background-color: #1b1b1b;
+}
+a {
+	color: #33B5E5;
+}
+a:hover,
+a:focus {
+	color: #0099CC;
+}
+.navbar-inverse .navbar-brand {
+	font-size:1.8em;
+	color: #33B5E5;
+	font-family: "Sony Sketch";
+}
+.well {
+	background-color: #1b1b1b;
+	border: 1px solid #fff;
+}
+/* About */
+
+/* Builds */
+
+/* Chat */
+
+/* Default */
+
+/* Devices */
+
+/* Error */
+
+/* Features */
+
+/* Logs */
+
+/* Source */

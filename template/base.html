@@ -9,152 +9,71 @@ $def with (page)
         | $page.title
     </title>
     <meta name="description" content="It's what we do." />
-    <meta name="keywords" content="Evervolv,Android,AOSP,Jellybean">
+    <meta name="keywords" content="Evervolv, Android, AOSP, Jellybean">
     <link rel="shortcut icon" href="/static/res/img/ico/favicon.png">
-    <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="/static/res/bootstrap/css/bootstrap.min.css"/>
-    <link rel="stylesheet" type="text/css" href="/static/res/css/fonts.css"/>
-    <style type="text/css">
-      html,
-      body {
-        font-family: 'Roboto', sans-serif;
-        color: #fff;
-        background-color: #1b1b1b;
-        height: 100%;
-      }
-      a {
-        color: #33B5E5;
-      }
-      a:hover,
-      a:focus {
-        color: #0099CC;
-      }
-      .evervolv {
-        font-family: "Sony Sketch";
-        font-size:1.5em;
-      }
-      .evervolv.right {
-        font-size:1.3em;
-      }
-      .navbar-inverse .brand {
-        font-size:1.8em;
-        color: #33B5E5;
-        font-family: "Sony Sketch";
-      }
-      /* Wrapper for page content to push down footer */
-      #wrap {
-        min-height: 100%;
-        height: auto !important;
-        height: 100%;
-        /* Negative indent footer by it's height */
-        margin: 0 auto -30px;
-      }
-      #wrap > .container-fluid {
-        padding-top: 60px;
-      }
-      /* Set the fixed height of the footer */
-      #push,
-      #footer {
-        height: 30px;
-      }
-      #footer {
-        background-color: #1b1b1b;
-        background-image: -moz-linear-gradient(top, #222222, #111111);
-        background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#222222), to(#111111));
-        background-image: -webkit-linear-gradient(top, #222222, #111111);
-        background-image: -o-linear-gradient(top, #222222, #111111);
-        background-image: linear-gradient(to bottom, #222222, #111111);
-        background-repeat: repeat-x;
-        border-color: #252525;
-      }
-      .rightFooter {
-        margin-top: 4px;
-        margin-bottom: 0;
-        display:inline-block;
-        float:right;
-      }
-      .leftFooter {
-        margin-top: 4px;
-        margin-bottom: 0;
-        display:inline-block;
-        float:left;
-      }
-      .leftFooter a {
-        text-decoration:none
-      }
-      .leftFooter a:hover {
-        color:white;
-      }
-      @media (max-width: 980px) {
-        /* Enable use of floated navbar text */
-        .navbar-text.pull-right {
-          float: none;
-          padding-left: 5px;
-          padding-right: 5px;
-        }
-        #wrap > .container-fluid {
-          padding-top: 0;
-        }
-      }
-      @media (max-width: 767px) {
-        #footer {
-          margin-left: -20px;
-          margin-right: -20px;
-          padding-left: 20px;
-          padding-right: 20px;
-        }
-      }
-    </style>
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Roboto">
+    <link rel="stylesheet" type="text/css" href="/static/res/bootstrap/css/bootstrap.min.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="/static/res/css/fonts.css">
+    <link rel="stylesheet" type="text/css" href="/static/res/css/custom.css">
   <body>
-   <div id="wrap">
-    <!-- Navbar -->
+    <!--Navbar-->
     <div class="navbar navbar-inverse navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="brand" href="/">Evervolv</a>
-          <div class="nav-collapse collapse">
-            <ul class="nav">
-              <li id="nav-devices">
-                <a href="/devices/">Devices</a>
-              </li>
-              <li id="nav-features">
-                <a href="/features/">Features</a>
-              </li>
-              <li id="nav-chat">
-                <a href="/chat/">Chat</a>
-              </li>
-<!--              <li id="nav-news">-->
-<!--                <a href="/news/">News</a>-->
-<!--              </li>-->
-              <li id="nav-source">
-                <a href="/source/">Source Code</a>
-              </li>
-              <li id="nav-bugs">
-                <a href="http://bugs.evervolv.com/" target="_blank">Bug Tracker</a>
-              </li>
-              <li id="nav-about">
-                <a href="/about/">About</a>
-              </li>
-            </ul>
-          </div>
+      <div class="container">
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Evervolv</a>
+        <div class="nav-collapse collapse navbar-responsive-collapse">
+          <ul class="nav navbar-nav">
+            <li id="nav-devices">
+              <a href="/devices/">Devices</a>
+            </li>
+            <li id="nav-features">
+              <a href="/features/">Features</a>
+            </li>
+            <li id="nav-chat">
+              <a href="/chat/">Chat</a>
+            </li>
+            <li id="nav-source">
+              <a href="/source/">Source Code</a>
+            </li>
+            <li id="nav-about">
+              <a href="/about/">About</a>
+            </li>
+            <li>
+              <a class="dropdown-toggle dropdown-inverse" data-toggle="dropdown"> External <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="//bugs.evervolv.com/" target="_blank">Bug Tracker</a>
+                </li>
+                <li>
+                  <a href="//review.evervolv.com/" target="_blank">Gerrit Review</a>
+                </li>
+                <li>
+                  <a href="//paste.evervolv.com/" target="_blank">Paste</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
         </div>
       </div>
     </div>
     <!--Content-->
-    <div class="container-fluid">
+    <div class="container">
         $:page
     </div>
-    <div id="push"></div>
-   </div> <!-- End Wrap -->
-    <div id="footer">
-      <div class="container-fluid">
-        <p class="leftFooter"><a href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=PreludeDrew%40gmail%2ecom&lc=US&item_name=ROM%20Development&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted" target="_blank">Donate<span class="hidden-phone"> to </span><span class="evervolv hidden-phone">Evervolv</span></a></p>
-        <p class="rightFooter"><span class="hidden-phone">Built with <a href="//getbootstrap.com/" target="_blank">bootstrap</a> and <a href="//webpy.org/" target="_blank">web.py</a>&nbsp;&nbsp;</span>&copy;The <span class="evervolv">Evervolv</span> Project</p>
+    <!--Footer-->
+    <!-- TODO navbar-static-bottom -->
+    <div class="navbar navbar-inverse navbar-fixed-bottom">
+      <div class="container">
+        <!--Desktops and tablets gets full text-->
+	      <p class="navbar-text pull-left hidden-sm"><a class="navbar-link" href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=PreludeDrew%40gmail%2ecom&lc=US&item_name=ROM%20Development&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted" target="_blank">Donate</a> to Evervolv&nbsp;&nbsp;</p>
+        <p class="navbar-text pull-right hidden-sm">Built with <a class="navbar-link" href="//getbootstrap.com/" target="_blank">bootstrap</a> and <a class="navbar-link" href="//webpy.org/" target="_blank">web.py</a>&nbsp;&nbsp;&copy;The Evervolv Project</p>
+        <!--Phones get abbreviated text-->
+        <p class="navbar-text pull-left visible-sm"><a class="navbar-link" href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=PreludeDrew%40gmail%2ecom&lc=US&item_name=ROM%20Development&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted" target="_blank">Donate</a>&nbsp;&nbsp;</p>
+        <p class="navbar-text pull-right visible-sm">&copy;The Evervolv Project</p>
       </div>
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
@@ -182,7 +101,7 @@ $def with (page)
         $for d in devices():
             $$('#tooltip-$d').tooltip()
         /* scroll the carousel */
-        $$('#home-carousel').carousel({interval:3000})
+        $$('#home-carousel').carousel({interval:4000})
         $$('#home-caurosel').carousel()
     })(jQuery);
     /* populate the build modal with changelog */
