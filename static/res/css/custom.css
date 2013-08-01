@@ -24,7 +24,28 @@ a:focus {
 /* About */
 
 /* Builds */
-
+.breadcrumb {
+	background-color: #1b1b1b;
+}
+a.accordion-toggle:focus,
+a.accordion-toggle:hover {
+	text-decoration:none;
+}
+.accordion-header-date {
+	color: #fff;
+}
+.btn-primary {
+	background-color: #33b5e5;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active,
+.btn-primary.active {
+  background-color: #0099cc;
+}
+.modal {
+	color: #000;
+}
 /* Chat */
 
 /* Default */
@@ -47,7 +68,12 @@ a:focus {
 	}
 }
 /* Devices */
-
+.list-group-item {
+	background-color: #1b1b1b;
+}
+h5 {
+	text-align: center;
+}
 /* Error */
 
 /* Features */

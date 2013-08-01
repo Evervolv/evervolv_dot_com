@@ -15,6 +15,7 @@ $def with (page)
     <link rel="stylesheet" type="text/css" href="/static/res/bootstrap/css/bootstrap.min.css" media="screen">
     <link rel="stylesheet" type="text/css" href="/static/res/css/fonts.css">
     <link rel="stylesheet" type="text/css" href="/static/res/css/custom.css">
+  </head>
   <body>
     <!--Navbar-->
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -106,6 +107,7 @@ $def with (page)
     })(jQuery);
     /* populate the build modal with changelog */
     function writeChanges(changesFile){
+        $$('#modal-title').html('Changes');
         $$('.modal-body').html("<center>Loading...</center>")
         $$.get(changesFile, function(data) {
             /*replace sha's with link to gerrit*/
@@ -121,6 +123,10 @@ $def with (page)
             /*console.log(body);*/
         });
     }
+    function writeMessage(message){
+      $$('#modal-title').html('Notes');
+      $$('.modal-body').html('<p>'+message+'</p>');
+    }
     </script>
     <script type="text/javascript">
       var _gaq = _gaq || [];
@@ -133,6 +139,5 @@ $def with (page)
         var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
       })();
     </script>
-  </head>
   </body>
 </html>
