@@ -29,7 +29,24 @@ a:focus {
 /* Chat */
 
 /* Default */
-
+.jumbotron {
+	color: #fff;
+	background-color: #1b1b1b;
+	text-align: center;
+}
+.jumbotron h1 {
+	font-size: 90px;
+	font-family: "Sony Sketch";
+}
+.jumbotron p {
+	font-size: 25px;
+	font-family: "Sony Sketch";
+}
+@media (max-width: 480px) {
+	.jumbotron h1 {
+		font-size: 70px;
+	}
+}
 /* Devices */
 
 /* Error */
