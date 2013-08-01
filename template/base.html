@@ -8,10 +8,11 @@ $def with (page)
     $if page.title:
         | $page.title
     </title>
-    <meta name="description" content="Evervolv" />
+    <meta name="description" content="It's what we do." />
     <meta name="keywords" content="Evervolv,Android,AOSP,Jellybean">
+    <link rel="shortcut icon" href="/static/res/img/ico/favicon.png">
     <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" type="text/css" href="/static/res/bootstrap/css/bootstrap.min.css"/>
     <link rel="stylesheet" type="text/css" href="/static/res/css/fonts.css"/>
     <style type="text/css">
       html,
@@ -104,20 +105,6 @@ $def with (page)
         }
       }
     </style>
-    <link rel="stylesheet" type="text/css" href="/static/bootstrap/css/bootstrap-responsive.min.css"/>
-    <link rel="shortcut icon" href="/static/res/img/ico/favicon.png">
-    <script type="text/javascript">
-      var _gaq = _gaq || [];
-      _gaq.push(['_setAccount', 'UA-21396401-1']);
-      _gaq.push(['_setDomainName', 'evervolv.com']);
-      _gaq.push(['_trackPageview']);
-      (function() {
-        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-      })();
-    </script>
-  </head>
   <body>
    <div id="wrap">
     <!-- Navbar -->
@@ -172,7 +159,7 @@ $def with (page)
     </div>
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="/static/res/js/jquery-1.9.1.min.js"><\/script>')</script>
-    <script type="text/javascript" src="/static/bootstrap/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="/static/res/bootstrap/js/bootstrap.min.js"></script>
     <script type="text/javascript" src="/static/res/js/js-url.min.js"></script>
     <script type="text/javascript">
     (function(){
@@ -216,5 +203,17 @@ $def with (page)
         });
     }
     </script>
+    <script type="text/javascript">
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-21396401-1']);
+      _gaq.push(['_setDomainName', 'evervolv.com']);
+      _gaq.push(['_trackPageview']);
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  </head>
   </body>
 </html>
