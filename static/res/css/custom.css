@@ -18,9 +18,8 @@ a:focus {
 	color: #33B5E5;
 	font-family: "Sony Sketch";
 }
-.well {
+.panel {
 	background-color: #1b1b1b;
-	border: 1px solid #fff;
 }
 /* About */
 

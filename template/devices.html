@@ -1,58 +1,71 @@
 $var title: Devices
-<div class="row">
-  <div class="span10 pull-right">
-    <div class="row">
-      <div class="span6 offset1">
-        <table class="table table-bordered table-condensed">
-          <caption><h4>Version Breakdown</h4></caption>
-          <thead>
-            <th>Evervolv</th>
-            <th>AOSP</th>
-          </thead>
-          <tbody>
-            <tr><td>v3.3.x</td><td>4.3.x (Jellybean)</td></tr>
-            <tr><td>v3.2.x</td><td>4.2.x (Jellybean)</td></tr>
-            <tr><td>v3.1.0</td><td>4.1.2 (Jellybean)</td></tr>
-            <tr><td>v3.0.0</td><td>4.1.1 (Jellybean)</td></tr>
-            <tr><td>v2.2.0</td><td>4.0.4 (Ice Cream Sandwich)</td></tr>
-          </tbody>
-        </table>
-      </div>
-    </div>
-    <div class="row">
-      <div class="span6 offset1">
-        <div class="well">
-          <ul>
-            <li>
-              <b>Questions?</b>
-              <ul>
-                <li>Join us in <a href="/chat/">#evervolv</a> on irc.freenode.net. Just be sure not to leave before someone answers!</li>
-              </ul>
-            </li>
-            <li>
-              <b>Whats working?</b>
-              <ul>
-                <li>Follow your device's <a href="/about/">maintainer</a> for updates.</li>
-              </ul>
-            </li>
-            <li>
-              <b>Bugs or Issues?</b>
-              <ul>
-                <li>Submit a report on our <a href="//bugs.evervolv.com/" target="_blank">bug tracker</a> (Note: Nightlies are not eligible for bug reports, use irc to report issues for nightlies)</li>
-              </ul>
-            </li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </div>
-  <div class="span2 pull-left">
-    <div class="well sidebar-nav">
-      <ul class="nav nav-list">
-        <li class="nav-header">Devices</li>
+<!-- use a collapsed nav to show devices on phones -->
+<div class="navbar navbar-inverse visible-sm">
+  <div class="container">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".devices-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <a class="navbar-brand" href="/">Devices</a>
+    <div class="nav-collapse collapse devices-responsive-collapse">
+      <ul class="nav navbar-nav">
         $for d in devices():
-            <li><a data-toggle="tooltip" data-placement="top" href="/devices/$d" title="$devices(d).get('retail_name')" id="tooltip-$d">$d</a></li>
+          <li><a href="/devices/$d">$d</a></li>
       </ul>
+    </div><!--collapse-->
+  </div><!--container-->
+</div><!--navbar-->
+<div class="row">
+  <!-- no col-# here since it is hidden on phones -->
+  <div class="col-sm-3 col-lg-2 hidden-sm">
+    <h5>Devices</h5>
+    <div class="list-group">
+      $for d in devices():
+        <a class="list-group-item" data-toggle="tooltip" data-placement="right" href="/devices/$d" title="$devices(d).get('retail_name')" id="tooltip-$d">$d</a>
     </div>
-  </div>
+  </div><!--col-->
+  <!-- col-12 here since we hide above column on phones -->
+  <div class="col-12 col-sm-9 col-lg-10">
+    <div class="row">
+      <table class="table table-bordered table-condensed">
+        <caption><h4>Version Breakdown</h4></caption>
+        <thead>
+          <th>Evervolv</th>
+          <th>AOSP</th>
+        </thead>
+        <tbody>
+          <tr><td>v3.3.x</td><td>4.3.x (Jellybean)</td></tr>
+          <tr><td>v3.2.x</td><td>4.2.x (Jellybean)</td></tr>
+          <tr><td>v3.1.0</td><td>4.1.2 (Jellybean)</td></tr>
+          <tr><td>v3.0.0</td><td>4.1.1 (Jellybean)</td></tr>
+          <tr><td>v2.2.0</td><td>4.0.4 (Ice Cream Sandwich)</td></tr>
+        </tbody>
+      </table>
+    </div><!--row-->
+    <div class="row">
+      <div class="panel">
+        <ul>
+          <li>
+            <b>Questions?</b>
+            <ul>
+              <li>Join us in <a href="/chat/">#evervolv</a> on irc.freenode.net. Just be sure not to leave before someone answers!</li>
+            </ul>
+          </li>
+          <li>
+            <b>Whats working?</b>
+            <ul>
+              <li>Follow your device's <a href="/about/">maintainer</a> for updates.</li>
+            </ul>
+          </li>
+          <li>
+            <b>Bugs or Issues?</b>
+            <ul>
+              <li>Submit a report on our <a href="//bugs.evervolv.com/" target="_blank">bug tracker</a> (Note: Nightlies are not eligible for bug reports, use irc to report issues for nightlies)</li>
+            </ul>
+          </li>
+        </ul>
+      </div><!--panel-->
+    </div><!--row-->
+  </div><!--col-->
 </div><!--row-->
