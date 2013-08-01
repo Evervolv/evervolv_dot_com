@@ -1,0 +1,4 @@
+<!--#echo encoding="none" var="SERVER_SIGNATURE"--> 
+<address>from <!--#echo var="REMOTE_ADDR"--> with <!--#echo var="HTTP_USER_AGENT"--></address>
+</body>
+</html>

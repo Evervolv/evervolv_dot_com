@@ -1,0 +1,17 @@
+<html>
+<head>
+	<title><!--#echo var="SERVER_NAME" --> at <!--#echo var="REQUEST_URI" --></title>
+	<link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+	<link rel="shortcut icon" href="/static/res/img/ico/favicon.png">
+	<link rel="stylesheet" href="/static/res/css/fonts.css">
+	<style>
+		h1 { font-family: "Sony Sketch"; }
+		body { font-family: 'Roboto'; color: #fff; background-color: #1b1b1b; }
+		a { color: #0099cc; }
+		a:hover, a:focus { color: #0099cc; }
+	</style>
+</head>
+<body>
+	<h1>Evervolv</h1>
+	<h3>Index of <!--#echo var="REQUEST_URI" --></h2>
+
