@@ -21,7 +21,7 @@ def find_builds(device=None):
     return builds
 
 # Used by Features
-def get_screenshots(location='static/img/screenshots'):
+def get_screenshots(location='static/res/img/screenshots'):
     screens = []
     try:
         screens = os.listdir(location)
