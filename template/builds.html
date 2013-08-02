@@ -46,7 +46,7 @@ $var title: $device
                       <b>MD5:&nbsp;</b>$f.get(md)<br>
                       <b>Size:&nbsp;</b>$human_readable_size(f.get(ss))MB
                     </div><!--col-->
-                    <div class="col-4 col-offset-2 pull-right">
+                    <div class="col-4 col-offset-2 pull-right text-right">
                       <a class="btn btn-primary" href="#changesModal" data-toggle="modal" onclick="writeMessage('$f.get(mm)')">Notes</a>
                       <a class="btn btn-primary" href="/get/$f.get(nn)">Download</a>
                     </div><!--col-->
@@ -79,7 +79,7 @@ $var title: $device
                       <b>MD5:&nbsp;</b>$f.get(md)<br>
                       <b>Size:&nbsp;</b>$human_readable_size(f.get(ss))MB
                     </div><!--col-->
-                    <div class="col-4 col-offset-2 pull-right">
+                    <div class="col-4 col-offset-2 pull-right text-right">
                       <a class="btn btn-primary" href="#changesModal" data-toggle="modal" onclick="writeChanges('/static/n/$f.get(dd)/changelog-$(f.get(dd)).html')">Log</a>
                       <a class="btn btn-primary" href="/get/$f.get(nn)">Download</a>
                     </div><!--col-->
