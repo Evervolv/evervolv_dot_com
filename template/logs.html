@@ -1,24 +1,26 @@
 $def with(dates)
 $var title: Logs
 <h3>Nightly Logs</h3>
-<table class="table table-bordered">
+<table class="table">
   <tbody>
     $for date in dates:
         <tr>
         <td>$date</td>
-        <td><a href="#changesModal" role="button" data-toggle="modal" onclick="writeChanges('/static/n/$date/changelog-$(date).html')">Changes</a></td>
-        <td><a href="#changesModal" role="button" data-toggle="modal" onclick="writeChanges('/static/n/$date/scriptlog-$(date).html')">Buildlog</a></td>
+        <td><a href="#changesModal" class="btn btn-link" data-toggle="modal" onclick="writeChanges('/static/n/$date/changelog-$(date).html')">Changes</a></td>
+        <td><a href="#changesModal" class="btn btn-link" data-toggle="modal" onclick="writeChanges('/static/n/$date/scriptlog-$(date).html')">Buildlog</a></td>
         </tr>
   </tbody>
 </table>
 
 <!-- Changes Modal -->
-<div id="changesModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="changesModalLabel" aria-hidden="true">
-  <div class="modal-header">
-    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-    <h4 id="changesModalLabel">Log</h4>
-  </div>
-  <div class="modal-body">
-    <!--populated by writeChanges-->
-  </div>
-</div>
+<div id="changesModal" class="modal fade" >
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 id="modal-title"><!--populated--></h4>
+      </div><!--modal-header-->
+      <div class="modal-body"><!--populated--></div>
+    </div><!--modal-content-->
+  </div><!--modal-dialog-->
+</div><!--modal-->

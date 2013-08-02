@@ -96,5 +96,11 @@ a.accordion-toggle:hover {
 	margin-right: auto;
 }
 /* Logs */
-
+.btn-link {
+	color: #33B5E5;
+}
+.btn-link:hover,
+.btn-link:focus {
+	color: #0099CC;
+}
 /* Source */
