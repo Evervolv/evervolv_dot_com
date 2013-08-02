@@ -17,57 +17,58 @@ $def with (page)
     <link rel="stylesheet" type="text/css" href="/static/res/css/custom.css">
   </head>
   <body>
-    <!--Navbar-->
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div id="wrap">
+      <!--Navbar-->
+      <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="/">Evervolv</a>
+          <div class="nav-collapse collapse navbar-responsive-collapse">
+            <ul class="nav navbar-nav">
+              <li id="nav-devices">
+                <a href="/devices/">Devices</a>
+              </li>
+              <li id="nav-features">
+                <a href="/features/">Features</a>
+              </li>
+              <li id="nav-chat">
+                <a href="/chat/">Chat</a>
+              </li>
+              <li id="nav-source">
+                <a href="/source/">Source Code</a>
+              </li>
+              <li id="nav-about">
+                <a href="/about/">About</a>
+              </li>
+              <li>
+                <a class="dropdown-toggle dropdown-inverse" data-toggle="dropdown"> External <span class="caret"></span></a>
+                <ul class="dropdown-menu">
+                  <li>
+                    <a href="//bugs.evervolv.com/" target="_blank">Bug Tracker</a>
+                  </li>
+                  <li>
+                    <a href="//review.evervolv.com/" target="_blank">Gerrit Review</a>
+                  </li>
+                  <li>
+                    <a href="//paste.evervolv.com/" target="_blank">Paste</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div><!--collapse-->
+        </div><!--container-->
+      </div><!--navbar-->
+      <!--Content-->
       <div class="container">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand" href="/">Evervolv</a>
-        <div class="nav-collapse collapse navbar-responsive-collapse">
-          <ul class="nav navbar-nav">
-            <li id="nav-devices">
-              <a href="/devices/">Devices</a>
-            </li>
-            <li id="nav-features">
-              <a href="/features/">Features</a>
-            </li>
-            <li id="nav-chat">
-              <a href="/chat/">Chat</a>
-            </li>
-            <li id="nav-source">
-              <a href="/source/">Source Code</a>
-            </li>
-            <li id="nav-about">
-              <a href="/about/">About</a>
-            </li>
-            <li>
-              <a class="dropdown-toggle dropdown-inverse" data-toggle="dropdown"> External <span class="caret"></span></a>
-              <ul class="dropdown-menu">
-                <li>
-                  <a href="//bugs.evervolv.com/" target="_blank">Bug Tracker</a>
-                </li>
-                <li>
-                  <a href="//review.evervolv.com/" target="_blank">Gerrit Review</a>
-                </li>
-                <li>
-                  <a href="//paste.evervolv.com/" target="_blank">Paste</a>
-                </li>
-              </ul>
-            </li>
-          </ul>
-        </div><!--collapse-->
+      $:page
       </div><!--container-->
-    </div><!--navbar-->
-    <!--Content-->
-    <div class="container">
-        $:page
-    </div>
+    </div><!--wrap-->
     <!--Footer-->
-    <!-- TODO navbar-static-bottom -->
-    <div class="navbar navbar-inverse navbar-fixed-bottom">
+    <div class="navbar navbar-inverse navbar-footer">
       <div class="container">
         <!--Desktops and tablets gets full text-->
 	      <p class="navbar-text pull-left hidden-sm"><a class="navbar-link" href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=PreludeDrew%40gmail%2ecom&lc=US&item_name=ROM%20Development&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted" target="_blank">Donate</a> to Evervolv&nbsp;&nbsp;</p>
