@@ -16,28 +16,30 @@ body {
 	padding-top: 70px;
 	padding-bottom: 70px;
 }
+.navbar .navbar-brand {
+	font-size:1.8em;
+	color: #33B5E5;
+	font-family: "Sony Sketch";
+}
+.navbar .navbar-nav > .active > a,
+.navbar .navbar-nav > .active > a:hover,
+.navbar .navbar-nav > .active > a:focus {
+	color: #fff;
+	background-color: #1b1b1b;
+}
+.navbar-footer {
+	background-color: #1b1b1b;
+	margin-bottom: 0;
+}
+.panel {
+	background-color: #1b1b1b;
+}
 a {
 	color: #33B5E5;
 }
 a:hover,
 a:focus {
 	color: #0099CC;
-}
-.navbar-inverse .navbar-brand {
-	font-size:1.8em;
-	color: #33B5E5;
-	font-family: "Sony Sketch";
-}
-.navbar-inverse .navbar-nav > .active > a,
-.navbar-inverse .navbar-nav > .active > a:hover,
-.navbar-inverse .navbar-nav > .active > a:focus {
-	background-color: #1b1b1b;
-}
-.panel {
-	background-color: #1b1b1b;
-}
-.navbar-footer {
-	margin-bottom: 0;
 }
 /* About */
 
