@@ -1,48 +1,39 @@
 $var title: Source Code
-<div class="row">
-    <div class="panel span10 offset1">
+<div class="col-10 col-offset-1">
+
+  <div class="page-header">
     <h3>Basics</h3>
-    <p>
-    <b>Get the Source</b><br><br>
-    <blockquote>
-      repo init -u git://github.com/Evervolv/android.git -b jellybean<br>
-      repo sync -f
-    </blockquote>
-    <b>Building</b><br><br>
-    <blockquote>
-      source build/envsetup.sh<br>
-      lunch
-    </blockquote>
-    Choose the appropriate device<br><br>
-    <blockquote>
-      make -j{#} otapackage
-    </blockquote>
-      Where {#} is the number of jobs. A good starting place is number of cores (real or virtual), just be sure not to run more jobs than you have GB of ram or bad things will happen (especailly with no swap)
-    </p>
-    <p>For greater detail see the <a href="https://github.com/Evervolv/android/blob/jellybean/README" target="_blank">Evervolv README</a> or <a href="http://source.android.com/source/index.html" target="_blank">Official Google Documentation</a></p>
-    </div>
-</div>
+  </div>
+  <dl class="dl-horizontal">
+    <dt>Get the Source</dt>
+    <dd>
+      <code>repo init -u git://github.com/Evervolv/android.git -b jellybean</code><br>
+      <code>repo sync -f</code>
+    </dd>
+    <dt>Building</dt>
+    <dd>
+      <code>source build/envsetup.sh</code><br>
+      <code>lunch</code>
+      <em>Choose the appropriate device</em><br>
+      <code>make -j{#} otapackage</code>
+      <em>Where {#} is the number of jobs. A good starting place is number of cores (real or virtual), just be sure not to run more jobs than you have GB of ram or bad things will happen (especailly with no swap)</em>
+    </dd>
+  </dl>
+  <p>For greater detail see the <a href="https://github.com/Evervolv/android/blob/jellybean/README" target="_blank">Evervolv README</a> or <a href="http://source.android.com/source/index.html" target="_blank">Official Google Documentation</a></p>
 
-<div class="row">
-  <div class="panel span10 offset1">
+  <div class="page-header">
     <h3>Contribute</h3>
-    <p>
-      Evervolv is a colaborative effort. To submit patches sign up on <a href="http://review.evervolv.com" target="_blank">Gerrit.</a> Please note we do not accept pull requests on <a href="https://github.com/Evervolv" target="_blank">Github</a>
-    </p>
   </div>
-</div>
+  <p>Evervolv is a colaborative effort. To submit patches sign up on <a href="http://review.evervolv.com" target="_blank">Gerrit.</a> Please note we do not accept pull requests on <a href="https://github.com/Evervolv" target="_blank">Github</a></p>
 
-<div class="row">
-  <div class="panel span10 offset1">
+  <div class="page-header">
     <h3>Adding your device</h3>
-    <p>Submit a change to the <a href="https://github.com/Evervolv/android_vendor_ev" target="_blank">vendor/ev</a> project adding your device to the vendorsetup.sh script ( remember to keep your devices name in order). Include the device and dependent projects that need to be forked. If any changes to other projects are necessary for your device bringup, make sure to submit these changes at the same time. If you still need help, contact either preludedrew or drewis on <a href="/chat/">irc</a>.
   </div>
-</div>
+  <p>Submit a change to the <a href="https://github.com/Evervolv/android_vendor_ev" target="_blank">vendor/ev</a> project adding your device to the vendorsetup.sh script ( remember to keep your devices name in order). Include the device and dependent projects that need to be forked. If any changes to other projects are necessary for your device bringup, make sure to submit these changes at the same time. If you still need help, contact either preludedrew or drewis on <a href="/chat/">irc</a>.
 
-<div class="row">
-  <div class="panel span10 offset1">
+  <div class="page-header">
     <h3>Getting help</h3>
-    Join us in <a href="/chat/">#evervolv</a> on irc.freenode.net
-    <br><br>
   </div>
-</div>
+  <p>Join us in <a href="/chat/">#evervolv</a> on irc.freenode.net</p>
+
+</div><!--col-->
