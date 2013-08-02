@@ -82,7 +82,9 @@ a.accordion-toggle:hover {
 	background-color: #1b1b1b;
 }
 /* Error */
-
+.unhappy-face {
+	color: #bbb;
+}
 /* Features */
 .carousel-caption {
 	background-color: #000;
