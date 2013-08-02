@@ -18,7 +18,6 @@ urls = (
     '/chat/', 'Chat',
     '/devices/(.*)/', 'Devices',
     '/devices/(.*)', 'Devices',
-#    '/news/', 'News',
     '/source/', 'Source',
     '/features/', 'Features',
     # Redirects for manually typed addresses
@@ -64,10 +63,6 @@ class Devices:
                 raise web.seeother('/404/')
             return render.builds(device,find_builds(device))
         return render.devices()
-
-class News:
-    def GET(self):
-        return render.news()
 
 class Source:
     def GET(self):
