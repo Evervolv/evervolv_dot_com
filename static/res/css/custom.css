@@ -28,6 +28,11 @@ a:focus {
 	color: #33B5E5;
 	font-family: "Sony Sketch";
 }
+.navbar-inverse .navbar-nav > .active > a,
+.navbar-inverse .navbar-nav > .active > a:hover,
+.navbar-inverse .navbar-nav > .active > a:focus {
+	background-color: #1b1b1b;
+}
 .panel {
 	background-color: #1b1b1b;
 }
