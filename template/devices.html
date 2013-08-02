@@ -17,18 +17,17 @@ $var title: Devices
   </div><!--container-->
 </div><!--navbar-->
 <div class="row">
-  <!-- no col-# here since it is hidden on phones -->
-  <div class="col-sm-3 col-lg-2 hidden-sm">
+  <div class="col-3 col-lg-2 hidden-sm">
     <h5>Devices</h5>
     <div class="list-group">
       $for d in devices():
         <a class="list-group-item" data-toggle="tooltip" data-placement="right" href="/devices/$d" title="$devices(d).get('retail_name')" id="tooltip-$d">$d</a>
     </div>
   </div><!--col-->
-  <!-- col-12 here since we hide above column on phones -->
-  <div class="col-12 col-sm-9 col-lg-10">
+  <div class="col-2 visible-sm"></div>
+  <div class="col-8">
     <div class="row">
-      <table class="table table-bordered table-condensed">
+      <table class="table table-condensed">
         <caption><h4>Version Breakdown</h4></caption>
         <thead>
           <th>Evervolv</th>
@@ -44,28 +43,14 @@ $var title: Devices
       </table>
     </div><!--row-->
     <div class="row">
-      <div class="panel">
-        <ul>
-          <li>
-            <b>Questions?</b>
-            <ul>
-              <li>Join us in <a href="/chat/">#evervolv</a> on irc.freenode.net. Just be sure not to leave before someone answers!</li>
-            </ul>
-          </li>
-          <li>
-            <b>Whats working?</b>
-            <ul>
-              <li>Follow your device's <a href="/about/">maintainer</a> for updates.</li>
-            </ul>
-          </li>
-          <li>
-            <b>Bugs or Issues?</b>
-            <ul>
-              <li>Submit a report on our <a href="//bugs.evervolv.com/" target="_blank">bug tracker</a> (Note: Nightlies are not eligible for bug reports, use irc to report issues for nightlies)</li>
-            </ul>
-          </li>
-        </ul>
-      </div><!--panel-->
+      <dl class="dl-horizontal">
+        <dt>Questions?</dt>
+          <dd>Join us in <a href="/chat/">#evervolv</a> on irc.freenode.net. Just be sure not to leave before someone answers!</dd>
+        <dt>Whats working?</dt>
+          <dd>Follow your device's <a href="/about/">maintainer</a> for updates.</dd>
+        <dt>Bugs or Issues?</dt>
+          <dd>Submit a report on our <a href="//bugs.evervolv.com/" target="_blank">bug tracker</a> (Note: Nightlies are not eligible for bug reports, use irc to report issues for nightlies)</dd>
+      </dl>
     </div><!--row-->
   </div><!--col-->
 </div><!--row-->
