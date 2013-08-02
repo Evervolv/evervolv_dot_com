@@ -1,18 +1,13 @@
 $var title: About
-<div class="row">
-  <div class="span8 offset2">
-    <center><h3>Philosophy</h3></center>
-    <div class="panel">
-      <p>
-              The Evervolv project consists of people (around the world now) that want to learn how to do things related to the Android Open Source Project. It's not just a fork that has a few features added in and some themes changed, or a project that just wants to see how many devices can be ported. We've all learned something in the process of porting devices, and creating features, and continue to do so. With contributions from other forks like <a href="http://www.cyanogenmod.org/" target="_blank">CyanogenMod</a> and <a href="https://www.codeaurora.org/" target="_blank">CodeAurora</a> we are able to learn from them and continue even with older devices.
-      </p>
-    </div>
-  </div>
-</div>
+<div class="col-8 col-offset-2">
 
-<div class="row">
-  <div class="span8 offset2">
-    <table class="table table-bordered">
+  <div class="row">
+    <h3 class="text-center">Philosophy</h3>
+    <p class="text-center">The Evervolv project consists of people (around the world now) that want to learn how to do things related to the Android Open Source Project. It's not just a fork that has a few features added in and some themes changed, or a project that just wants to see how many devices can be ported. We've all learned something in the process of porting devices, and creating features, and continue to do so. With contributions from other forks like <a href="http://www.cyanogenmod.org/" target="_blank">CyanogenMod</a> and <a href="https://www.codeaurora.org/" target="_blank">CodeAurora</a> we are able to learn from them and continue even with older devices.</p>
+  </div><!--row-->
+
+  <div class="row">
+    <table class="table">
         <caption><h3>Maintainers<h3></caption>
          <thead>
             <tr>
@@ -32,7 +27,7 @@ $var title: About
                   <td>
                     <b><a href="$info_url" target="_blank">$m</a></b>
                     $if info_extra:
-                        <ul>
+                        <ul class="list-unstyled">
                         $for i in info_extra:
                             <li>$i</li>
                         </ul>
@@ -48,5 +43,6 @@ $var title: About
                 </tr>
         </tbody>
     </table>
-  </div>
-</div>
+  </div><!--row-->
+
+</div><!--col-->
