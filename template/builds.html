@@ -10,22 +10,11 @@ $code:
     ll = 'location'
     mm = 'message'
 $var title: $device
-<!--
-<ul class="breadcrumb">
-  <li><a href="/">home</a></li>
-  <li><a href="/devices/">devices</a></li>
-  <li class="active">$device</li>
-</ul>
--->
-<!--
-<a href="/devices/"><img src="/static/res/img/design/backarrow.png" width="25px" height="25px"/
-  ></a> <span style="padding-left:10px;">Back to device list</span>
--->
 <div class="page-header">
   <h1>$devices(device).get('retail_name') ($devices(device).get('codename'))</h1>
 </div>
 <div class="row">
-  <div class="col-12 col-sm-12 col-lg-6">
+  <div class="col-12 col-lg-6">
     <h4>Release Builds</h4>
     $if files.get('release'):
         <div class="accordion" id="accordion-left">
@@ -58,7 +47,7 @@ $var title: $device
     $else:
         <p>No builds found</p>
   </div>
-  <div class="col-12 col-sm-12 col-lg-6">
+  <div class="col-12 col-lg-6">
     <h4>Nightly Builds</h4>
     $if files.get('nightly'):
         <div class="accordion" id="accordion-right">
