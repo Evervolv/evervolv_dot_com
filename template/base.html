@@ -102,8 +102,7 @@ $def with (page)
         $for d in devices():
             $$('#tooltip-$d').tooltip()
         /* scroll the carousel */
-        $$('#home-carousel').carousel({interval:4000})
-        $$('#home-caurosel').carousel()
+        $$('#features-carousel').carousel()
     })(jQuery);
     /* populate the build modal with changelog */
     function writeChanges(changesFile){

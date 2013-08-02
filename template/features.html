@@ -1,34 +1,37 @@
 $def with (carousel_imgs)
 $var title: Features
-<div class="row">
-  <div class="span8 offset2">
-    <center><h4>Screenshots</h4></center>
-
-    <div id="home-carousel" class="carousel slide">
-      <ol class="carousel-indicators">
-        $for ii in carousel_imgs:
-            $if loop.first:
-                <li data-target="#home-carousel" data-slide-to="$loop.index0" class="active"></li>
-            $else:
-                <li data-target="#home-carousel" data-slide-to="$loop.index0"></li>
-      </ol>
-      <!-- Carousel items -->
-      <div class="carousel-inner">
-        $for ii in carousel_imgs:
-            $if loop.first:
-                <div class="active item">
-            $else:
-                <div class="item">
-            <center><img src="/static/res/img/screenshots/$ii"/></center>
-            <div class="carousel-caption">
-              <p>$ii.split('.')[0].replace('_',' ')</p>
-            </div>
-            </div>
-      </div>
-      <!-- Carousel nav -->
-      <a class="carousel-control left" href="#home-carousel" data-slide="prev">&lsaquo;</a>
-      <a class="carousel-control right" href="#home-carousel" data-slide="next">&rsaquo;</a>
-    </div>
-
+<div class="col-12 col-lg-8 col-offset-2">
+  <div class="page-header">
+    <h3 class="text-center">Screenshots</h3>
   </div>
-</div>
+  <!-- Carousel indicatiors-->
+  <div id="features-carousel" class="carousel slide">
+    <ol class="carousel-indicators">
+      $for ii in carousel_imgs:
+          $if loop.first:
+              <li data-target="#features-carousel" data-slide-to="$loop.index0" class="active"></li>
+          $else:
+              <li data-target="#features-carousel" data-slide-to="$loop.index0"></li>
+    </ol>
+    <!-- Carousel items -->
+    <div class="carousel-inner">
+      $for ii in carousel_imgs:
+          $if loop.first:
+              <div class="item active">
+          $else:
+              <div class="item">
+          <img src="/static/res/img/screenshots/$ii"/>
+          <div class="carousel-caption">
+            <p>$ii.split('.')[0].replace('_',' ')</p>
+          </div>
+          </div>
+    </div>
+    <!-- Carousel nav -->
+    <a class="left carousel-control" href="#features-carousel" data-slide="prev">
+      <span class="icon-prev"></span>
+    </a>
+    <a class="right carousel-control" href="#features-carousel" data-slide="next">
+      <span class="icon-next"></span>
+    </a>
+  </div><!--carousel-->
+</div><!--col-->
