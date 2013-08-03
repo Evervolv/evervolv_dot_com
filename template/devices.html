@@ -1,20 +1,21 @@
 $var title: Devices
-<div class="row">
-  <div class="col-12 text-center visible-sm">
-    <h3 class="devices-nav-header"><a type="button" data-toggle="collapse" data-target=".devices-list-collapse">Devices<span class="caret devices-nav"></span></a></h3>
-          <button type="button" class="devices-toggle" data-toggle="collapse" data-target=".devices-list-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-  <div class="collapse devices-list-collapse">
-    <div class="list-group">
-      $for d in devices():
-        <a class="list-group-item" href="/devices/$d">$d</a>
-      </div>
-    </div>
-  </div>
-</div>
+<!-- use a collapsed nav to show devices on phones -->
+<div class="navbar navbar-inverse devices-nav visible-sm">
+  <div class="container">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".devices-responsive-collapse">
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+    <div class="devices-header">Devices</div>
+    <div class="nav-collapse collapse devices-responsive-collapse">
+      <ul class="nav navbar-nav">
+        $for d in devices():
+          <li><a href="/devices/$d">$d</a></li>
+      </ul>
+    </div><!--collapse-->
+  </div><!--container-->
+</div><!--navbar-->
 <div class="row">
   <div class="col-3 col-lg-2 hidden-sm text-center">
     <h5>Devices</h5>
