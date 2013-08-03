@@ -93,7 +93,6 @@ a.accordion-toggle:hover {
 	margin-right: 15px;
 	margin-left: 15px;
 	background-color: #1b1b1b;
-	border: 1px solid #dddddd;
 }
 .navbar-inverse.devices-nav .devices-header {
 	display: block;
@@ -106,6 +105,9 @@ a.accordion-toggle:hover {
 	line-height: 20px;
 	color: #fff;
 	text-align: center;
+}
+.navbar-inverse.devices-nav .navbar-toggle {
+	right: 15px;
 }
 /* Error */
 .unhappy-face {
