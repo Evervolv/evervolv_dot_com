@@ -4,7 +4,7 @@ body {
 	height: 100%;
 	font-family: 'Roboto', sans-serif;
 	color: #f1f1ed;
-	background-color: #1b1b1b;
+	background-color: #191919;
 }
 .body-wrap {
 	min-height: 100%;
@@ -32,15 +32,12 @@ body {
 	font-family: "Sony Sketch";
 }
 .navbar-inverse.navbar-main {
-	background-color: #111111;
+	background-color: #0c0c0c;
 	border-bottom: 2px solid #33b5e5;
 }
 .navbar-inverse.navbar-footer {
-	background-color: #1b1b1b;
+	background-color: #191919;
 	margin-bottom: 0;
-}
-.panel {
-	background-color: #1b1b1b;
 }
 a {
 	color: #33b5e5;
@@ -76,7 +73,7 @@ a.accordion-toggle:hover {
 /* Default */
 .jumbotron {
 	color: #f1f1ed;
-	background-color: #1b1b1b;
+	background-color: #191919;
 	text-align: center;
 }
 .jumbotron h1 {
@@ -95,12 +92,15 @@ a.accordion-toggle:hover {
 }
 /* Devices */
 .list-group-item {
-	background-color: #1b1b1b;
+	background-color: #191919;
+	border: 1px solid #f1f1ed;
+	padding: 8px 0 8px 0;
+	text-align: center;
 }
 .navbar-inverse.devices-nav {
 	margin-right: 15px;
 	margin-left: 15px;
-	background-color: #1b1b1b;
+	background-color: #191919;
 }
 .navbar-inverse.devices-nav .devices-header {
 	display: block;
@@ -117,8 +117,15 @@ a.accordion-toggle:hover {
 .navbar-inverse.devices-nav .navbar-toggle {
 	right: 15px;
 }
+.tooltip-inner {
+  color: #000;
+  background-color: rgba(241,241,237, 0.9);
+}
+.tooltip.right .tooltip-arrow {
+  border-right-color: rgba(241,241,237, 0.9);
+}
 /* Error */
-.unhappy-face {
+.sad-face {
 	color: #bbb;
 }
 /* Features */
@@ -132,6 +139,9 @@ a.accordion-toggle:hover {
 	margin-right: auto;
 }
 /* Logs */
+.table tbody > tr > td.log-date {
+	padding: 16px 12px;
+}
 .btn-link {
 	color: #33b5e5;
 }
@@ -140,3 +150,46 @@ a.accordion-toggle:hover {
 	color: #0099cc;
 }
 /* Source */
+
+/* Common */
+.page-header.top-header {
+	/* container has 20px extra padding,
+	 * reduce margin by 20px to
+	 * compensate
+	 */
+	margin-top: 20px;
+}
+@media (min-width: 768px) {
+	/* Turn descriptive lists into
+	 * horizontal format on larger
+	 * devices
+	 */
+	dt {
+		float: left;
+		width: 160px;
+		overflow: hidden;
+		clear: left;
+		text-align: right;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	dd {
+		margin-left: 180px;
+	}
+	dd:before,
+	dd:after {
+		display: table;
+		content: " ";
+	}
+	dd:after {
+		clear: both;
+	}
+	dd:before,
+	dd:after {
+		display: table;
+		content: " ";
+	}
+	dd:after {
+		clear: both;
+	}
+}
