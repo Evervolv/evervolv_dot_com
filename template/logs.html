@@ -16,8 +16,8 @@ $var title: Logs
       $for date in dates:
           <tr>
           <td class="log-date">$date</td>
-          <td><a href="#changesModal" class="btn btn-link" data-toggle="modal" onclick="writeChanges('/static/n/$date/changelog-$(date).html')">Changes</a></td>
-          <td><a href="#changesModal" class="btn btn-link" data-toggle="modal" onclick="writeChanges('/static/n/$date/scriptlog-$(date).html')">Buildlog</a></td>
+          <td><a href="#changesModal" class="btn btn-link" data-toggle="modal" onclick="writeChanges('/get/changelog-$(date).html')">Changes</a></td>
+          <td><a href="#changesModal" class="btn btn-link" data-toggle="modal" onclick="writeChanges('/get/scriptlog-$(date).html')">Buildlog</a></td>
           </tr>
     </tbody>
   </table>
