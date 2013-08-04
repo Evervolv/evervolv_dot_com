@@ -162,7 +162,7 @@ a.accordion-toggle:hover {
 }
 /* Features */
 .carousel-caption {
-	background-color: #111111;
+	background-color: rgba(0,0,0,0.7);
 }
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
