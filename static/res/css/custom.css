@@ -1,10 +1,19 @@
-/* Base */
+/* Andrew Sutherland (dr3wsuth3rland@gmail.com) */
+
+/* Base / Common */
 html,
 body {
 	height: 100%;
-	font-family: 'Roboto', sans-serif;
+	font-family: "Roboto", sans-serif;
 	color: #f1f1ed;
 	background-color: #191919;
+}
+a {
+	color: #33b5e5;
+}
+a:hover,
+a:focus {
+	color: #0099cc;
 }
 .body-wrap {
 	min-height: 100%;
@@ -39,12 +48,46 @@ body {
 	background-color: #191919;
 	margin-bottom: 0;
 }
-a {
-	color: #33b5e5;
+.page-header.top-header {
+	/* container has 20px extra padding,
+	 * reduce margin from 40px to 20px
+	 * to compensate
+	 */
+	margin-top: 20px;
 }
-a:hover,
-a:focus {
-	color: #0099cc;
+@media (min-width: 768px) {
+	/* Turn descriptive lists into
+	 * horizontal format on larger
+	 * screens
+	 */
+	dt {
+		float: left;
+		width: 160px;
+		overflow: hidden;
+		clear: left;
+		text-align: right;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+	dd {
+		margin-left: 180px;
+	}
+	dd:before,
+	dd:after {
+		display: table;
+		content: " ";
+	}
+	dd:after {
+		clear: both;
+	}
+	dd:before,
+	dd:after {
+		display: table;
+		content: " ";
+	}
+	dd:after {
+		clear: both;
+	}
 }
 /* About */
 
@@ -91,42 +134,31 @@ a.accordion-toggle:hover {
 	}
 }
 /* Devices */
-.list-group-item {
+.list-group.devices-list .list-group-item {
 	background-color: #191919;
-	border: 1px solid #f1f1ed;
-	padding: 8px 0 8px 0;
-	text-align: center;
+	padding: 8px 15px 8px 30px;
 }
-.navbar-inverse.devices-nav {
-	margin-right: 15px;
-	margin-left: 15px;
-	background-color: #191919;
+.list-group.devices-list a.list-group-item:hover,
+.list-group.devices-list a.list-group-item:focus {
+	background-color: #f1f1ed;
 }
-.navbar-inverse.devices-nav .devices-header {
-	display: block;
-	max-width: 200px;
-	padding: 15px 15px;
-	margin-right: auto;
-	margin-left: auto;
-	font-size: 18px;
-	font-weight: 500;
-	line-height: 20px;
+.list-group.devices-list a.list-group-item .reverse-decorate {
 	color: #f1f1ed;
-	text-align: center;
 }
-.navbar-inverse.devices-nav .navbar-toggle {
-	right: 15px;
+.list-group.devices-list a.list-group-item:hover .reverse-decorate,
+.list-group.devices-list a.list-group-item:focus .reverse-decorate {
+	color: #333333;
 }
 .tooltip-inner {
-  color: #000;
-  background-color: rgba(241,241,237, 0.9);
+	color: #333333;
+	background-color: rgba(241,241,237, 0.999999999);
 }
 .tooltip.right .tooltip-arrow {
-  border-right-color: rgba(241,241,237, 0.9);
+	border-right-color: rgba(241,241,237, 0.999999999);
 }
 /* Error */
 .sad-face {
-	color: #bbb;
+	color: #99cc00;
 }
 /* Features */
 .carousel-caption {
@@ -140,7 +172,7 @@ a.accordion-toggle:hover {
 }
 /* Logs */
 .table tbody > tr > td.log-date {
-	padding: 16px 12px;
+	padding: 18px 12px;
 }
 .btn-link {
 	color: #33b5e5;
@@ -150,46 +182,3 @@ a.accordion-toggle:hover {
 	color: #0099cc;
 }
 /* Source */
-
-/* Common */
-.page-header.top-header {
-	/* container has 20px extra padding,
-	 * reduce margin by 20px to
-	 * compensate
-	 */
-	margin-top: 20px;
-}
-@media (min-width: 768px) {
-	/* Turn descriptive lists into
-	 * horizontal format on larger
-	 * devices
-	 */
-	dt {
-		float: left;
-		width: 160px;
-		overflow: hidden;
-		clear: left;
-		text-align: right;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-	}
-	dd {
-		margin-left: 180px;
-	}
-	dd:before,
-	dd:after {
-		display: table;
-		content: " ";
-	}
-	dd:after {
-		clear: both;
-	}
-	dd:before,
-	dd:after {
-		display: table;
-		content: " ";
-	}
-	dd:after {
-		clear: both;
-	}
-}
