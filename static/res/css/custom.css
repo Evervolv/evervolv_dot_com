@@ -3,32 +3,37 @@ html,
 body {
 	height: 100%;
 	font-family: 'Roboto', sans-serif;
-	color: #fff;
+	color: #f1f1ed;
 	background-color: #1b1b1b;
 }
-#wrap {
+.body-wrap {
 	min-height: 100%;
 	height: auto !important;
 	height: 100%;
 	margin-bottom: -50px;
 }
-#wrap > .container {
+.body-wrap > .container {
 	padding-top: 70px;
 	padding-bottom: 70px;
 }
-.navbar .navbar-nav > .active > a,
-.navbar .navbar-nav > .active > a:hover,
-.navbar .navbar-nav > .active > a:focus {
-	color: #fff;
-	background-color: #1b1b1b;
+.navbar-inverse.navbar-main .navbar-nav > .active > a,
+.navbar-inverse.navbar-main .navbar-nav > .active > a:hover,
+.navbar-inverse.navbar-main .navbar-nav > .active > a:focus {
+	color: #f1f1ed;
+	background-color: #33b5e5;
 }
-.navbar-inverse .navbar-brand.evervolv-brand {
+.navbar-inverse.navbar-main .navbar-nav > .dropdown > a .caret {
+	border-top-color: #33b5e5;
+	border-bottom-color: #33b5e5;
+}
+.navbar-inverse.navbar-main .navbar-brand.evervolv-brand {
 	font-size:1.8em;
-	color: #33B5E5;
+	color: #33b5e5;
 	font-family: "Sony Sketch";
 }
 .navbar-inverse.navbar-main {
-	background-color: #000;
+	background-color: #111111;
+	border-bottom: 2px solid #33b5e5;
 }
 .navbar-inverse.navbar-footer {
 	background-color: #1b1b1b;
@@ -38,11 +43,11 @@ body {
 	background-color: #1b1b1b;
 }
 a {
-	color: #33B5E5;
+	color: #33b5e5;
 }
 a:hover,
 a:focus {
-	color: #0099CC;
+	color: #0099cc;
 }
 /* About */
 
@@ -52,7 +57,7 @@ a.accordion-toggle:hover {
 	text-decoration:none;
 }
 .accordion-header-date {
-	color: #fff;
+	color: #f1f1ed;
 }
 .btn-primary {
 	background-color: #33b5e5;
@@ -64,13 +69,13 @@ a.accordion-toggle:hover {
 	background-color: #0099cc;
 }
 .modal {
-	color: #000;
+	color: #333333;
 }
 /* Chat */
 
 /* Default */
 .jumbotron {
-	color: #fff;
+	color: #f1f1ed;
 	background-color: #1b1b1b;
 	text-align: center;
 }
@@ -106,7 +111,7 @@ a.accordion-toggle:hover {
 	font-size: 18px;
 	font-weight: 500;
 	line-height: 20px;
-	color: #fff;
+	color: #f1f1ed;
 	text-align: center;
 }
 .navbar-inverse.devices-nav .navbar-toggle {
@@ -118,7 +123,7 @@ a.accordion-toggle:hover {
 }
 /* Features */
 .carousel-caption {
-	background-color: #000;
+	background-color: #111111;
 }
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
@@ -128,10 +133,10 @@ a.accordion-toggle:hover {
 }
 /* Logs */
 .btn-link {
-	color: #33B5E5;
+	color: #33b5e5;
 }
 .btn-link:hover,
 .btn-link:focus {
-	color: #0099CC;
+	color: #0099cc;
 }
 /* Source */
