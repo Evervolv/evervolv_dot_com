@@ -1,16 +1,20 @@
 $var title: About
-<div class="col-12 col-lg-8 col-offset-2">
+<div class="col-lg-8 col-offset-2">
   <div class="row">
-    <h3 class="text-center">Philosophy</h3>
-    <p class="text-center">The Evervolv project consists of people (around the world now) that want to learn how to do things related to the Android Open Source Project. It's not just a fork that has a few features added in and some themes changed, or a project that just wants to see how many devices can be ported. We've all learned something in the process of porting devices, and creating features, and continue to do so. With contributions from other forks like <a href="http://www.cyanogenmod.org/" target="_blank">CyanogenMod</a> and <a href="https://www.codeaurora.org/" target="_blank">CodeAurora</a> we are able to learn from them and continue even with older devices.</p>
+    <div class="page-header">
+      <h3>Philosophy</h3>
+    </div><!--page-header-->
+    <p>The Evervolv project consists of people (around the world now) that want to learn how to do things related to the Android Open Source Project. It's not just a fork that has a few features added in and some themes changed, or a project that just wants to see how many devices can be ported. We've all learned something in the process of porting devices, and creating features, and continue to do so. With contributions from other forks like <a href="http://www.cyanogenmod.org/" target="_blank">CyanogenMod</a> and <a href="https://www.codeaurora.org/" target="_blank">CodeAurora</a> we are able to learn from them and continue even with older devices.</p>
   </div><!--row-->
   <div class="row">
+    <div class="page-header">
+      <h3>Maintainers<h3>
+    </div><!--page-header-->
     <table class="table">
-        <caption><h3>Maintainers<h3></caption>
          <thead>
             <tr>
                <th>Device Maintainer</th>
-               <th>Devices</th>
+               <th class="text-right">Devices</th>
                <th>Device Retail Names</th>
            </tr>
         </thead>
@@ -30,7 +34,7 @@ $var title: About
                             <li>$i</li>
                         </ul>
                   </td>
-                  <td>
+                  <td class="text-right">
                     $for d in info_devices:
                         <a href="/devices/$d">$d</a><br>
                   </td>
