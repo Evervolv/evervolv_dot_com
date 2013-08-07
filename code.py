@@ -125,6 +125,8 @@ class ApiHandler:
         if version and build_type and action and device:
             if int(version) == 1:
                 ret = api.v1_perform(action,build_type,device)
+            elif int(version) == 2:
+                ret = api.v2_perform(action,build_type,device)
         if not ret:
             raise web.notfound()
         return ret

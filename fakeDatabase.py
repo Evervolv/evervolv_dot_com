@@ -51,7 +51,10 @@ def read_manifests(manifests):
             continue
         else:
             with f:
-                entries = json.load(f)
+                try:
+                    entries = json.load(f)
+                except ValueError:
+                    print "ERROR: %s is malformed" % m
             for e in entries:
                 info.append(e)
     return info
@@ -69,7 +72,10 @@ def parse_manifest(location,manifest='manifest.json'):
         entries = read_manifests(find_manifests(location,'info.json'))
     else:
         with f:
-            entries = json.load(f)
+            try:
+                entries = json.load(f)
+            except ValueError:
+                print "ERROR: %s is malformed" % m
     return entries
 
 # Globals
@@ -100,19 +106,19 @@ def entries():
     return manifest_entries
 
 # Methods
-def by_device(device=None):
+def by_device(device=None, reversed=True):
     '''return all manifest_entries (tuple) for selected {device} reverse sorted by date
 
     '''
     return (sorted([e for e in entries()[0] if e.get('device') == device],
-                key=lambda d: d.get('date'), reverse=True),
+                key=lambda d: d.get('date'), reverse=reversed),
             sorted([e for e in entries()[1] if e.get('device') == device],
-                key=lambda d: d.get('date'), reverse=True),
+                key=lambda d: d.get('date'), reverse=reversed),
             sorted([e for e in entries()[2] if e.get('device') == device],
-                key=lambda d: d.get('date'), reverse=True),
+                key=lambda d: d.get('date'), reverse=reversed),
             sorted(list(entries()[3]),
-                key=lambda d: d.get('date'), reverse=True))
-
+                key=lambda d: d.get('date'), reverse=reversed))
+"""
 def by_date(date=None):
     '''return all manifest_entries (tuple) for selected {date}, sorted by device
 
@@ -125,7 +131,9 @@ def by_date(date=None):
                 key=lambda d: d.get('device')),
             sorted([e for e in entries()[3] if e.get('date') == date],
                 key=lambda d: d.get('device')))
+"""
 
+"""
 def dates():
     '''return all {dates} (tuple) reverse sorted (newest->oldest)
 
@@ -134,7 +142,9 @@ def dates():
             sorted(set([e.get('date') for e in entries()[1]]), reverse=True),
             sorted(set([e.get('date') for e in entries()[2]]), reverse=True),
             sorted(set([e.get('date') for e in entries()[3]]), reverse=True))
+"""
 
+"""
 def latest():
     '''returns all builds (tuple) for newest date, sorted by device
 
@@ -153,6 +163,7 @@ def latest():
     if g:
         lg = by_date(t[0])[3]
     return (ln,lr,lt,lg)
+"""
 
 def by_name(name):
     '''returns local path (string) of file specified by {name}
