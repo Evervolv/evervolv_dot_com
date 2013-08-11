@@ -170,10 +170,23 @@ def by_name(name):
     '''returns local path (string) of file specified by {name}
 
     assumes all entries contain a unique {name}'''
-    e = get_entry(name)
-    if e is not None:
-        return os.path.join(nightly_location,e.get('location'))
-    return None
+    p = None
+    for e in entries()[0]: # Nightlies
+        if e.get('name') == name:
+            p = os.path.join(nightly_location,e.get('location'))
+    if not p:
+        for e in entries()[1]: # Releases
+            if e.get('name') == name:
+                p = os.path.join(release_location,e.get('location'))
+    if not p:
+        for e in entries()[2]: # Testing
+            if e.get('name') == name:
+                p = os.path.join(testing_location,e.get('location'))
+    if not p:
+        for e in entries()[3]: # Gapps
+            if e.get('name') == name:
+                p = os.path.join(gapps_location,e.get('location'))
+    return p
 
 def get_entry(name):
     '''returns entry (dict) of file specified by {name}
