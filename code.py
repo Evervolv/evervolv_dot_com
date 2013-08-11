@@ -10,6 +10,7 @@ if __name__ != "__main__":              # mod_wsgi has no concept of where it is
 from devices import *
 from operations import *
 from sitemap import Sitemap
+from get import get
 import api
 
 urls = (
@@ -110,7 +111,7 @@ class Permalink: # Depreciated: don't care about build type
 class Permalink2:
     def GET(self,f=None):
         if f is not None:
-            path = locate_file(f)
+            path = get(f)
             if path:
                 raise web.seeother(path)
         raise web.notfound()
