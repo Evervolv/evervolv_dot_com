@@ -3,182 +3,160 @@
 /* Base / Common */
 html,
 body {
-	height: 100%;
-	font-family: "Roboto", sans-serif;
-	color: #f1f1ed;
-	background-color: #191919;
+  height: 100%;
+  font-family: "Roboto", sans-serif;
+  color: #f1f1ed;
+  background-color: #191919;
 }
 a {
-	color: #33b5e5;
+  color: #33b5e5;
 }
 a:hover,
 a:focus {
-	color: #0099cc;
+  color: #0099cc;
 }
 .body-wrap {
-	min-height: 100%;
-	height: auto !important;
-	height: 100%;
-	margin-bottom: -50px;
+  min-height: 100%;
+  height: auto !important;
+  height: 100%;
+  margin-bottom: -50px;
 }
 .body-wrap > .container {
-	padding-top: 70px;
-	padding-bottom: 70px;
+  padding-top: 70px;
+  padding-bottom: 70px;
 }
 .navbar-inverse.navbar-main .navbar-nav > .active > a,
 .navbar-inverse.navbar-main .navbar-nav > .active > a:hover,
 .navbar-inverse.navbar-main .navbar-nav > .active > a:focus {
-	color: #f1f1ed;
-	background-color: #33b5e5;
+  color: #f1f1ed;
+  background-color: #33b5e5;
 }
 .navbar-inverse.navbar-main .navbar-nav > .dropdown > a .caret {
-	border-top-color: #33b5e5;
-	border-bottom-color: #33b5e5;
+  border-top-color: #33b5e5;
+  border-bottom-color: #33b5e5;
 }
 .navbar-inverse.navbar-main .navbar-brand.evervolv-brand {
-	font-size:1.8em;
-	color: #33b5e5;
-	font-family: "Sony Sketch";
+  font-size:1.8em;
+  color: #33b5e5;
+  font-family: "Sony Sketch";
 }
 .navbar-inverse.navbar-main {
-	background-color: #0c0c0c;
-	border-bottom: 2px solid #33b5e5;
+  background-color: #0c0c0c;
+  border-bottom: 2px solid #33b5e5;
 }
 .navbar-inverse.navbar-footer {
-	background-color: #191919;
-	margin-bottom: 0;
+  background-color: #191919;
+  border: 0;
+  margin-bottom: 0;
 }
 .page-header.top-header {
-	/* container has 20px extra padding,
-	 * reduce margin from 40px to 20px
-	 * to compensate
-	 */
-	margin-top: 20px;
-}
-@media (min-width: 768px) {
-	/* Turn descriptive lists into
-	 * horizontal format on larger
-	 * screens
-	 */
-	dt {
-		float: left;
-		width: 160px;
-		overflow: hidden;
-		clear: left;
-		text-align: right;
-		text-overflow: ellipsis;
-		white-space: nowrap;
-	}
-	dd {
-		margin-left: 180px;
-	}
-	dd:before,
-	dd:after {
-		display: table;
-		content: " ";
-	}
-	dd:after {
-		clear: both;
-	}
-	dd:before,
-	dd:after {
-		display: table;
-		content: " ";
-	}
-	dd:after {
-		clear: both;
-	}
+  /* container has 20px extra padding,
+   * reduce margin from 40px to 20px
+   * to compensate
+   */
+  margin-top: 20px;
 }
 /* About */
 
 /* Builds */
-a.accordion-toggle:focus,
-a.accordion-toggle:hover {
-	text-decoration:none;
+.accordion .panel-heading {
+  background-color: #191919;
 }
-.accordion-header-date {
-	color: #f1f1ed;
+.accordion .panel-body {
+  background-color: #191919;
 }
-.btn-primary {
-	background-color: #33b5e5;
+.accordion a.accordion-toggle {
+  color: #33b5e5;
 }
-.btn-primary:hover,
-.btn-primary:focus,
-.btn-primary:active,
-.btn-primary.active {
-	background-color: #0099cc;
+.accordion a.accordion-toggle:focus,
+.accordion a.accordion-toggle:hover {
+  color: #0099cc;
+  text-decoration:none;
+}
+.accordion .accordion-header-date {
+  color: #f1f1ed;
+}
+.accordion .btn-primary {
+  background-color: #33b5e5;
+}
+.accordion .btn-primary:hover,
+.accordion .btn-primary:focus,
+.accordion .btn-primary:active,
+.accordion .btn-primary.active {
+  background-color: #0099cc;
 }
 .modal {
-	color: #333333;
+  color: #333333;
 }
 /* Chat */
 
 /* Default */
 .jumbotron {
-	color: #f1f1ed;
-	background-color: #191919;
-	text-align: center;
+  color: #f1f1ed;
+  background-color: #191919;
+  text-align: center;
 }
 .jumbotron h1 {
-	font-size: 90px;
-	font-weight: bold;
-	font-family: "Sony Sketch";
+  font-size: 90px;
+  font-weight: bold;
+  font-family: "Sony Sketch";
 }
 .jumbotron p {
-	font-size: 25px;
-	font-family: "Sony Sketch";
+  font-size: 25px;
+  font-family: "Sony Sketch";
 }
 @media (max-width: 480px) {
-	.jumbotron h1 {
-		font-size: 70px;
-	}
+  .jumbotron h1 {
+    font-size: 70px;
+  }
 }
 /* Devices */
 .list-group.devices-list .list-group-item {
-	background-color: #191919;
-	padding: 8px 15px 8px 30px;
+  color: #33b5e5;
+  background-color: #191919;
+  padding: 8px 15px 8px 30px;
 }
 .list-group.devices-list a.list-group-item:hover,
 .list-group.devices-list a.list-group-item:focus {
-	background-color: #f1f1ed;
+  background-color: #f1f1ed;
 }
 .list-group.devices-list a.list-group-item .reverse-decorate {
-	color: #f1f1ed;
+  color: #f1f1ed;
 }
 .list-group.devices-list a.list-group-item:hover .reverse-decorate,
 .list-group.devices-list a.list-group-item:focus .reverse-decorate {
-	color: #333333;
+  color: #333333;
 }
 .tooltip-inner {
-	color: #333333;
-	background-color: rgba(241,241,237, 0.999999999);
+  color: #333333;
+  background-color: rgba(241,241,237, 0.999999999);
 }
 .tooltip.right .tooltip-arrow {
-	border-right-color: rgba(241,241,237, 0.999999999);
+  border-right-color: rgba(241,241,237, 0.999999999);
 }
 /* Error */
 .sad-face {
-	color: #99cc00;
+  color: #99cc00;
 }
 /* Features */
 .carousel-caption {
-	background-color: rgba(0,0,0,0.7);
+  background-color: rgba(0,0,0,0.7);
 }
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
-	display: block;
-	margin-left: auto;
-	margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 /* Logs */
 .table tbody > tr > td.log-date {
-	padding: 18px 12px;
+  padding: 14px 12px;
 }
 .btn-link {
-	color: #33b5e5;
+  color: #33b5e5;
 }
 .btn-link:hover,
 .btn-link:focus {
-	color: #0099cc;
+  color: #0099cc;
 }
 /* Source */

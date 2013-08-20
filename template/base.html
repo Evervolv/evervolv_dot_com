@@ -19,49 +19,49 @@ $def with (page)
   <body>
     <div class="body-wrap">
       <!--Navbar-->
-      <div class="navbar navbar-inverse navbar-fixed-top navbar-main">
-        <div class="container">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+      <nav class="navbar navbar-inverse navbar-fixed-top navbar-main" role="navigation">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-main-collapse">
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
           <a class="navbar-brand evervolv-brand" href="/">Evervolv</a>
-          <div class="nav-collapse collapse navbar-responsive-collapse">
-            <ul class="nav navbar-nav">
-              <li id="nav-devices">
-                <a href="/devices/">Devices</a>
-              </li>
-              <li id="nav-features">
-                <a href="/features/">Features</a>
-              </li>
-              <li id="nav-chat">
-                <a href="/chat/">Chat</a>
-              </li>
-              <li id="nav-source">
-                <a href="/source/">Source Code</a>
-              </li>
-              <li id="nav-about">
-                <a href="/about/">About</a>
-              </li>
-              <li>
-                <a class="dropdown-toggle dropdown-inverse" data-toggle="dropdown"> External <span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                  <li>
-                    <a href="//bugs.evervolv.com/" target="_blank">Bug Tracker</a>
-                  </li>
-                  <li>
-                    <a href="//review.evervolv.com/" target="_blank">Gerrit Review</a>
-                  </li>
-                  <li>
-                    <a href="//paste.evervolv.com/" target="_blank">Paste</a>
-                  </li>
-                </ul>
-              </li>
-            </ul>
-          </div><!--collapse-->
-        </div><!--container-->
-      </div><!--navbar-->
+        </div><!--header-->
+        <div class="collapse navbar-collapse navbar-main-collapse">
+          <ul class="nav navbar-nav">
+            <li id="nav-devices">
+              <a href="/devices/">Devices</a>
+            </li>
+            <li id="nav-features">
+              <a href="/features/">Features</a>
+            </li>
+            <li id="nav-chat">
+              <a href="/chat/">Chat</a>
+            </li>
+            <li id="nav-source">
+              <a href="/source/">Source Code</a>
+            </li>
+            <li id="nav-about">
+              <a href="/about/">About</a>
+            </li>
+            <li class="dropdown">
+              <a class="dropdown-toggle" data-toggle="dropdown">External<b class="caret"></b></a>
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="//bugs.evervolv.com/" target="_blank">Bug Tracker</a>
+                </li>
+                <li>
+                  <a href="//review.evervolv.com/" target="_blank">Gerrit Review</a>
+                </li>
+                <li>
+                  <a href="//paste.evervolv.com/" target="_blank">Paste</a>
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--collapse-->
+      </nav><!--navbar-->
       <!--Content-->
       <div class="container">
       $:page
@@ -71,11 +71,11 @@ $def with (page)
     <div class="navbar navbar-inverse navbar-footer">
       <div class="container">
         <!--Desktops and tablets gets full text-->
-        <p class="navbar-text pull-left hidden-sm"><a class="navbar-link" href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=PreludeDrew%40gmail%2ecom&lc=US&item_name=ROM%20Development&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted" target="_blank">Donate to Evervolv</a>&nbsp;&nbsp;</p>
-        <p class="navbar-text pull-right hidden-sm">Built with <a class="navbar-link" href="//getbootstrap.com/" target="_blank">bootstrap</a> and <a class="navbar-link" href="//webpy.org/" target="_blank">web.py</a>&nbsp;&nbsp;&copy;The Evervolv Project</p>
+        <p class="navbar-text pull-left hidden-xs"><a class="navbar-link" href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=PreludeDrew%40gmail%2ecom&lc=US&item_name=ROM%20Development&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted" target="_blank">Donate to Evervolv</a>&nbsp;&nbsp;</p>
+        <p class="navbar-text pull-right hidden-xs">Built with <a class="navbar-link" href="//getbootstrap.com/" target="_blank">bootstrap</a> and <a class="navbar-link" href="//webpy.org/" target="_blank">web.py</a>&nbsp;&nbsp;&copy;The Evervolv Project</p>
         <!--Phones get abbreviated text-->
-        <p class="navbar-text pull-left visible-sm"><a class="navbar-link" href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=PreludeDrew%40gmail%2ecom&lc=US&item_name=ROM%20Development&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted" target="_blank">Donate</a>&nbsp;&nbsp;</p>
-        <p class="navbar-text pull-right visible-sm">&copy;The Evervolv Project</p>
+        <p class="navbar-text pull-left visible-xs"><a class="navbar-link" href="https://www.paypal.com/cgi-bin/webscr?cmd=_donations&business=PreludeDrew%40gmail%2ecom&lc=US&item_name=ROM%20Development&currency_code=USD&bn=PP%2dDonationsBF%3abtn_donateCC_LG%2egif%3aNonHosted" target="_blank">Donate</a>&nbsp;&nbsp;</p>
+        <p class="navbar-text pull-right visible-xs">&copy;The Evervolv Project</p>
       </div><!--container-->
     </div><!--navbar-->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
