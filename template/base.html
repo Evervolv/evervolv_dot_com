@@ -64,7 +64,8 @@ $def with (page)
       </nav><!--navbar-->
       <!--Content-->
       <div class="container">
-      $:page
+
+$:page $# Don't move this
       </div><!--container-->
     </div><!--body-wrap-->
     <!--Footer-->
@@ -88,8 +89,13 @@ $def with (page)
         page = url(1); page2 = url(2);
         if(page == 'devices' && page2 == '') {
             $$('li#nav-devices').addClass('active');
+            /* activate device tooltips */
+            $for d in devices():
+                $$('#tooltip-$d').tooltip()
         } else if(page == 'features') {
             $$('li#nav-features').addClass('active');
+            /* scroll the carousel */
+            $$('#features-carousel').carousel()
         } else if(page == 'chat') {
             $$('li#nav-chat').addClass('active');
         } else if(page == 'news') {
@@ -99,11 +105,6 @@ $def with (page)
         } else if(page == 'about') {
             $$('li#nav-about').addClass('active');
         }
-        /* activate device tooltips */
-        $for d in devices():
-            $$('#tooltip-$d').tooltip()
-        /* scroll the carousel */
-        $$('#features-carousel').carousel()
     })(jQuery);
     /* populate the build modal with changelog */
     function writeChanges(changesFile){
