@@ -85,7 +85,7 @@ _devices = {
     'ruby': {
         'codename': 'Iaceo',
         'retail_name': 'HTC Amaze 4G',
-        'maintainer': ('preludedrew',),
+        'maintainer': ('preludedrew','jeepers007'),
     },
     'shooter': {
         'codename': 'Neco',
@@ -176,6 +176,12 @@ _maintainers = OrderedDict ([
         'helicopter88',
         {
             'url': 'http://forum.xda-developers.com/member.php?u=1924950',
+        }
+    ),
+    (
+        'jeepers007',
+        {
+            'url': 'http://forum.xda-developers.com/member.php?u=693610',
         }
     ),
 ])
