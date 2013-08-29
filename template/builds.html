@@ -14,68 +14,68 @@ $var title: $device
   <h3>$devices(device).get('retail_name') ($devices(device).get('codename'))</h3>
 </div>
 <div class="row">
-  <div class="col-12 col-lg-6">
+  <div class="col-md-6">
     <h4>Release Builds</h4>
     $if files.get('release'):
-        <div class="accordion" id="accordion-left">
+        <div class="panel-group accordion" id="accordion-left">
         $for f in files.get('release'):
-            <div class="accordion-group">
-              <div class="accordion-heading">
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-left" href="#collapse-left-$loop.index0">
+            <div class="panel">
+              <div class="panel-heading" data-toggle="collapse" data-parent="#accordion-left" href="#collapse-left-$loop.index0">
+                <a class="accordion-toggle">
                   $if f.get(dd):
-                    <b><span class="accordion-header-date">$f.get(dd):</span></b>&nbsp;$f.get(nn)
+                    <b class="accordion-header-date">$f.get(dd):</b>&nbsp;$f.get(nn)
                   $else:
                     $f.get(nn)
                 </a>
-              </div><!--accordion-heading-->
-              <div id="collapse-left-$loop.index0" class="accordion-body collapse">
-                <div class="accordion-inner">
+              </div><!--panel-heading-->
+              <div id="collapse-left-$loop.index0" class="panel-collapse collapse">
+                <div class="panel-body">
                   <div class="row">
-                    <div class="col-12 col-sm-7">
+                    <div class="col-sm-7">
                       <b>MD5:&nbsp;</b>$f.get(md)<br>
                       <b>Size:&nbsp;</b>$human_readable_size(f.get(ss))MB
                     </div><!--col-->
-                    <div class="col-12 col-sm-5 pull-right text-right">
+                    <div class="col-sm-5 pull-right text-right">
                       <a class="btn btn-primary" href="#changesModal" data-toggle="modal" onclick="writeMessage('$f.get(mm)')">Notes</a>
                       <a class="btn btn-primary" href="/get/$f.get(nn)">Download</a>
                     </div><!--col-->
                   </div><!--row-->
-                </div><!--accordion-inner-->
-              </div><!--accordion-body-->
-            </div><!--accordion-group-->
+                </div><!--panel-body-->
+              </div><!--panel-collapse-->
+            </div><!--panel-->
         </div><!--accordion-->
     $else:
         <p>No builds found</p>
   </div><!--col-->
-  <div class="col-12 col-lg-6">
+  <div class="col-md-6">
     <h4>Nightly Builds</h4>
     $if files.get('nightly'):
-        <div class="accordion" id="accordion-right">
+        <div class="panel-group accordion" id="accordion-right">
         $for f in files.get('nightly'):
-            <div class="accordion-group">
-              <div class="accordion-heading">
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion-right" href="#collapse-right-$loop.index0">
+            <div class="panel">
+              <div class="panel-heading" data-toggle="collapse" data-parent="#accordion-right" href="#collapse-right-$loop.index0">
+                <a class="accordion-toggle">
                   $if f.get(dd):
-                    <b><span class="accordion-header-date">$f.get(dd):</span></b>&nbsp;$f.get(nn)
+                    <b class="accordion-header-date">$f.get(dd):</b>&nbsp;$f.get(nn)
                   $else:
                     $f.get(nn)
                 </a>
-              </div>
-              <div id="collapse-right-$loop.index0" class="accordion-body collapse">
-                <div class="accordion-inner">
+              </div><!--panel-heading-->
+              <div id="collapse-right-$loop.index0" class="panel-collapse collapse">
+                <div class="panel-body">
                   <div class="row">
-                    <div class="col-12 col-sm-7">
+                    <div class="col-sm-7">
                       <b>MD5:&nbsp;</b>$f.get(md)<br>
                       <b>Size:&nbsp;</b>$human_readable_size(f.get(ss))MB
                     </div><!--col-->
-                    <div class="col-12 col-sm-5 pull-right text-right">
+                    <div class="col-sm-5 pull-right text-right">
                       <a class="btn btn-primary" href="#changesModal" data-toggle="modal" onclick="writeChanges('/get/changelog-$(f.get(dd)).html')">Log</a>
                       <a class="btn btn-primary" href="/get/$f.get(nn)">Download</a>
                     </div><!--col-->
                   </div><!--row-->
-                </div><!--accordion-inner-->
-              </div><!--accordion-body-->
-            </div><!--accordion-group-->
+                </div><!--panel-body-->
+              </div><!--panel-collapse-->
+            </div><!--panel-->
         </div><!--accordion-->
     $else:
         <p>No builds found</p>

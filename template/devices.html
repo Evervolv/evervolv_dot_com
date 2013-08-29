@@ -1,46 +1,57 @@
 $var title: Devices
-<div class="col-12">
-  <div class="page-header top-header">
-    <h3>Devices</h3>
-  </div><!--page-header-->
-</div><!--col-->
-<div class="col-sm-3 col-lg-2 hidden-sm">
-  <div class="list-group devices-list">
-    $for d in devices():
-      <a class="list-group-item" data-toggle="tooltip" data-placement="right" href="/devices/$d" title="$devices(d).get('retail_name')" id="tooltip-$d">$d</a>
-  </div><!--list-group-->
-</div><!--col-->
-<div class="col-sm-8 col-lg-6 col-offset-2">
-  <div class="row">
-    <table class="table table-condensed">
-      <caption><h4>Version Breakdown</h4></caption>
-      <thead>
-        <th class="text-center">Evervolv</th>
-        <th class="text-center">AOSP</th>
-      </thead>
-      <tbody class="text-center">
-        <tr><td>v3.3.x</td><td>4.3.x (Jellybean)</td></tr>
-        <tr><td>v3.2.x</td><td>4.2.x (Jellybean)</td></tr>
-        <tr><td>v3.1.0</td><td>4.1.2 (Jellybean)</td></tr>
-        <tr><td>v3.0.0</td><td>4.1.1 (Jellybean)</td></tr>
-        <tr><td>v2.2.0</td><td>4.0.4 (Ice Cream Sandwich)</td></tr>
-      </tbody>
-    </table>
+<div class="col-xs-12"><!--hack for proper padding-->
+  <div class="row hidden-xs">
+    <div class="page-header top-header">
+      <h3>Devices</h3>
+    </div><!--page-header-->
+  </div><!--row-->
+  <div class="row visible-xs">
+    <div class="panel devices-nav">
+      <div class="panel-heading" data-toggle="collapse" href="#devices-nav-collapse">
+        <h3>Devices<b class="caret"></b></h3>
+      </div><!--panel-heading-->
+      <div class="list-group collapse devices-list" id="devices-nav-collapse">
+        $for d in devices():
+          <a class="list-group-item" href="/devices/$d">$d<span class="reverse-decorate">&nbsp;|&nbsp;$devices(d).get('retail_name')</span></a>
+      </div><!--list-group-->
+    </div><!--panel-->
   </div><!--row-->
   <div class="row">
-    <dl>
-      <dt>Questions?</dt>
-        <dd>Join us in <a href="/chat/">#evervolv</a> on irc.freenode.net. Just be sure not to leave before someone answers!</dd>
-      <dt>Whats working?</dt>
-        <dd>Follow your device's <a href="/about/">maintainer</a> for updates.</dd>
-      <dt>Bugs or Issues?</dt>
-        <dd>Submit a report on our <a href="//bugs.evervolv.com/" target="_blank">bug tracker</a> (Note: Nightlies are not eligible for bug reports, use irc to report issues for nightlies)</dd>
-    </dl>
-  </div><!--row-->
-  <div class="row visible-sm">
-    <div class="list-group devices-list">
-      $for d in devices():
-        <a class="list-group-item" href="/devices/$d">$d&nbsp;<span class="reverse-decorate">($devices(d).get('retail_name'))</span></a>
-    </div><!--list-group-->
+    <div class="col-sm-3 col-md-2 hidden-xs">
+      <div class="list-group devices-list">
+        $for d in devices():
+          <a class="list-group-item" data-toggle="tooltip" data-placement="right" href="/devices/$d" title="$devices(d).get('retail_name')" id="tooltip-$d">$d</a>
+      </div><!--list-group-->
+    </div><!--col-->
+    <div class="col-sm-8 col-md-6 col-md-offset-1">
+      <div class="row">
+        <table class="table table-condensed">
+          <caption><h4>Version Breakdown</h4></caption>
+          <thead>
+            <tr>
+              <th class="text-center">Evervolv</th>
+              <th class="text-center">AOSP</th>
+            </tr>
+          </thead>
+          <tbody class="text-center">
+            <tr><td>v3.3.x</td><td>4.3.x (Jellybean)</td></tr>
+            <tr><td>v3.2.x</td><td>4.2.x (Jellybean)</td></tr>
+            <tr><td>v3.1.0</td><td>4.1.2 (Jellybean)</td></tr>
+            <tr><td>v3.0.0</td><td>4.1.1 (Jellybean)</td></tr>
+            <tr><td>v2.2.0</td><td>4.0.4 (Ice Cream Sandwich)</td></tr>
+          </tbody>
+        </table>
+      </div><!--row-->
+      <div class="row">
+        <dl class="dl-horizontal">
+          <dt>Questions?</dt>
+            <dd>Join us in <a href="/chat/">#evervolv</a> on irc.freenode.net. Just be sure not to leave before someone answers!</dd>
+          <dt>Whats working?</dt>
+            <dd>Follow your device's <a href="/about/">maintainer</a> for updates.</dd>
+          <dt>Bugs or Issues?</dt>
+            <dd>Submit a report on our <a href="//bugs.evervolv.com/" target="_blank">bug tracker</a> (Note: Nightlies are not eligible for bug reports, use irc to report issues for nightlies)</dd>
+        </dl>
+      </div><!--row-->
+    </div><!--col-->
   </div><!--row-->
 </div><!--col-->
