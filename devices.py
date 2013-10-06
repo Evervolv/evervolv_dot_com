@@ -52,6 +52,11 @@ _devices = {
         'retail_name': 'HTC Evo 4G LTE',
         'maintainer': ('preludedrew','dastin1015'),
     },
+    'jfltevzw': {
+        'codename': 'Fruor',
+        'retail_name': 'Samsung Galaxy S4 (Verizon)',
+        'maintainer': ('Flintman',),
+    },
     'kingdom': {
         'codename': 'Scio',
         'retail_name': 'HTC Evo Design 4G',
