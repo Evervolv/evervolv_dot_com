@@ -16,16 +16,20 @@
 
 The general directory structure this class is expecting:
   static/
-    n/
-      manifest.json
-      {date}/
-        {name}
-        info.json
-    r|t/
-      manifest.json
-      {codename}/
-        {name}
-        info.json
+    builds/
+      nightly/
+        {date}/
+          {name}
+          info.json
+      release/
+      testing/
+        {codename}/
+          {name}
+          info.json
+      gapps/
+        {version}/
+          {name}
+          info.json
 '''
 
 import os
@@ -79,10 +83,11 @@ def parse_manifest(location,manifest='manifest.json'):
     return entries
 
 # Globals
-nightly_location = os.path.join('static','n')
-release_location = os.path.join('static','r')
-testing_location = os.path.join('static','t')
-gapps_location   = os.path.join('static','g')
+builds_dir = os.path.join('static', 'builds')
+nightly_location = os.path.join(builds_dir, 'nightly')
+release_location = os.path.join(builds_dir, 'release')
+testing_location = os.path.join(builds_dir, 'testing')
+gapps_location   = os.path.join(builds_dir, 'gapps')
 
 manifest_entries = (parse_manifest(nightly_location), # Nightlies
                     parse_manifest(release_location), # Releases

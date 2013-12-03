@@ -70,10 +70,8 @@ def get(name):
             q.put(name)
             return os.path.join('/',path)
 
-    for (p,d,files) in chain(os.walk(fakeDatabase.testing_location),
-            os.walk(fakeDatabase.release_location),
-            os.walk(fakeDatabase.gapps_location),
-            os.walk(fakeDatabase.nightly_location)):
+    # not in manifest, walk the builds dir
+    for (p,d,files) in os.walk(fakeDatabase.builds_dir):
         for f in files:
             if name == f:
                 q.put(name)

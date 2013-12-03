@@ -1,6 +1,3 @@
 *.pyc
-static/n
-static/r
-static/t
-static/g
+static/builds
 downloads.db
