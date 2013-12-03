@@ -34,8 +34,8 @@ _devices = {
     },
     'grouper': {
         'codename': 'Mirus',
-        'retail_name': 'Google Nexus 7',
-        'maintainer': ('drewis',),
+        'retail_name': 'Google Nexus 7 (2012)',
+        'maintainer': ('preludedrew',),
     },
     'hercules': {
         'codename': 'Potens',
