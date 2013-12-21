@@ -88,6 +88,7 @@ nightly_location = os.path.join(builds_dir, 'nightly')
 release_location = os.path.join(builds_dir, 'release')
 testing_location = os.path.join(builds_dir, 'testing')
 gapps_location   = os.path.join(builds_dir, 'gapps')
+misc_location    = os.path.join(builds_dir, 'misc')
 
 manifest_entries = (parse_manifest(nightly_location), # Nightlies
                     parse_manifest(release_location), # Releases
