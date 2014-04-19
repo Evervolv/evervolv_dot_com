@@ -37,6 +37,11 @@ _devices = {
         'retail_name': 'Google Nexus 7 (2012)',
         'maintainer': ('preludedrew',),
     },
+    'hammerhead': {
+        'codename': 'Pugno',
+        'retail_name': 'Google Nexus 5',
+        'maintainer': ('preludedrew','elginsk8r'),
+    },
     'hercules': {
         'codename': 'Potens',
         'retail_name': 'Samsung Galaxy S II (T-Mobile)',
