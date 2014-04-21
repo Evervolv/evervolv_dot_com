@@ -22,11 +22,6 @@ _devices = {
         'retail_name': 'HTC Desire (GSM)',
         'maintainer': ('Nikez',),
     },
-    'd710': {
-        'codename': 'Clarus',
-        'retail_name': 'Samsung Epic 4G Touch',
-        'maintainer': ('dastin1015',),
-    },
     'glacier': {
         'codename': 'Glacialis',
         'retail_name': 'T-mobile myTouch 4G',
@@ -55,7 +50,7 @@ _devices = {
     'jewel': {
         'codename': 'Bellus',
         'retail_name': 'HTC Evo 4G LTE',
-        'maintainer': ('preludedrew','dastin1015'),
+        'maintainer': ('preludedrew',),
     },
     'jfltevzw': {
         'codename': 'Fruor',
@@ -70,7 +65,7 @@ _devices = {
     'm7spr': {
         'codename': 'Regius',
         'retail_name': 'HTC One (Sprint)',
-        'maintainer': ('dastin1015','preludedrew'),
+        'maintainer': ('preludedrew',),
     },
     'mako': {
         'codename': 'Fulsi',
@@ -100,12 +95,7 @@ _devices = {
     'shooter': {
         'codename': 'Neco',
         'retail_name': 'HTC Evo 3D',
-        'maintainer': ('preludedrew','Flintman','dastin1015'),
-    },
-    'shooteru': {
-        'codename': 'Signum',
-        'retail_name': 'HTC Evo 3D (GSM)',
-        'maintainer': ('helicopter88',),
+        'maintainer': ('preludedrew','Flintman'),
     },
     'speedy': {
         'codename': 'Artis',
@@ -174,18 +164,6 @@ _maintainers = OrderedDict ([
         'Flintman',
         {
             'url': 'http://twitter.com/wbellavance',
-        }
-    ),
-    (
-        'dastin1015',
-        {
-            'url': 'http://twitter.com/dastin1015',
-        }
-    ),
-    (
-        'helicopter88',
-        {
-            'url': 'http://forum.xda-developers.com/member.php?u=1924950',
         }
     ),
     (
