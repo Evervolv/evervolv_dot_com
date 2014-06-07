@@ -112,6 +112,11 @@ _devices = {
         'retail_name': 'HP Touchpad',
         'maintainer': ('preludedrew','Flintman'),
     },
+    'tenderloin4g': {
+        'codename': 'Quae',
+        'retail_name': 'HP Touchpad 4G',
+        'maintainer': ('Flintman'),
+    },
     'toro': {
         'codename': 'Primo',
         'retail_name': 'Samsung Galaxy Nexus (Verizon)',
