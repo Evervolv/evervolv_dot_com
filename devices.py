@@ -92,6 +92,11 @@ _devices = {
         'retail_name': 'HTC Amaze 4G',
         'maintainer': ('preludedrew','jeepers007'),
     },
+    'shamu': {
+        'codename': 'Immanis',
+        'retail_name': 'Motorola Nexus 6',
+        'maintainer': ('elginsk8r',),
+    },
     'shooter': {
         'codename': 'Neco',
         'retail_name': 'HTC Evo 3D',
