@@ -32,6 +32,11 @@ _devices = {
         'retail_name': 'Google Nexus 7 (2012)',
         'maintainer': ('preludedrew',),
     },
+    'gt58wifixx': {
+        'codename': 'Sedo',
+        'retail_name': 'Samsung Galaxy Tab A 8.0 (Wifi)',
+        'maintainer': ('elginsk8r',),
+    },
     'hammerhead': {
         'codename': 'Pugno',
         'retail_name': 'Google Nexus 5',
