@@ -1,3 +1,4 @@
+$def with (default_branch)
 $var title: Source Code
 <div class="row">
   <div class="col-md-10 col-md-offset-1">
@@ -7,7 +8,7 @@ $var title: Source Code
     <dl class="dl-horizontal">
       <dt>Get the Source</dt>
       <dd>
-        <code>repo init -u git://github.com/Evervolv/android.git -b kitkat</code><br>
+        <code>repo init -u git://github.com/Evervolv/android.git -b $default_branch</code><br>
         <code>repo sync -f</code>
       </dd>
       <dt>Building</dt>

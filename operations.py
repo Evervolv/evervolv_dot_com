@@ -1,11 +1,12 @@
 # Andrew Sutherland <dr3wsuth3rland@gmail.com>
-import os
+import os,json,requests
 import fakeDatabase
 
 __all__ = (
         "find_builds",
         "get_screenshots",
         "find_logs",
+        "get_default_branch",
 )
 
 # Used by Devices
@@ -37,3 +38,8 @@ def find_logs(location=fakeDatabase.nightly_location):
         if os.path.isdir(os.path.join(location,d)) and d.startswith('20'):
             dates.append(d)
     return sorted(dates, reverse=True)
+
+def get_default_branch():
+    request = requests.get("https://api.github.com/repos/Evervolv/android")
+    repo_info = json.loads(request.text)
+    return repo_info['default_branch']

@@ -67,7 +67,7 @@ class Devices:
 
 class Source:
     def GET(self):
-        return render.source()
+        return render.source(get_default_branch())
 
 class Features:
     def GET(self):
