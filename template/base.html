@@ -33,6 +33,9 @@ $def with (page)
             <li id="nav-devices">
               <a href="/devices/">Devices</a>
             </li>
+            <li id="nav-legacy-devices">
+              <a href="/devices/legacy">Legacy Devices</a>
+            </li>
             <li id="nav-features">
               <a href="/features/">Features</a>
             </li>
@@ -89,6 +92,11 @@ $:page $# Don't move this
         page = url(1); page2 = url(2);
         if(page == 'devices' && page2 == '') {
             $$('li#nav-devices').addClass('active');
+            /* activate device tooltips */
+            $for d in devices():
+                $$('#tooltip-$d').tooltip()
+        } else if(page == 'devices' && page2 == 'legacy') {
+            $$('li#nav-legacy-devices').addClass('active');
             /* activate device tooltips */
             $for d in devices():
                 $$('#tooltip-$d').tooltip()

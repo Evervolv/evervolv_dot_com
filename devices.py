@@ -21,6 +21,7 @@ _devices = {
         'codename': 'Turba',
         'retail_name': 'HTC Desire (GSM)',
         'maintainer': ('Nikez',),
+        'legacy': True,
     },
     'celox': {
         'codename': 'Potens',
@@ -31,11 +32,13 @@ _devices = {
         'codename': 'Glacialis',
         'retail_name': 'T-mobile myTouch 4G',
         'maintainer': ('elginsk8r',),
+        'legacy': True,
     },
     'grouper': {
         'codename': 'Mirus',
         'retail_name': 'Google Nexus 7 (2012)',
         'maintainer': ('preludedrew',),
+        'legacy': True,
     },
     'gt58wifixx': {
         'codename': 'Sedo',
@@ -51,51 +54,61 @@ _devices = {
         'codename': 'Dives',
         'retail_name': 'HTC Droid Incredible',
         'maintainer': ('MongooseHelix',),
+        'legacy': True,
     },
     'jewel': {
         'codename': 'Bellus',
         'retail_name': 'HTC Evo 4G LTE',
         'maintainer': ('preludedrew',),
+        'legacy': True,
     },
     'jfltevzw': {
         'codename': 'Fruor',
         'retail_name': 'Samsung Galaxy S4 (Verizon)',
         'maintainer': ('Flintman',),
+        'legacy': True,
     },
     'kingdom': {
         'codename': 'Scio',
         'retail_name': 'HTC Evo Design 4G',
         'maintainer': ('preludedrew',),
+        'legacy': True,
     },
     'm7spr': {
         'codename': 'Regius',
         'retail_name': 'HTC One (Sprint)',
         'maintainer': ('preludedrew',),
+        'legacy': True,
     },
     'mako': {
         'codename': 'Fulsi',
         'retail_name': 'Google Nexus 4',
         'maintainer': ('drewis',),
+        'legacy': True,
     },
     'manta': {
         'codename': 'Stella',
         'retail_name': 'Google Nexus 10',
         'maintainer': ('',),
+        'legacy': True,
     },
     'passion': {
         'codename': 'Perdo',
         'retail_name': 'Google Nexus One',
         'maintainer': ('drewis',),
+        'legacy': True,
     },
     'pyramid': {
         'codename': 'Macto',
         'retail_name': 'HTC Sensation',
         'maintainer': ('Nikez',),
+        'legacy': True,
     },
     'ruby': {
         'codename': 'Iaceo',
         'retail_name': 'HTC Amaze 4G',
         'maintainer': ('preludedrew','jeepers007'),
+        'legacy': True,
     },
     'shamu': {
         'codename': 'Immanis',
@@ -106,16 +119,19 @@ _devices = {
         'codename': 'Neco',
         'retail_name': 'HTC Evo 3D',
         'maintainer': ('preludedrew','Flintman'),
+        'legacy': True,
     },
     'speedy': {
         'codename': 'Artis',
         'retail_name': 'HTC Evo Shift 4G',
         'maintainer': ('preludedrew',),
+        'legacy': True,
     },
     'supersonic': {
         'codename': 'Acies',
         'retail_name': 'HTC Evo 4G',
         'maintainer': ('preludedrew',),
+        'legacy': True,
     },
     'tenderloin': {
         'codename': 'Queo',
@@ -131,11 +147,13 @@ _devices = {
         'codename': 'Primo',
         'retail_name': 'Samsung Galaxy Nexus (Verizon)',
         'maintainer': ('MongooseHelix',),
+        'legacy': True,
     },
     'vivow': {
         'codename': 'Conor',
         'retail_name': 'HTC Droid Incredible 2',
         'maintainer': ('preludedrew',),
+        'legacy': True,
     },
 }
 

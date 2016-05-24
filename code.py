@@ -58,12 +58,15 @@ class Chat:
         return render.chat()
 
 class Devices:
-    def GET(self,device=None):
+    def GET(self, device=None):
+        data = web.input()
         if device:
+            if device == "legacy":
+                return render.devices(True)
             if device not in devices():
                 raise web.seeother('/404/')
-            return render.builds(device,find_builds(device))
-        return render.devices()
+            return render.builds(device, find_builds(device))
+        return render.devices(False)
 
 class Source:
     def GET(self):

@@ -1,8 +1,15 @@
-$var title: Devices
+$def with(legacy)
+$if legacy:
+  $var title: Legacy Devices
+$else:
+  $var title: Devices
 <div class="col-xs-12"><!--hack for proper padding-->
   <div class="row hidden-xs">
     <div class="page-header top-header">
-      <h3>Devices</h3>
+      $if legacy:
+        <h3>Legacy Devices</h3>
+      $else:
+        <h3>Devices</h3>
     </div><!--page-header-->
   </div><!--row-->
   <div class="row visible-xs">
@@ -12,7 +19,8 @@ $var title: Devices
       </div><!--panel-heading-->
       <div class="list-group collapse devices-list" id="devices-nav-collapse">
         $for d in devices():
-          <a class="list-group-item" href="/devices/$d">$d<span class="reverse-decorate">&nbsp;|&nbsp;$devices(d).get('retail_name')</span></a>
+          $if devices(d).get('legacy'):
+            <a class="list-group-item" href="/devices/$d">$d<span class="reverse-decorate">&nbsp;|&nbsp;$devices(d).get('retail_name')</span></a>
       </div><!--list-group-->
     </div><!--panel-->
   </div><!--row-->
@@ -20,7 +28,10 @@ $var title: Devices
     <div class="col-sm-3 col-md-2 hidden-xs">
       <div class="list-group devices-list">
         $for d in devices():
-          <a class="list-group-item" data-toggle="tooltip" data-placement="right" href="/devices/$d" title="$devices(d).get('retail_name')" id="tooltip-$d">$d</a>
+          $if legacy and devices(d).get('legacy'):
+            <a class="list-group-item" data-toggle="tooltip" data-placement="right" href="/devices/$d" title="$devices(d).get('retail_name')" id="tooltip-$d">$d</a>
+          $if not legacy and not devices(d).get('legacy'):
+            <a class="list-group-item" data-toggle="tooltip" data-placement="right" href="/devices/$d" title="$devices(d).get('retail_name')" id="tooltip-$d">$d</a>
       </div><!--list-group-->
     </div><!--col-->
     <div class="col-sm-8 col-md-6 col-md-offset-1">
