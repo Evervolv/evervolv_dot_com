@@ -22,6 +22,11 @@ _devices = {
         'retail_name': 'HTC Desire (GSM)',
         'maintainer': ('Nikez',),
     },
+    'celox': {
+        'codename': 'Potens',
+        'retail_name': 'Samsung Galaxy S II (AT&T/T-Mobile)',
+        'maintainer': ('elginsk8r',),
+    },
     'glacier': {
         'codename': 'Glacialis',
         'retail_name': 'T-mobile myTouch 4G',
@@ -41,11 +46,6 @@ _devices = {
         'codename': 'Pugno',
         'retail_name': 'Google Nexus 5',
         'maintainer': ('preludedrew','elginsk8r'),
-    },
-    'hercules': {
-        'codename': 'Potens',
-        'retail_name': 'Samsung Galaxy S II (T-Mobile)',
-        'maintainer': ('elginsk8r',),
     },
     'inc': {
         'codename': 'Dives',
