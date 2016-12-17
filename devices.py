@@ -28,6 +28,11 @@ _devices = {
         'retail_name': 'Samsung Galaxy S II (AT&T/T-Mobile)',
         'maintainer': ('elginsk8r',),
     },
+    'flo': {
+        'codename': 'Ferus',
+        'retail_name': 'Google Nexus 7 (2013)',
+        'maintainer': ('elginsk8r',),
+    },
     'glacier': {
         'codename': 'Glacialis',
         'retail_name': 'T-mobile myTouch 4G',
