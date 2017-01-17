@@ -97,6 +97,11 @@ _devices = {
         'maintainer': ('',),
         'legacy': True,
     },
+    'oneplus3': {
+        'codename': 'Plures',
+        'retail_name': 'OnePlus OnePlus3',
+        'maintainer': ('elginsk8r'),
+    },
     'passion': {
         'codename': 'Perdo',
         'retail_name': 'Google Nexus One',
