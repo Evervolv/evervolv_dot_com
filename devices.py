@@ -131,6 +131,11 @@ _devices = {
         'maintainer': ('preludedrew','Flintman'),
         'legacy': True,
     },
+    'soho': {
+        'codename': 'lectio',
+        'retail_name': 'Kindle Fire HD 3rd Generation',
+        'maintainer': ('Flintman'),
+    },
     'speedy': {
         'codename': 'Artis',
         'retail_name': 'HTC Evo Shift 4G',
