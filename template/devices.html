@@ -19,7 +19,9 @@ $else:
       </div><!--panel-heading-->
       <div class="list-group collapse devices-list" id="devices-nav-collapse">
         $for d in devices():
-          $if devices(d).get('legacy'):
+          $if legacy and devices(d).get('legacy'):
+            <a class="list-group-item" href="/devices/$d">$d<span class="reverse-decorate">&nbsp;|&nbsp;$devices(d).get('retail_name')</span></a>
+          $if not legacy and not devices(d).get('legacy'):
             <a class="list-group-item" href="/devices/$d">$d<span class="reverse-decorate">&nbsp;|&nbsp;$devices(d).get('retail_name')</span></a>
       </div><!--list-group-->
     </div><!--panel-->
