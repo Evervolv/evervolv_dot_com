@@ -108,6 +108,11 @@ _devices = {
         'maintainer': ('drewis',),
         'legacy': True,
     },
+    'potter': {
+        'codename': 'Motus',
+        'retail_name': 'Motorola G5 Plus',
+        'maintainer': ('Flintman',),
+    },
     'pyramid': {
         'codename': 'Macto',
         'retail_name': 'HTC Sensation',
