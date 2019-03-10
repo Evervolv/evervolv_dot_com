@@ -202,21 +202,23 @@ _maintainers = OrderedDict ([
         }
     ),
     (
-        'Nikez',
-        {
-            'url': 'http://twitter.com/LaidbackNikez',
-        }
-    ),
-    (
         'elginsk8r',
         {
             'url': 'https://plus.google.com/u/0/100948280470840956633/posts',
+            'extra': ('Admin',),
         }
     ),
     (
         'Flintman',
         {
             'url': 'http://twitter.com/wbellavance',
+            'extra': ('Admin',),
+        }
+    ),
+    (
+        'Nikez',
+        {
+            'url': 'http://twitter.com/LaidbackNikez',
         }
     ),
     (
