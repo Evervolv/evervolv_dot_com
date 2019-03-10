@@ -184,21 +184,21 @@ _maintainers = OrderedDict ([
         'preludedrew',
         {
             'url': 'http://twitter.com/preludedrew',
-            'extra': ('Founder','Admin'),
+            'extra': ('Founder','Admin','Inactive',),
         }
     ),
     (
         'drewis',
         {
             'url': 'https://plus.google.com/u/0/102710594547223731659/posts',
-            'extra': ('Admin',),
+            'extra': ('Admin','Inactive',),
         }
     ),
     (
         'MongooseHelix',
         {
             'url': 'http://twitter.com/MongooseHelix',
-            'extra': ('Admin',),
+            'extra': ('Admin','Inactive',),
         }
     ),
     (
@@ -219,12 +219,14 @@ _maintainers = OrderedDict ([
         'Nikez',
         {
             'url': 'http://twitter.com/LaidbackNikez',
+            'extra': ('Inactive',),
         }
     ),
     (
         'jeepers007',
         {
             'url': 'http://forum.xda-developers.com/member.php?u=693610',
+            'extra': ('Inactive',),
         }
     ),
 ])
