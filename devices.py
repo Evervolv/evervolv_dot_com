@@ -27,11 +27,13 @@ _devices = {
         'codename': 'Potens',
         'retail_name': 'Samsung Galaxy S II (AT&T/T-Mobile)',
         'maintainer': ('elginsk8r',),
+        'legacy': True,
     },
     'flo': {
         'codename': 'Ferus',
         'retail_name': 'Google Nexus 7 (2013)',
         'maintainer': ('elginsk8r',),
+        'legacy': True,
     },
     'glacier': {
         'codename': 'Glacialis',
@@ -112,6 +114,7 @@ _devices = {
         'codename': 'Motus',
         'retail_name': 'Motorola G5 Plus',
         'maintainer': ('Flintman',),
+        'legacy': True,
     },
     'pyramid': {
         'codename': 'Macto',
@@ -140,6 +143,7 @@ _devices = {
         'codename': 'lectio',
         'retail_name': 'Kindle Fire HD 3rd Generation',
         'maintainer': ('Flintman'),
+        'legacy': True,
     },
     'speedy': {
         'codename': 'Artis',
@@ -156,7 +160,7 @@ _devices = {
     'tenderloin': {
         'codename': 'Queo',
         'retail_name': 'HP Touchpad',
-        'maintainer': ('preludedrew','Flintman'),
+        'maintainer': ('preludedrew','Flintman','elginsk8r'),
     },
     'tenderloin4g': {
         'codename': 'Quae',
