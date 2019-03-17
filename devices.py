@@ -47,7 +47,7 @@ _devices = {
         'maintainer': ('preludedrew',),
         'legacy': True,
     },
-    'gt58wifixx': {
+    'gt58wifi': {
         'codename': 'Sedo',
         'retail_name': 'Samsung Galaxy Tab A 8.0 (Wifi)',
         'maintainer': ('elginsk8r',),
