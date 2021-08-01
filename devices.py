@@ -33,7 +33,6 @@ _devices = {
         'codename': 'Ferus',
         'retail_name': 'Google Nexus 7 (2013)',
         'maintainer': ('elginsk8r',),
-        'legacy': True,
     },
     'glacier': {
         'codename': 'Glacialis',
@@ -50,6 +49,11 @@ _devices = {
     'gt58wifi': {
         'codename': 'Sedo',
         'retail_name': 'Samsung Galaxy Tab A 8.0 (Wifi)',
+        'maintainer': ('elginsk8r',),
+    },
+    'guacamole': {
+        'codename': 'Expletus',
+        'retail_name': 'OnePlus OnePlus7 Pro',
         'maintainer': ('elginsk8r',),
     },
     'hammerhead': {
@@ -161,11 +165,13 @@ _devices = {
         'codename': 'Queo',
         'retail_name': 'HP Touchpad',
         'maintainer': ('preludedrew','Flintman','elginsk8r'),
+        'legacy': True,
     },
     'tenderloin4g': {
         'codename': 'Quae',
         'retail_name': 'HP Touchpad 4G',
         'maintainer': ('Flintman'),
+        'legacy': True,
     },
     'toro': {
         'codename': 'Primo',
