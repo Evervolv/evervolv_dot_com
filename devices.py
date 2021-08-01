@@ -200,7 +200,7 @@ _maintainers = OrderedDict ([
     (
         'drewis',
         {
-            'url': 'https://plus.google.com/u/0/102710594547223731659/posts',
+            'url': 'https://github.com/drewis',
             'extra': ('Admin','Inactive',),
         }
     ),
@@ -214,7 +214,7 @@ _maintainers = OrderedDict ([
     (
         'elginsk8r',
         {
-            'url': 'https://plus.google.com/u/0/100948280470840956633/posts',
+            'url': 'https://github.com/elginsk8r',
             'extra': ('Admin',),
         }
     ),
