@@ -13,9 +13,9 @@ __all__ = (
 def find_builds(device=None):
     if device:
         nightly,release,testing,gapps = fakeDatabase.by_device(device)
-        builds = { 'release': release, 'nightly': nightly }
+        builds = { 'release': release, 'nightly': nightly, 'testing': testing }
     else:
-        builds = { 'release':[],'nightly':[] }
+        builds = { 'release':[],'nightly':[], 'testing':[] }
     return builds
 
 # Used by Features

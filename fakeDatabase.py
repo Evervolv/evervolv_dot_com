@@ -12,7 +12,7 @@
     'md5sum':  string,
     'name':    string,
     'size':    int,
-    'type':    string (nightly|release),
+    'type':    string (nightly|release|testing),
 
 The general directory structure this class is expecting:
   static/
