@@ -1,39 +1,40 @@
 $def with (carousel_imgs)
 $var title: Features
 <div class="row">
-  <div class="col-md-8 col-md-offset-2">
+  <div class="col-md-12">
     <div class="page-header top-header">
       <h3>Screenshots</h3>
     </div>
-    <!-- Carousel indicatiors-->
-    <div id="features-carousel" class="carousel slide">
-      <ol class="carousel-indicators">
-        $for ii in carousel_imgs:
-            $if loop.first:
-                <li data-target="#features-carousel" data-slide-to="$loop.index0" class="active"></li>
-            $else:
-                <li data-target="#features-carousel" data-slide-to="$loop.index0"></li>
-      </ol>
-      <!-- Carousel items -->
+    <div id="carouselFeatures" class="carousel slide" data-bs-ride="carousel">
       <div class="carousel-inner">
         $for ii in carousel_imgs:
-            $if loop.first:
-                <div class="item active">
-            $else:
-                <div class="item">
-            <img src="/static/res/img/screenshots/$ii"/>
-            <div class="carousel-caption">
-              <p>$ii.split('.')[0].replace('_',' ')</p>
-            </div>
-            </div>
-      </div><!--carousel-inner-->
-      <!-- Carousel nav -->
-      <a class="left carousel-control" href="#features-carousel" data-slide="prev">
-        <span class="icon-prev"></span>
-      </a>
-      <a class="right carousel-control" href="#features-carousel" data-slide="next">
-        <span class="icon-next"></span>
-      </a>
-    </div><!--carousel-->
+          $if loop.first:
+            <div class="carousel-item active">
+          $else:
+            <div class="carousel-item">
+          <img src="/static/res/img/screenshots/$ii" class="d-block"/>
+          <div class="carousel-caption d-none d-md-block">
+            <h5>$ii.split('.')[0].replace('_',' ')</h5>
+          </div>
+          </div>
+      </div>
+      <div class="carousel-indicators">
+      $for ii in carousel_imgs:
+          $if loop.first:
+            <button type="button" data-bs-target="#carouselFeatures" data-bs-slide-to="$loop.index0" class="active" aria-current="true" aria-label="Slide ($loop.index0 +1)"></button>
+          $else:
+            <button type="button" data-bs-target="#carouselFeatures" data-bs-slide-to="$loop.index0" aria-label="Slide ($loop.index0 + 1)"></button>
+      </div>
+    </div><!--carousel-inner-->
+    <div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#carouselFeatures" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Previous</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#carouselFeatures" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Next</span>
+      </button>
+    </div>
   </div><!--col-->
 </div><!--row-->
