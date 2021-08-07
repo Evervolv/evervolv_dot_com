@@ -24,27 +24,22 @@ a:focus {
 .body-wrap > .container {
   padding-top: 70px;
   padding-bottom: 70px;
+  position: relative;
 }
-.navbar-inverse.navbar-main .navbar-nav > .active > a,
-.navbar-inverse.navbar-main .navbar-nav > .active > a:hover,
-.navbar-inverse.navbar-main .navbar-nav > .active > a:focus {
-  color: #f1f1ed;
-  background-color: #33b5e5;
-}
-.navbar-inverse.navbar-main .navbar-nav > .dropdown > a .caret {
+.navbar-dark.navbar-main .navbar-nav > .dropdown > a .caret {
   border-top-color: #33b5e5;
   border-bottom-color: #33b5e5;
 }
-.navbar-inverse.navbar-main .navbar-brand.evervolv-brand {
+.evervolv-brand {
   font-size:1.8em;
   color: #33b5e5;
   font-family: "Sony Sketch";
 }
-.navbar-inverse.navbar-main {
+.navbar-dark.navbar-main {
   background-color: #0c0c0c;
   border-bottom: 2px solid #33b5e5;
 }
-.navbar-inverse.navbar-footer {
+.navbar-dark.navbar-footer {
   background-color: #191919;
   border: 0;
   margin-bottom: 0;
@@ -55,6 +50,7 @@ a:focus {
    * to compensate
    */
   margin-top: 20px;
+  border-bottom: 1px solid #eee;
 }
 .panel-heading {
   background-color: #191919;
@@ -111,6 +107,13 @@ a:focus {
   }
 }
 /* Devices */
+.table {
+  color: #f1f1ed;
+}
+.table-caption {
+  caption-side: top;
+  color: #f1f1ed;
+}
 .devices-list .list-group-item {
   color: #33b5e5;
   background-color: #191919;
@@ -152,14 +155,21 @@ a:focus {
 .carousel-caption {
   background-color: rgba(0,0,0,0.7);
 }
-.carousel-control.left, .carousel-control.right {
+.carousel-control-prev, .carousel-control-next {
     background-image: none;
+    position: absolute;
+    top: 50%;
+    width: 24px;
+    height: 24px;
 }
-.carousel-inner > .item > img,
-.carousel-inner > .item > a > img {
+.carousel-inner > .carousel-item > img,
+.carousel-inner > .carousel-item > a > img {
   display: block;
   margin-left: auto;
   margin-right: auto;
+}
+.carousel-indicators {
+  position: static; 
 }
 /* Logs */
 .table tbody > tr > td.log-date {
