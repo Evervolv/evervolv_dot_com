@@ -29,6 +29,11 @@ _devices = {
         'maintainer': ('elginsk8r',),
         'legacy': True,
     },
+    'channel': {
+        'codename': 'Modio',
+        'retail_name': 'Motorola G7 Play',
+        'maintainer': ('Flintman',),
+    },
     'flo': {
         'codename': 'Ferus',
         'retail_name': 'Google Nexus 7 (2013)',
@@ -85,6 +90,11 @@ _devices = {
         'maintainer': ('preludedrew',),
         'legacy': True,
     },
+    'lake': {
+        'codename': 'Modicus',
+        'retail_name': 'Motorola G7 Plus',
+        'maintainer': ('Flintman',),
+    },
     'm7spr': {
         'codename': 'Regius',
         'retail_name': 'HTC One (Sprint)',
@@ -118,13 +128,17 @@ _devices = {
         'codename': 'Motus',
         'retail_name': 'Motorola G5 Plus',
         'maintainer': ('Flintman',),
-        'legacy': True,
     },
     'pyramid': {
         'codename': 'Macto',
         'retail_name': 'HTC Sensation',
         'maintainer': ('Nikez',),
         'legacy': True,
+    },
+    'river': {
+        'codename': 'Modo',
+        'retail_name': 'Motorola G7',
+        'maintainer': ('Flintman',),
     },
     'ruby': {
         'codename': 'Iaceo',
