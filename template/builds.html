@@ -17,32 +17,30 @@ $var title: $device
   <div class="col-md-6">
     <h4>Release Builds</h4>
     $if files.get('release'):
-        <div class="panel-group accordion" id="accordion-left">
+        <div class="accordion" id="accordion-release">
         $for f in files.get('release'):
-            <div class="panel">
-              <div class="panel-heading" data-toggle="collapse" data-parent="#accordion-left" href="#collapse-left-$loop.index0">
-                <a class="accordion-toggle">
-                  $if f.get(dd):
-                    <b class="accordion-header-date">$f.get(dd):</b>&nbsp;$f.get(nn)
-                  $else:
-                    $f.get(nn)
-                </a>
-              </div><!--panel-heading-->
-              <div id="collapse-left-$loop.index0" class="panel-collapse collapse">
-                <div class="panel-body">
-                  <div class="row">
-                    <div class="col-sm-7">
-                      <b>MD5:&nbsp;</b>$f.get(md)<br>
-                      <b>Size:&nbsp;</b>$human_readable_size(f.get(ss))MB
-                    </div><!--col-->
-                    <div class="col-sm-5 pull-right text-right">
-                      <a class="btn btn-primary" href="#changesModal" data-toggle="modal" onclick="writeMessage('$f.get(mm)')">Notes</a>
-                      <a class="btn btn-primary" href="/get/$f.get(nn)">Download</a>
-                    </div><!--col-->
-                  </div><!--row-->
-                </div><!--panel-body-->
-              </div><!--panel-collapse-->
-            </div><!--panel-->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading-release-$loop.index0">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-release-$loop.index0" aria-expanded="true" aria-controls="collapse-release-$loop.index0">
+                <b class="accordion-header-date">$f.get(dd):</b>
+                <b class="accordion-header-file">&nbsp;$f.get(nn)</b>
+              </button>
+           </h2>
+           <div id="collapse-release-$loop.index0" class="accordion-collapse collapse" aria-labelledby="heading-release-$loop.index" data-bs-parent="#accordion-release">
+             <div class="accordion-body">
+                <div class="row">
+                  <div class="col-sm-7">
+                    <b>MD5:&nbsp;</b>$f.get(md)<br>
+                    <b>Size:&nbsp;</b>$human_readable_size(f.get(ss))MB
+                  </div><!--col-->
+                  <div class="col-sm-5 pull-right text-right">
+                    <a class="btn btn-primary" data-bs-toggle="modal" href="#changesModal" role="button" onclick="writeMessage('$f.get(mm)')">Notes</a>
+                    <a class="btn btn-primary" href="/get/$f.get(nn)">Download</a>
+                  </div><!--col-->
+                </div><!--row-->
+             </div>
+           </div>
+          </div>
         </div><!--accordion-->
     $else:
         <p>No builds found</p>
@@ -50,32 +48,30 @@ $var title: $device
   <div class="col-md-6">
     <h4>Nightly Builds</h4>
     $if files.get('nightly'):
-        <div class="panel-group accordion" id="accordion-right">
+        <div class="accordion" id="accordion-nightly">
         $for f in files.get('nightly'):
-            <div class="panel">
-              <div class="panel-heading" data-toggle="collapse" data-parent="#accordion-right" href="#collapse-right-$loop.index0">
-                <a class="accordion-toggle">
-                  $if f.get(dd):
-                    <b class="accordion-header-date">$f.get(dd):</b>&nbsp;$f.get(nn)
-                  $else:
-                    $f.get(nn)
-                </a>
-              </div><!--panel-heading-->
-              <div id="collapse-right-$loop.index0" class="panel-collapse collapse">
-                <div class="panel-body">
-                  <div class="row">
-                    <div class="col-sm-7">
-                      <b>MD5:&nbsp;</b>$f.get(md)<br>
-                      <b>Size:&nbsp;</b>$human_readable_size(f.get(ss))MB
-                    </div><!--col-->
-                    <div class="col-sm-5 pull-right text-right">
-                      <a class="btn btn-primary" href="#changesModal" data-toggle="modal" onclick="writeChanges('/get/changelog-$(f.get(dd)).html')">Log</a>
-                      <a class="btn btn-primary" href="/get/$f.get(nn)">Download</a>
-                    </div><!--col-->
-                  </div><!--row-->
-                </div><!--panel-body-->
-              </div><!--panel-collapse-->
-            </div><!--panel-->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading-nightly-$loop.index0">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-nightly-$loop.index0" aria-expanded="true" aria-controls="collapse-nightly-$loop.index0">
+                <b class="accordion-header-date">$f.get(dd):</b>
+                <b class="accordion-header-file">&nbsp;$f.get(nn)</b>
+              </button>
+           </h2>
+           <div id="collapse-nightly-$loop.index0" class="accordion-collapse collapse" aria-labelledby="heading-nightly-$loop.index" data-bs-parent="#accordion-nightly">
+             <div class="accordion-body">
+                <div class="row">
+                  <div class="col-sm-7">
+                    <b>MD5:&nbsp;</b>$f.get(md)<br>
+                    <b>Size:&nbsp;</b>$human_readable_size(f.get(ss))MB
+                  </div><!--col-->
+                  <div class="col-sm-5 pull-right text-right">
+                    <a class="btn btn-primary" data-bs-toggle="modal" href="#changesModal" role="button" onclick="writeChanges('/get/changelog-$(f.get(dd)).html')">Log</a>
+                    <a class="btn btn-primary" href="/get/$f.get(nn)">Download</a>
+                  </div><!--col-->
+                </div><!--row-->
+             </div>
+           </div>
+          </div>
         </div><!--accordion-->
     $else:
         <p>No builds found</p>
@@ -85,32 +81,30 @@ $var title: $device
   <div class="col-md-6">
     <h4>Testing Builds</h4>
     $if files.get('testing'):
-        <div class="panel-group accordion" id="accordion-right">
+        <div class="accordion" id="accordion-testing">
         $for f in files.get('testing'):
-            <div class="panel">
-              <div class="panel-heading" data-toggle="collapse" data-parent="#accordion-right" href="#collapse-right-$loop.index0">
-                <a class="accordion-toggle">
-                  $if f.get(dd):
-                    <b class="accordion-header-date">$f.get(dd):</b>&nbsp;$f.get(nn)
-                  $else:
-                    $f.get(nn)
-                </a>
-              </div><!--panel-heading-->
-              <div id="collapse-right-$loop.index0" class="panel-collapse collapse">
-                <div class="panel-body">
-                  <div class="row">
-                    <div class="col-sm-7">
-                      <b>MD5:&nbsp;</b>$f.get(md)<br>
-                      <b>Size:&nbsp;</b>$human_readable_size(f.get(ss))MB
-                    </div><!--col-->
-                    <div class="col-sm-5 pull-right text-right">
-                      <a class="btn btn-primary" href="#changesModal" data-toggle="modal" onclick="writeChanges('/get/changelog-$(f.get(dd)).html')">Log</a>
-                      <a class="btn btn-primary" href="/get/$f.get(nn)">Download</a>
-                    </div><!--col-->
-                  </div><!--row-->
-                </div><!--panel-body-->
-              </div><!--panel-collapse-->
-            </div><!--panel-->
+          <div class="accordion-item">
+            <h2 class="accordion-header" id="heading-testing-$loop.index0">
+              <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse-testing-$loop.index0" aria-expanded="true" aria-controls="collapse-testing-$loop.index0">
+                <b class="accordion-header-date">$f.get(dd):</b>
+                <b class="accordion-header-file">&nbsp;$f.get(nn)</b>
+              </button>
+           </h2>
+           <div id="collapse-testing-$loop.index0" class="accordion-collapse collapse" aria-labelledby="heading-testing-$loop.index" data-bs-parent="#accordion-testing">
+             <div class="accordion-body">
+                <div class="row">
+                  <div class="col-sm-7">
+                    <b>MD5:&nbsp;</b>$f.get(md)<br>
+                    <b>Size:&nbsp;</b>$human_readable_size(f.get(ss))MB
+                  </div><!--col-->
+                  <div class="col-sm-5 pull-right text-right">
+                    <a class="btn btn-primary" data-bs-toggle="modal" href="#changesModal" role="button" onclick="writeMessage('$f.get(mm)')">Notes</a>
+                    <a class="btn btn-primary" href="/get/$f.get(nn)">Download</a>
+                  </div><!--col-->
+                </div><!--row-->
+             </div>
+           </div>
+          </div>
         </div><!--accordion-->
     $else:
         <p>No builds found</p>
@@ -118,15 +112,15 @@ $var title: $device
 </div><!--row-->
 <!-- Changes Modal -->
 <div id="changesModal" class="modal fade" >
-  <div class="modal-dialog">
+  <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 id="modal-title"><!--populated--></h4>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div><!--modal-header-->
       <div class="modal-body"><!--populated--></div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
       </div><!--modal-footer-->
     </div><!--modal-content-->
   </div><!--modal-dialog-->

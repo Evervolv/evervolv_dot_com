@@ -25,6 +25,7 @@ a:focus {
   padding-top: 70px;
   padding-bottom: 70px;
   position: relative;
+  max-width: 80%;
 }
 .navbar-dark.navbar-main .navbar-nav > .dropdown > a .caret {
   border-top-color: #33b5e5;
@@ -52,12 +53,6 @@ a:focus {
   margin-top: 20px;
   border-bottom: 1px solid #eee;
 }
-.panel-heading {
-  background-color: #191919;
-}
-.panel-body {
-  background-color: #191919;
-}
 /* About */
 
 /* Builds */
@@ -69,9 +64,33 @@ a:focus {
   color: #0099cc;
   text-decoration:none;
 }
-.accordion .accordion-header-date {
+.accordion-button,
+.accordion-button.collapsed,
+.accordion-button:not(.collapsed) {
+  background-color: #191919;
+}
+
+.accordion-button:focus,
+.accordion-button:active,
+.accordion-button:hover {
+  background-color: #191919;
+}
+
+.accordion-body {
+  background-color: #191919;
+}
+
+.accordion-header-date {
   color: #f1f1ed;
 }
+.accordion-header-date:hover {
+  color: #000000
+}
+
+.accordion-header-file {
+  color: #f1f1ed;
+}
+
 .accordion .btn-primary {
   background-color: #33b5e5;
 }
