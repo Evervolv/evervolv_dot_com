@@ -34,6 +34,11 @@ _devices = {
         'retail_name': 'Motorola G7 Play',
         'maintainer': ('Flintman',),
     },
+    'dre': {
+        'codename': 'Dolosus',
+        'retail_name': 'OnePlus Nord N200 5G',
+        'maintainer': ('elginsk8r',),
+    },
     'flo': {
         'codename': 'Ferus',
         'retail_name': 'Google Nexus 7 (2013)',
@@ -116,6 +121,11 @@ _devices = {
     'oneplus3': {
         'codename': 'Plures',
         'retail_name': 'OnePlus OnePlus3',
+        'maintainer': ('elginsk8r'),
+    },
+    'oriole': {
+        'codename': 'Candidus',
+        'retail_name': 'Google Pixel 6',
         'maintainer': ('elginsk8r'),
     },
     'passion': {
