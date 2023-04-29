@@ -43,6 +43,7 @@ _devices = {
         'codename': 'Ferus',
         'retail_name': 'Google Nexus 7 (2013)',
         'maintainer': ('elginsk8r',),
+        'legacy': True,
     },
     'glacier': {
         'codename': 'Glacialis',
@@ -60,6 +61,7 @@ _devices = {
         'codename': 'Sedo',
         'retail_name': 'Samsung Galaxy Tab A 8.0 (Wifi)',
         'maintainer': ('elginsk8r',),
+        'legacy': True,
     },
     'guacamole': {
         'codename': 'Expletus',
@@ -70,6 +72,7 @@ _devices = {
         'codename': 'Pugno',
         'retail_name': 'Google Nexus 5',
         'maintainer': ('preludedrew','elginsk8r'),
+        'legacy': True,
     },
     'inc': {
         'codename': 'Dives',
@@ -122,6 +125,7 @@ _devices = {
         'codename': 'Plures',
         'retail_name': 'OnePlus OnePlus3',
         'maintainer': ('elginsk8r'),
+        'legacy': True,
     },
     'oriole': {
         'codename': 'Candidus',
@@ -138,6 +142,7 @@ _devices = {
         'codename': 'Motus',
         'retail_name': 'Motorola G5 Plus',
         'maintainer': ('Flintman',),
+        'legacy': True,
     },
     'pyramid': {
         'codename': 'Macto',
@@ -160,6 +165,7 @@ _devices = {
         'codename': 'Immanis',
         'retail_name': 'Motorola Nexus 6',
         'maintainer': ('elginsk8r',),
+        'legacy': True,
     },
     'shooter': {
         'codename': 'Neco',
